@@ -2,6 +2,7 @@ extends HBoxContainer
 
 @onready var countdowntime : int = 61
 @onready var Timer_label = $TimerValue
+@onready var end_level_scene = preload("res://src/EndLevel/EndLevel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +23,10 @@ func _on_timer_timeout() -> void:
 	if countdowntime <= 0:
 		$Timer.stop()
 		#TODO Déclencement du prochain niveau ou quelque chose du genre
+		var endScene = end_level_scene.instantiate()
+		endScene.init(-1)
+		self.add_child(endScene)
+		
 
 
 func display_timer(currentTime : int) -> void:
