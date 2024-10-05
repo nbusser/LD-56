@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Boid
 
 var map_scene = preload("res://src/Map/Map.tscn")
-signal painting_drop(Vector2, Color)
+signal painting_drop(Vector2, Color, int)
 
 var max_speed_value := 200.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
@@ -21,7 +21,7 @@ var repulsion_range := 30.0
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
 #This could be usless but it is here if needed
-var color = Vector4(0,0,0,0);
+var color = Vector4(0, 0, 0, 0);
 var color_quantity = 0;
 
 @onready var flock := $"../.." as Flock
@@ -92,10 +92,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	#Drop paint
-	if color_quantity>0:
-		color_quantity -= 1
+	if color_quantity > 0:
+		color_quantity -= 25
 	if is_hovering_painting:
-		emit_signal("painting_drop", global_position, Color.RED)
+		# TODO: replace Color.RED by current color
+		emit_signal("painting_drop", global_position, Color.RED, 100)
 
 
 var is_hovering_painting = false
