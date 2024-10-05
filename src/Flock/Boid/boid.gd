@@ -24,15 +24,14 @@ func calculate_forces() -> Dictionary:
 
 	# No neighbours
 	if neighbours.is_empty():
-		return {
-			"cohesion": Vector2(),
-			"repulsion": Vector2(),
-		};
+		return {};
 
 	# Center of local flock, in POV of boid
 	var center = Vector2();
 	# Vector to get repulsed from neighbours being too near
 	var repulsion_vector = Vector2();
+
+	var align_vector = Vector2();
 
 	for neighbour in neighbours:
 		center += neighbour.global_position
@@ -44,19 +43,24 @@ func calculate_forces() -> Dictionary:
 				(repulsion_range / (distance_to_neighbour if distance_to_neighbour != 0 else 0.01) * max_speed) # The closer, the harder it repulses
 			)
 			pass
+		
+		align_vector += neighbour.velocity
 
 	center /= neighbours.size();
+	align_vector /= neighbours.size();
 
 	# Vector to get closer to the local center
-	var cohesion_vector = global_position.direction_to(center).normalized();
+	var cohesion_vector = global_position.direction_to(center);
 
 	return {
-		"cohesion": cohesion_vector * cohesion_force,
-		"repulsion": repulsion_vector * repulsion_force,
+		"cohesion": cohesion_vector.normalized() * cohesion_force,
+		"repulsion": repulsion_vector.normalized() * repulsion_force,
+		"align": align_vector.normalized() * algin_force,
 	};
 
 func _process(delta: float) -> void:
-	var sum_forces = calculate_forces().values().reduce(func(acc, val): return acc + val)
+	var forces = calculate_forces()
+	var sum_forces = Vector2() if forces.is_empty() else forces.values().reduce(func(acc, val): return acc + val)
 
 	velocity += (sum_forces * delta)
 
