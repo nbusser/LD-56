@@ -12,6 +12,12 @@ func _ready() -> void:
 	add_boid()
 	add_boid()
 	add_boid()
+	add_boid()
+	add_boid()
+	add_boid()
+	add_boid()
+	add_boid()
+	add_boid()
 
 func add_boid() -> void:
 	var boid_instance = boid_scene.instantiate()
@@ -19,8 +25,8 @@ func add_boid() -> void:
 
 	# TODO: handle that more properly
 	var random_offset = Vector2(
-		randf_range(1, 10),
-		randf_range(1, 10),
+		randf_range(10, 30),
+		randf_range(10, 30),
 	)
 	boid_instance.global_position += random_offset;
 
