@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name Boid
 
+signal painting_drop(Vector2, Color)
+
 var max_speed_value := 200.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
 var acceleration_factor := 200.0
@@ -75,3 +77,16 @@ func _physics_process(delta: float) -> void:
 
 	var force = sum_forces * acceleration_factor * delta
 	apply_central_force(force);
+
+	if is_hovering_painting:
+		emit_signal("painting_drop", global_position, Color.RED)
+
+
+var is_hovering_painting = false
+
+func _on_painting_detector_area_entered(area: Area2D) -> void:
+	is_hovering_painting = true
+
+
+func _on_painting_detector_area_exited(area: Area2D) -> void:
+	is_hovering_painting = false

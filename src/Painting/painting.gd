@@ -97,10 +97,8 @@ func _gui_input(event):
 func to_pack_vector2_array(array: Array[Vector2]) -> PackedVector2Array:
 	return PackedVector2Array(array)
 
-func draw_onto_canvas(points: PackedVector2Array):
-	var colors = Array()
-	colors.resize(points.size())
-	colors.fill(Color.WHITE)
-	RenderingServer.canvas_item_clear(canvas.get_canvas_item())
-	RenderingServer.canvas_item_add_polyline(canvas.get_canvas_item(), to_pack_vector2_array(points), PackedColorArray(colors), CANVAS_SIZE * 0.05)
-	RenderingServer.force_draw()
+# Signal emited by Boid _process
+# TODO: eventually add linear velocity to draw a quick line
+func on_painting_drop(boid_position: Vector2, color: Color) -> void:
+	# TODO: simulate paint drop
+	pass
