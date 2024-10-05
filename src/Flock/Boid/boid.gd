@@ -18,7 +18,7 @@ var repulsion_force := 200.0
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
 #This could be usless but it is here if needed
-var color = Vector4(0, 0, 0, 1);
+var color = Color(0, 0, 0, 1);
 var color_quantity = 0;
 
 @onready var flock := $"../.." as Flock
@@ -92,8 +92,8 @@ func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity > 0:
 		if is_hovering_painting:
-			emit_signal("painting_drop", global_position, color, color_quantity)
-			color_quantity -= 2
+			emit_signal("painting_drop", global_position, velocity ,color, color_quantity,delta)
+			color_quantity -= 20*delta
 
 
 var is_hovering_painting = false

@@ -7,6 +7,9 @@ func _ready() -> void:
 	var newPuddle = puddleScene.instantiate()
 	newPuddle.init(Vector2(-100,-100),3)
 	self.add_child(newPuddle)
+	newPuddle = puddleScene.instantiate()
+	newPuddle.init(Vector2(-100,100),1,Color.BLUE)
+	self.add_child(newPuddle)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
