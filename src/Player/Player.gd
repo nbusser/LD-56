@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var _velocity := Vector2.ZERO
+var yo := 1
 
 @onready var nav = get_parent()
 @onready var target = get_parent().get_parent().get_node("Target")
