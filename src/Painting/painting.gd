@@ -4,9 +4,8 @@ var invisible_texture = null
 @onready var canvas: CanvasItem = Node2D.new()
 @onready var map = $"../../../Map"
 
-var _last_point: Vector2 = Vector2.INF
-
 var _points: PackedVector2Array = []
+var _colors: Array[Color] = []
 
 var last_image: Image = Image.new()
 var last_pattern_scale := 0.0
@@ -18,7 +17,7 @@ const CANVAS_SIZE = 100
 
 func _ready():
 	var width_curve: Curve = Curve.new()
-	line.width = 15
+	line.width = 3
 	line.width_curve = width_curve
 	line.antialiased = true
 	line.set_joint_mode(Line2D.LINE_JOINT_ROUND)
@@ -27,37 +26,36 @@ func _ready():
 	line.gradient = Gradient.new()
 	add_child(line)
 
-	# var vp: SubViewport = SubViewport.new()
-	# vp.size = Vector2(CANVAS_SIZE, CANVAS_SIZE)
-	# RenderingServer.viewport_set_clear_mode(vp.get_viewport_rid(), RenderingServer.VIEWPORT_CLEAR_ALWAYS)
-	# RenderingServer.viewport_set_update_mode(vp.get_viewport_rid(), RenderingServer.VIEWPORT_UPDATE_ALWAYS)
-	# invisible_texture = vp.get_texture()
-	# vp.add_child(canvas)
-	# $SubViewportContainer.add_child(vp)
-	
+	# Debug
+	for i in range(100):
+		_points.append(Vector2(i, i))
+		_colors.push_back(Color.RED)
+
 func _draw():
-		var noise = FastNoiseLite.new()
-		line.points = Array(_points)
+	assert(_points.size() == _colors.size())
 
-		var width_curve = line.width_curve
-		width_curve.clear_points()
+	var noise = FastNoiseLite.new()
+	line.points = Array(_points)
 
-		var gradient: Gradient = line.gradient
-		gradient.colors = Array()
+	var width_curve = line.width_curve
+	width_curve.clear_points()
 
-		var distance_max = 0.0
-		for i in range(_points.size()):
-			if i > 0:
-				distance_max += _points[i].distance_to(_points[i - 1])
-		var distance = 0.0
-		for i in range(_points.size()):
-			if i > 0:
-				distance += _points[i].distance_to(_points[i - 1])
-			var x = distance / distance_max
-			var n = noise.get_noise_1d(distance * 20)
-			var width = .7 + n * .5
-			width_curve.add_point(Vector2(x, width), 0, 0)
-			gradient.add_point(x, Color("e02222").darkened((noise.get_noise_1d(distance * 200) + .8) * .25))
+	var gradient: Gradient = line.gradient
+	gradient.colors = Array()
+
+	var distance_max = 0.0
+	for i in range(_points.size()):
+		if i > 0:
+			distance_max += _points[i].distance_to(_points[i - 1])
+	var distance = 0.0
+	for i in range(_points.size()):
+		if i > 0:
+			distance += _points[i].distance_to(_points[i - 1])
+		var x = distance / distance_max
+		var n = noise.get_noise_1d(distance * 20)
+		var width = .7 + n * .5
+		width_curve.add_point(Vector2(x, width), 0, 0)
+		gradient.add_point(x, _colors[i].darkened((noise.get_noise_1d(distance * 200) + .8) * .25))
 
 func _process(_delta):
 	pass
