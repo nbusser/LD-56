@@ -37,13 +37,9 @@ func calculate_forces() -> Dictionary:
 	for neighbour in neighbours:
 		center += neighbour.global_position
 
-		var distance_to_neighbour = global_position.distance_squared_to(neighbour.global_position)
+		var distance_to_neighbour = global_position.distance_to(neighbour.global_position)
 		if distance_to_neighbour < repulsion_range:
-			repulsion_vector -= (
-				(neighbour.global_position - global_position).normalized() *
-				(repulsion_range / (distance_to_neighbour + 0.001) * max_speed) # Avoid dividing by 0
-			)
-			pass
+			repulsion_vector -= neighbour.global_position - global_position
 		
 		align_vector += neighbour.velocity
 
