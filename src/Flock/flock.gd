@@ -2,23 +2,18 @@ extends Node2D
 class_name Flock
 
 @onready var boids_node = $Boids
+@onready var painting = $"../../Painting"
+
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
+	for _i in range(30):
+		add_boid()
 
 func add_boid() -> void:
 	var boid_instance = boid_scene.instantiate()
+	boid_instance.connect("painting_drop", Callable(painting, "on_painting_drop"))
 	boids_node.add_child(boid_instance)
 
 	# TODO: handle that more properly

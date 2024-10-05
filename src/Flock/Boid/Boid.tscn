@@ -8,6 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
 size = Vector2(38, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qps"]
+size = Vector2(38, 38)
+
 [node name="Boid" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 513
@@ -31,3 +34,12 @@ shape = SubResource("RectangleShape2D_hlim7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="PaintingDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingDetector"]
+shape = SubResource("RectangleShape2D_h5qps")
+
+[connection signal="area_entered" from="PaintingDetector" to="." method="_on_painting_detector_area_entered"]
+[connection signal="area_exited" from="PaintingDetector" to="." method="_on_painting_detector_area_exited"]

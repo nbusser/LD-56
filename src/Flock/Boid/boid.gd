@@ -3,6 +3,7 @@ class_name Boid
 
 var drop_scene = preload("res://src/PaintPuddle/PaintDrop.tscn")
 var map_scene = preload("res://src/Map/Map.tscn")
+signal painting_drop(Vector2, Color)
 
 var max_speed_value := 200.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
@@ -95,3 +96,15 @@ func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity>0:
 		color_quantity -= 1
+	if is_hovering_painting:
+		emit_signal("painting_drop", global_position, Color.RED)
+
+
+var is_hovering_painting = false
+
+func _on_painting_detector_area_entered(area: Area2D) -> void:
+	is_hovering_painting = true
+
+
+func _on_painting_detector_area_exited(area: Area2D) -> void:
+	is_hovering_painting = false

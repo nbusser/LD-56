@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
 [ext_resource type="TileSet" uid="uid://xvq787n68g1t" path="res://assets/sprites/tileset.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintPuddle/PaintPuddle.tscn" id="4_ukmxq"]
+[ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 
 [sub_resource type="CapsuleShape2D" id="2"]
 radius = 6.62075
@@ -58,5 +59,9 @@ shape = SubResource("RectangleShape2D_8vgp8")
 position = Vector2(1174, -18)
 shape = SubResource("RectangleShape2D_houam")
 
+<<<<<<< HEAD
 [node name="PaintPuddle" parent="." instance=ExtResource("4_ukmxq")]
 position = Vector2(-228, -184)
+=======
+[node name="Painting" parent="." instance=ExtResource("4_pc36q")]
+>>>>>>> bdf0cba579b669b45ee78e8a9595cfbb85a916f2

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck5gtekjyxb4"]
+
+[ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_geulr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g1k7"]
+size = Vector2(82, 82)
+
+[node name="Painting" type="TextureRect"]
+offset_right = 82.0
+offset_bottom = 82.0
+texture = SubResource("PlaceholderTexture2D_geulr")
+script = ExtResource("1_ujhf0")
+
+[node name="PaintingArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingArea"]
+position = Vector2(41, 41)
+shape = SubResource("RectangleShape2D_6g1k7")
