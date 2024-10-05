@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xhh4o1xr8v3t"]
 
-[ext_resource type="Script" path="res://src/flock.gd" id="1_v13y4"]
-
+[ext_resource type="Script" path="res://src/Flock/flock.gd" id="1_v13y4"]
 
 [node name="Flock" type="Node2D"]
 script = ExtResource("1_v13y4")
