@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck5gtekjyxb4"]
+
+[ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_geulr"]
+
+[node name="Painting" type="TextureRect"]
+offset_right = 82.0
+offset_bottom = 82.0
+texture = SubResource("PlaceholderTexture2D_geulr")
+script = ExtResource("1_ujhf0")
