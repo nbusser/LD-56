@@ -6,16 +6,8 @@ var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
-	add_boid()
+	for _i in range(30):
+		add_boid()
 
 func add_boid() -> void:
 	var boid_instance = boid_scene.instantiate()
