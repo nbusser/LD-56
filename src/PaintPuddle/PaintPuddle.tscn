@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnhjdh3vkloms"]
+
+[ext_resource type="Script" path="res://src/PaintPuddle/PaintPuddle.gd" id="1_slgqu"]
+[ext_resource type="Texture2D" uid="uid://bd5x5igqiwbox" path="res://assets/sprites/paint1.png" id="1_xnpgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pcew"]
+
+[node name="PaintPuddle" type="Node2D"]
+script = ExtResource("1_slgqu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6pcew")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_xnpgb")
