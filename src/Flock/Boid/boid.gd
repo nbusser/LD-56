@@ -62,7 +62,10 @@ func _process(delta: float) -> void:
 	var forces = calculate_forces()
 	var sum_forces = Vector2() if forces.is_empty() else forces.values().reduce(func(acc, val): return acc + val)
 
-	velocity += (sum_forces * delta)
+	velocity += sum_forces * delta
+
+	velocity.x = min(velocity.x, max_speed)
+	velocity.y = min(velocity.y, max_speed)
 
 	# Maybe use a static body instead if collisions are becoming a hurdle
 	move_and_slide()
