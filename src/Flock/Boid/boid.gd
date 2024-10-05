@@ -6,8 +6,8 @@ var max_speed := Vector2(max_speed_value, max_speed_value)
 var acceleration_factor := 200.0
 
 # Force factors
-var mouse_follow_force := 300.0
-var cohesion_force := 3.0
+var mouse_follow_force := 100.0
+var cohesion_force := 25.0
 var align_force := 30.0
 var repulsion_force := 50.0
 
@@ -42,8 +42,7 @@ func calculate_forces() -> Dictionary:
 		if distance_to_neighbour < repulsion_range:
 			repulsion_vector -= (neighbour.global_position - global_position).normalized()
 		
-		#align_vector += neighbour.velocity
-		align_vector += Vector2()
+		align_vector += neighbour.linear_velocity
 
 	center /= neighbours.size();
 	align_vector /= neighbours.size();
