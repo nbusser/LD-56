@@ -60,4 +60,5 @@ func _process(delta: float) -> void:
 
 	velocity += (sum_forces * delta)
 
+	# Maybe use a static body instead if collisions are becoming a hurdle
 	move_and_slide()

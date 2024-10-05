@@ -17,6 +17,13 @@ func add_boid() -> void:
 	var boid_instance = boid_scene.instantiate()
 	boids_node.add_child(boid_instance)
 
+	# TODO: handle that more properly
+	var random_offset = Vector2(
+		randf_range(1, 10),
+		randf_range(1, 10),
+	)
+	boid_instance.global_position += random_offset;
+
 func get_boids() -> Array[Boid]:
 	return boids;
 
