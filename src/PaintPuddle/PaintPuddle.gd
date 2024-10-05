@@ -1,7 +1,7 @@
 extends Node2D
 class_name PaintPuddle
 
-var color = Vector4(250,0,0,0)
+var color = Vector4(250, 0, 0, 0)
 var color_quantity = 100
 
 # Called when the node enters the scene tree for the first time.
