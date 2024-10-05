@@ -7,7 +7,7 @@ var image: Image = Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
 
 
 @onready var line: Line2D = Line2D.new()
-@onready var paintingRect = Rect2(global_position,size)
+@onready var paintingRect = Rect2(global_position, size)
 
 func _ready():
 
@@ -24,9 +24,9 @@ func to_pack_vector2_array(array: Array[Vector2]) -> PackedVector2Array:
 
 func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
 	var rect = Rect2(global_position, size)
-	for x in range(0,width):
-		for y in range(0,width):
-			if (x+y<width):
+	for x in range(0, width):
+		for y in range(0, width):
+			if (x + y < width):
 				for sign_x in [-1, 1]:
 					for sign_y in [-1, 1]:
 						var pos = pixel_position + Vector2(x * sign_x, y * sign_y)
@@ -35,15 +35,15 @@ func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
 
 # Signal emited by Boid _process
 # TODO: eventually add linear velocity to draw a quick line
-func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2,color: Color, paint_level: int, delta) -> void:
+func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2, color: Color, paint_level: int, delta) -> void:
 	var currentPos = boid_position
-	var precedentPos = boid_position - (boid_velocity*delta)
-	var echantillon = (2/delta)
+	var precedentPos = boid_position - (boid_velocity * delta)
+	var echantillon = (2 / delta)
 	
-	for index in range(1,echantillon):
-		var interPos = precedentPos + (currentPos-precedentPos)*(index/echantillon)
+	for index in range(1, echantillon):
+		var interPos = precedentPos + (currentPos - precedentPos) * (index / echantillon)
 		
-		var width : int 
+		var width: int
 		var n_splashes = 0
 		if paint_level > 75:
 			width = 4
