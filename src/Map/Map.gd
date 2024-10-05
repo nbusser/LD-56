@@ -1,10 +1,12 @@
 extends Node2D
 
 var model_image : Image
-
+@onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass	
+	var newPuddle = puddleScene.instantiate()
+	newPuddle.init(Vector2(-100,-100),3)
+	self.add_child(newPuddle)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

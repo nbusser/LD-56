@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=10 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Texture2D" uid="uid://51pr2epmlqdm" path="res://assets/sprites/icon.png" id="1"]
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
 [ext_resource type="TileSet" uid="uid://xvq787n68g1t" path="res://assets/sprites/tileset.tres" id="3"]
-[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintPuddle/PaintPuddle.tscn" id="4_ukmxq"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="PackedScene" uid="uid://bplnvb2hm31r3" path="res://src/Model/Model.tscn" id="6_wyjpu"]
 
@@ -61,9 +60,6 @@ shape = SubResource("RectangleShape2D_8vgp8")
 [node name="Area2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1174, -18)
 shape = SubResource("RectangleShape2D_houam")
-
-[node name="PaintPuddle" parent="." instance=ExtResource("4_ukmxq")]
-position = Vector2(-228, -184)
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
 
