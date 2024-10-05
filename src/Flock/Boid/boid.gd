@@ -35,20 +35,28 @@ func calculate_forces() -> Dictionary:
 
 	var align_vector = Vector2();
 
-	for neighbour in neighbours:
-		center += neighbour.global_position
+	var n_center = 0
+	var n_repulsion = 0
 
+	for neighbour in neighbours:
 		var distance_to_neighbour = global_position.distance_to(neighbour.global_position)
 		if distance_to_neighbour < repulsion_range:
 			repulsion_vector -= (neighbour.global_position - global_position).normalized()
+			n_repulsion += 1
+		else:
+			center += neighbour.global_position
+			n_center += 1
 		
 		align_vector += neighbour.linear_velocity
 
-	center /= neighbours.size();
-	align_vector /= neighbours.size();
+	if n_center > 0:
+		center /= n_center;
+	
+	if n_repulsion > 0:
+		align_vector /= n_repulsion;
 
 	# Vector to get closer to the local center
-	var cohesion_vector = global_position.direction_to(center);
+	var cohesion_vector = Vector2() if n_center == 0 else global_position.direction_to(center);
 
 	# Force to go toward mouse
 	var mouse_vector = global_position.direction_to(get_global_mouse_position());
