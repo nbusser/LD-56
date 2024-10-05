@@ -20,15 +20,19 @@ func to_pack_vector2_array(array: Array[Vector2]) -> PackedVector2Array:
 	return PackedVector2Array(array)
 
 func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
-	for x in range(-width + 1, width):
-		for y in range(-width + 1, width):
-			var full_pixel_position = pixel_position + Vector2(x, y)
-			self.image.set_pixelv(full_pixel_position, color);
+	for x in range(0,width):
+		for y in range(0,width):
+			if (x+y<width):
+				self.image.set_pixelv(pixel_position + Vector2(x, y), color);
+				self.image.set_pixelv(pixel_position + Vector2(-x, y), color);
+				self.image.set_pixelv(pixel_position + Vector2(x, -y), color);
+				self.image.set_pixelv(pixel_position + Vector2(-x, -y), color);
 
 # Signal emited by Boid _process
+
 # TODO: eventually add linear velocity to draw a quick line
 func on_painting_drop(boid_position: Vector2, color: Color, paint_level: int) -> void:
-	var width = 1
+	var width : int 
 	var n_splashes = 0
 	if paint_level > 75:
 		width = 4
@@ -45,6 +49,8 @@ func on_painting_drop(boid_position: Vector2, color: Color, paint_level: int) ->
 
 	# Eventually splashes the surroundings
 	for s in range(n_splashes):
+		#caimez : For now I disabled this
+		
 		var x_offset = randi() % 3 + width + 2
 		x_offset = -x_offset if randi() else x_offset
 		var y_offset = randi() % 3 + width + 2
@@ -53,3 +59,6 @@ func on_painting_drop(boid_position: Vector2, color: Color, paint_level: int) ->
 
 		var splash_width = width - 1
 		self._paint_with_width(pixel_position, splash_width, color)
+
+func draw_line_on_image(img: Image, start: Vector2, end: Vector2, color: Color) -> void:
+	pass
