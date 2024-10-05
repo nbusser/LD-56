@@ -1,8 +1,9 @@
-extends CharacterBody2D
+extends RigidBody2D
 class_name Boid
 
 var max_speed_value := 200.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
+var acceleration_factor := 200.0
 
 # Force factors
 var mouse_follow_force := 300.0
@@ -41,7 +42,8 @@ func calculate_forces() -> Dictionary:
 		if distance_to_neighbour < repulsion_range:
 			repulsion_vector -= (neighbour.global_position - global_position).normalized()
 		
-		align_vector += neighbour.velocity
+		#align_vector += neighbour.velocity
+		align_vector += Vector2()
 
 	center /= neighbours.size();
 	align_vector /= neighbours.size();
@@ -59,12 +61,10 @@ func calculate_forces() -> Dictionary:
 		"mouse": mouse_vector.normalized() * mouse_follow_force,
 	};
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Force
 	var forces = calculate_forces()
 	var sum_forces = Vector2() if forces.is_empty() else forces.values().reduce(func(acc, val): return acc + val)
-	
-	velocity = (velocity + sum_forces * delta).min(max_speed)
 
-	# Maybe use a static body instead if collisions are becoming a hurdle
-	move_and_slide()
+	var force = sum_forces * acceleration_factor * delta
+	apply_central_force(force);

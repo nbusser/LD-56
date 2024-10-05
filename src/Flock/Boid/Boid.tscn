@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
 size = Vector2(38, 38)
 
-[node name="Boid" type="CharacterBody2D"]
+[node name="Boid" type="RigidBody2D"]
 collision_layer = 2
+gravity_scale = 0.0
 script = ExtResource("3_doarw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
