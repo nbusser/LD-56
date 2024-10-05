@@ -12,10 +12,10 @@ radius = 6.62075
 height = 13.2415
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
-size = Vector2(37, 746)
+size = Vector2(28.5, 1636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgp8"]
-size = Vector2(1348, 40)
+size = Vector2(2901.5, 31.25)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_6212v")
@@ -46,19 +46,19 @@ shape = SubResource("2")
 position = Vector2(-575, -1)
 
 [node name="Area2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-8.5, -8)
+position = Vector2(-860.25, 8)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(597, -349)
+position = Vector2(595, -815)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(579, 330)
+position = Vector2(596.25, 802.625)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="Area2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1174, -18)
+position = Vector2(2049, -8)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
