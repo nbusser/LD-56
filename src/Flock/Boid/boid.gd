@@ -83,14 +83,12 @@ func _physics_process(delta: float) -> void:
 	var force = sum_forces * acceleration_factor * delta
 	apply_central_force(force);
 
-
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	assert(area_parent is PaintPuddle)
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
-
 
 func _process(delta: float) -> void:
 	#Drop paint

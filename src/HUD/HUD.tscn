@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwiu4cm7rlq0p"]
+[gd_scene load_steps=6 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="FontFile" uid="uid://yno87q5jq4mk" path="res://assets/fonts/Jokerman.ttf" id="1"]
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
+[ext_resource type="Script" path="res://src/HUD/Timer.gd" id="3_5quvh"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
@@ -28,8 +29,10 @@ grow_vertical = 2
 script = ExtResource("2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,10 +40,21 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
 theme = SubResource("2")
-text = "Ludum Dare - Base"
+text = "Ludum Dare 56 - Les mouches qui font bzz bzz..."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="ScoreCounter" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/ScoreCounter"]
+layout_mode = 2
+text = "Score: "
+
+[node name="ScoreValue" type="Label" parent="VBoxContainer/VBoxContainer/ScoreCounter"]
+layout_mode = 2
+text = "/"
 
 [node name="LevelNumber" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -53,13 +67,18 @@ text = "Level: "
 layout_mode = 2
 text = "/"
 
-[node name="CoinNumber" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="Timer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("3_5quvh")
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/CoinNumber"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/Timer"]
 layout_mode = 2
-text = "Coins: "
+text = "Timer: "
 
-[node name="CoinNumberValue" type="Label" parent="VBoxContainer/VBoxContainer/CoinNumber"]
+[node name="TimerValue" type="Label" parent="VBoxContainer/VBoxContainer/Timer"]
 layout_mode = 2
 text = "/"
+
+[node name="Timer" type="Timer" parent="VBoxContainer/VBoxContainer/Timer"]
+
+[connection signal="timeout" from="VBoxContainer/VBoxContainer/Timer/Timer" to="VBoxContainer/VBoxContainer/Timer" method="_on_timer_timeout"]

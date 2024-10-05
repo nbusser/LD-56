@@ -1,9 +1,9 @@
 extends Node2D
 
 var model_image : Image
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print(compare_two_images(model_image,model_image))
 	pass	
 
 
