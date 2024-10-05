@@ -5,14 +5,14 @@ var max_speed_value := 200.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
 
 # Force factors
-var mouse_follow_force := 0.05
-var cohesion_force := 0.05
-var align_force := 0.05
-var repulsion_force := 0.05
+var mouse_follow_force := 300.0
+var cohesion_force := 3.0
+var align_force := 30.0
+var repulsion_force := 50.0
 
 # Ranges
 var view_range := 50.0
-var repulsion_range := 20.0
+var repulsion_range := 30.0
 
 @onready var flock := $"../.." as Flock
 
@@ -39,7 +39,7 @@ func calculate_forces() -> Dictionary:
 
 		var distance_to_neighbour = global_position.distance_to(neighbour.global_position)
 		if distance_to_neighbour < repulsion_range:
-			repulsion_vector -= neighbour.global_position - global_position
+			repulsion_vector -= (neighbour.global_position - global_position).normalized()
 		
 		align_vector += neighbour.velocity
 
