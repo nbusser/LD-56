@@ -96,7 +96,6 @@ func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity > 0:
 		if is_hovering_painting:
-			# TODO: replace Color.RED by current color
 			emit_signal("painting_drop", global_position, color, color_quantity)
 			color_quantity -= 10
 
