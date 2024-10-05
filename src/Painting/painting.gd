@@ -25,4 +25,8 @@ func to_pack_vector2_array(array: Array[Vector2]) -> PackedVector2Array:
 # Signal emited by Boid _process
 # TODO: eventually add linear velocity to draw a quick line
 func on_painting_drop(boid_position: Vector2, color: Color) -> void:
-	self.image.set_pixelv(boid_position, color);
+	var width = 2;
+	for x in range(-width + 1, width):
+		for y in range(-width + 1, width):
+			var pixel_position = boid_position + Vector2(x, y)
+			self.image.set_pixelv(pixel_position, color);

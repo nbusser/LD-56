@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=9 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Texture2D" uid="uid://51pr2epmlqdm" path="res://assets/sprites/icon.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
@@ -61,4 +61,5 @@ shape = SubResource("RectangleShape2D_houam")
 
 [node name="PaintPuddle" parent="." instance=ExtResource("4_ukmxq")]
 position = Vector2(-228, -184)
+
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
