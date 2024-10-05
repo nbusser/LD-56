@@ -21,7 +21,7 @@ var repulsion_range := 30.0
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
 #This could be usless but it is here if needed
-var color = Vector4(0, 0, 0, 0);
+var color = Vector4(0, 0, 0, 1);
 var color_quantity = 0;
 
 @onready var flock := $"../.." as Flock
@@ -84,8 +84,10 @@ func _physics_process(delta: float) -> void:
 	apply_central_force(force);
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+# Enter paint puddle
+func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
+	assert(area_parent is PaintPuddle)
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
 
@@ -93,10 +95,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity > 0:
-		color_quantity -= 25
-	if is_hovering_painting:
-		# TODO: replace Color.RED by current color
-		emit_signal("painting_drop", global_position, Color.RED, 100)
+		if is_hovering_painting:
+			# TODO: replace Color.RED by current color
+			emit_signal("painting_drop", global_position, color, color_quantity)
+			color_quantity -= 10
 
 
 var is_hovering_painting = false
