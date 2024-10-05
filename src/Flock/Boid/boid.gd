@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 	if color_quantity > 0:
 		if is_hovering_painting:
 			emit_signal("painting_drop", global_position, color, color_quantity)
-			color_quantity -= 10
+			color_quantity -= 2
 
 
 var is_hovering_painting = false
