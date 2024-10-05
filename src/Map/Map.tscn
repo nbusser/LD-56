@@ -59,9 +59,6 @@ shape = SubResource("RectangleShape2D_8vgp8")
 position = Vector2(1174, -18)
 shape = SubResource("RectangleShape2D_houam")
 
-<<<<<<< HEAD
 [node name="PaintPuddle" parent="." instance=ExtResource("4_ukmxq")]
 position = Vector2(-228, -184)
-=======
-[node name="Painting" parent="." instance=ExtResource("4_pc36q")]
->>>>>>> bdf0cba579b669b45ee78e8a9595cfbb85a916f2
+[node name="Painting" parent="." instance=ExtResource("5_pc36q")]

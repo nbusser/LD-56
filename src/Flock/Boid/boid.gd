@@ -1,7 +1,6 @@
 extends RigidBody2D
 class_name Boid
 
-var drop_scene = preload("res://src/PaintPuddle/PaintDrop.tscn")
 var map_scene = preload("res://src/Map/Map.tscn")
 signal painting_drop(Vector2, Color)
 
@@ -89,7 +88,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
-	print(color,color_quantity)
 
 
 func _process(delta: float) -> void:
