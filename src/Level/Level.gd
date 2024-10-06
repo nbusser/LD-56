@@ -14,6 +14,8 @@ var level_data: LevelData
 @onready var timer = $Timer
 
 func _ready():
+	flock.spawn(level_data.flock_size)
+	
 	timer.start(level_data.time_limit)
 	
 	for puddle in self.level_data.puddles:

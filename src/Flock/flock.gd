@@ -5,12 +5,15 @@ class_name Flock
 @onready var painting = $"../Painting"
 
 @export var flockStamina = 1000000000000
-@export var flockSize = 60
+
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for _i in range(flockSize):
+	pass
+
+func spawn(flock_size: int):
+	for _i in range(flock_size):
 		add_boid()
 	update_grids()
 

@@ -1,6 +1,7 @@
 extends Resource
 class_name LevelData
 
+@export var flock_size: int
 @export var name: String
 @export var goal_texture: CompressedTexture2D
 @export var canvas_position: Vector2
