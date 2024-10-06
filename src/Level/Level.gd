@@ -28,7 +28,8 @@ func init(level: LevelData):
 
 
 func _on_Timer_timeout():
-	await hud.time_up()
+	var score = map.get_score()
+	await hud.time_up(score)
 
 	if randi() % 2:
 		emit_signal("end_of_level")
