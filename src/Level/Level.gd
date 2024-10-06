@@ -14,6 +14,9 @@ func _ready():
 	hud.set_goal(level_data.goal_texture)
 	map.model_image = level_data.goal_texture.get_image()
 	timer.start(level_data.time_limit)
+	
+	for puddle in self.level_data.puddles:
+		map.add_puddle(puddle)
 
 func _process(delta: float) -> void:
 	hud.update_timer(timer.time_left)

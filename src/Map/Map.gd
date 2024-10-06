@@ -4,13 +4,12 @@ var model_image : Image
 @onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var newPuddle = puddleScene.instantiate()
-	newPuddle.init(Vector2(-100,-100),3)
-	self.add_child(newPuddle)
-	newPuddle = puddleScene.instantiate()
-	newPuddle.init(Vector2(-100,100),1,Color.BLUE)
-	self.add_child(newPuddle)
+	pass
 
+func add_puddle(puddle_data: PaintPuddleData):
+	var newPuddle: PaintPuddle = puddleScene.instantiate()
+	newPuddle.init(puddle_data.position,puddle_data.puddle_size,puddle_data.color, puddle_data.color_quantity)
+	self.add_child(newPuddle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

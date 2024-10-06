@@ -6,6 +6,7 @@ class_name LevelData
 @export var canvas_position: Vector2
 @export var canvas_size: Vector2
 @export var time_limit: float
+@export var puddles: Array[PaintPuddleData]
 
 # Set dynamically
 var number: int

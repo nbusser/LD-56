@@ -1,23 +1,19 @@
 extends Node2D
 class_name PaintPuddle
 
-@export var color = Color(255, 0, 0, 1)
-@export var color_quantity = 100
-@export var puddleSize = 1
-@export var puddlePos: Vector2 = Vector2(0, 0)
+var color = Color(255, 0, 0, 1)
+var color_quantity = 100
 
-
-func init(pos: Vector2, size: int, color: Color = Color(255, 0, 0, 1)) -> void:
-	self.puddleSize = size
-	self.puddlePos = pos
+func init(pos: Vector2, size: int, color: Color, quantity: int) -> void:
+	self.scale *= size
+	self.position = pos
 	self.color = color
 	self.modulate = color
+	self.color_quantity = quantity
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scale *= self.puddleSize
-	position = self.puddlePos
-	
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
