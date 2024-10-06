@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwiu4cm7rlq0p"]
+[gd_scene load_steps=6 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://e51vc6ac3udb" path="res://assets/sprites/moulure.png" id="3_3m3tw"]
 [ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/clock.png" id="3_gm3l4"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3kykg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ni124"]
+font_size = 100
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -87,3 +90,30 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 text = "Painting name"
+
+[node name="TimeIsUp" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time is up!"
+label_settings = SubResource("LabelSettings_ni124")
+
+[node name="FadeOutPane" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

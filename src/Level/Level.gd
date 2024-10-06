@@ -30,6 +30,8 @@ func init(level: LevelData):
 
 
 func _on_Timer_timeout():
+	await hud.time_up()
+	
 	if randi() % 2:
 		emit_signal("end_of_level")
 	else:
