@@ -25,7 +25,7 @@ var formations = {
 		"cohesion_force": 60.0,
 		"align_force": 80.0,
 		"repulsion_force": 140.0,
-		"animation" : "still",
+		"animation" : "acceleration",
 	},
 	FlyingFormation.TIGHTEN: {
 		"mouse_follow_force": 80.0,

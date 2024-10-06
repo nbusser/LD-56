@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_idskf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_500v3")
-animation = &"super_duper_acceleration"
+animation = &"still"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
