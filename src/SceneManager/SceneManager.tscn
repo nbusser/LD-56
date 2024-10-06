@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=11 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://ba7shxyukh22w" path="res://assets/musics/example.ogg" id="2"]
@@ -14,14 +14,28 @@ color = Color(255, 0, 0, 1)
 color_quantity = 100
 puddle_size = 2
 
+[sub_resource type="Resource" id="Resource_rowwc"]
+script = ExtResource("4_uh455")
+position = Vector2(-200, 0)
+color = Color(0.0862745, 0.545098, 0, 1)
+color_quantity = 100
+puddle_size = 3
+
+[sub_resource type="Resource" id="Resource_mxqyn"]
+script = ExtResource("4_uh455")
+position = Vector2(-200, 100)
+color = Color(0.294118, 0.407843, 0.92549, 1)
+color_quantity = 100
+puddle_size = 1
+
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
 name = "Le prince de la mosquée"
 goal_texture = ExtResource("3_7k6rp")
-canvas_position = Vector2(-200, -100)
-canvas_size = Vector2(150, 100)
+canvas_position = Vector2(-100, -100)
+canvas_size = Vector2(400, 250)
 time_limit = 120.0
-puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_q5kmv")])
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_q5kmv"), SubResource("Resource_rowwc"), SubResource("Resource_mxqyn")])
 
 [node name="SceneManager" type="Control"]
 layout_mode = 3
