@@ -1,7 +1,9 @@
 extends Node2D
 
-var model_image: Image
 @onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
+@onready var model_sprite = $Model/Texture
+@onready var model_label = $Model/Name
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -11,7 +13,10 @@ func add_puddle(puddle_data: PaintPuddleData):
 	newPuddle.init(puddle_data.position, puddle_data.puddle_size, puddle_data.color, puddle_data.color_quantity)
 	self.add_child(newPuddle)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_model(model_name: String, model_texture: CompressedTexture2D):
+	model_label.text = model_name
+	self.model_sprite.texture = model_texture
+
 func _process(delta: float) -> void:
 	pass
 

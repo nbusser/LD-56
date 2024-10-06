@@ -1,16 +1,8 @@
 extends Control
 
-@onready var level_label = $VBoxContainer2/PanelContainer/VBoxContainer/Panel/LevelName
-@onready var goal_texture = $VBoxContainer2/PanelContainer/VBoxContainer/Moulure/GoalTexture
-@onready var timer_value = $VBoxContainer2/MarginContainer2/Timer/TimerValue
+@onready var timer_value = $Timer/TimerValue
 @onready var time_up_label = $TimeIsUp
 @onready var fadeout_pane = $FadeOutPane
-
-func set_level_name(level_name):
-	level_label.text = str(level_name)
-
-func set_goal(compressed_texture: CompressedTexture2D):
-	goal_texture.texture = compressed_texture
 
 func update_timer(time_left: float) -> void:
 	var time_left_int = int(time_left)

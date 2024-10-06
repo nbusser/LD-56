@@ -11,15 +11,13 @@ var level_data: LevelData
 @onready var timer = $Timer
 
 func _ready():
-	hud.set_level_name(level_data.name)
-	hud.set_goal(level_data.goal_texture)
-	map.model_image = level_data.goal_texture.get_image()
 	timer.start(level_data.time_limit)
 	
 	for puddle in self.level_data.puddles:
 		map.add_puddle(puddle)
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
+	map.set_model(level_data.name, level_data.goal_texture)
 
 func _process(delta: float) -> void:
 	hud.update_timer(timer.time_left)
@@ -31,7 +29,7 @@ func init(level: LevelData):
 
 func _on_Timer_timeout():
 	await hud.time_up()
-	
+
 	if randi() % 2:
 		emit_signal("end_of_level")
 	else:
