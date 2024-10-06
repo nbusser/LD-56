@@ -3,19 +3,41 @@ class_name Boid
 var map_scene = preload("res://src/Map/Map.tscn")
 signal painting_drop(Vector2, Color, int)
 
+var stamina_threshold = 10
+
 var max_speed_value := 300.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
 var acceleration_factor := 100.0
-
-const default_repulsion_force := 140.0
 
 # Force factors
 # var mouse_follow_factor := 1.0
 var mouse_follow_force := 50.0
 var cohesion_force := 100.0
 var align_force := 80.0
-var repulsion_force := default_repulsion_force
+var repulsion_force := 140.0
 
+enum FlyingFormation {
+	SPACED,
+	TIGHTEN
+}
+func change_formation(formation: FlyingFormation):
+	flying_formation = formation
+	
+	if formation == FlyingFormation.SPACED:
+		self.mouse_follow_force = 50.0
+		self.cohesion_force = 100.0
+		self.align_force = 80.0
+		self.repulsion_force = 140.0
+	elif formation == FlyingFormation.TIGHTEN:
+		self.mouse_follow_force = 50.0
+		self.cohesion_force = 100.0
+		self.align_force = 80.0
+		self.repulsion_force = 56.0
+	else:
+		assert(false, "Unknown flying formation")
+
+
+var flying_formation = FlyingFormation.SPACED
 
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
@@ -93,29 +115,27 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 func _input(event):
 	# TODO: discuss about this idea
 	if event is InputEventMouseButton:
-		if flock.flockStamina < 10:
-			repulsion_force = default_repulsion_force
-			return
 		if event.button_index == 1 and event.is_pressed():
-			repulsion_force = default_repulsion_force * 0.4
+			change_formation(FlyingFormation.TIGHTEN)
 		elif event.button_index == 1 and not event.is_pressed():
-			repulsion_force = default_repulsion_force
+			change_formation(FlyingFormation.SPACED)
 
 func _process(delta: float) -> void:
+	#If they are compressed, lose stamina
+	if flying_formation == FlyingFormation.TIGHTEN:
+		flock.flockStamina -= 1 * delta
+		# Not enough stamina -> go to spaced
+		if flock.flockStamina < stamina_threshold:
+			change_formation(FlyingFormation.SPACED)
+	#Reload stamina when not pressed
+	else:
+		flock.flockStamina += 1 * delta if flock.flockStamina < 90 else 0
+
 	#Drop paint
 	if color_quantity > 0:
 		if is_hovering_painting:
 			emit_signal("painting_drop", global_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
-	#If they are compressed
-	if repulsion_force == default_repulsion_force * 0.4:
-		flock.flockStamina -= 1 * delta
-	#Reload stamina when not pressed
-	else:
-		flock.flockStamina += 1 * delta if flock.flockStamina < 90 else 0
-	if flock.flockStamina < 10:
-		repulsion_force = default_repulsion_force
-	
 
 var is_hovering_painting = false
 
