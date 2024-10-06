@@ -8,6 +8,7 @@ var level_data: LevelData
 @onready var hud = $UI/HUD
 @onready var map = $Map
 @onready var flock: Flock = $Map/Flock
+@onready var start_of_level_target: Node2D = $Map/StartOfLevelTarget
 @onready var end_of_level_target: Node2D = $Map/EndOfLevelTarget
 @onready var painting: Painting = $Map/Painting
 @onready var timer = $Timer
@@ -20,6 +21,11 @@ func _ready():
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
+
+	flock.stop_following_mouse(start_of_level_target.position)
+	await get_tree().create_timer(1.0).timeout
+	flock.start_following_mouse()
+
 
 func _process(delta: float) -> void:
 	hud.update_timer(timer.time_left)
