@@ -7,6 +7,7 @@ var level_data: LevelData
 
 @onready var hud = $UI/HUD
 @onready var map = $Map
+@onready var painting: Painting = $Map/Painting
 @onready var timer = $Timer
 
 func _ready():
@@ -17,6 +18,8 @@ func _ready():
 	
 	for puddle in self.level_data.puddles:
 		map.add_puddle(puddle)
+		
+	painting.reset(level_data.canvas_position, level_data.canvas_size)
 
 func _process(delta: float) -> void:
 	hud.update_timer(timer.time_left)

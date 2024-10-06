@@ -1,31 +1,41 @@
 extends TextureRect
+class_name Painting
 
 @onready var canvas: CanvasItem = Node2D.new()
 @onready var map = $"../../../Map"
 @onready var line: Line2D = Line2D.new()
 @onready var paintingRect = Rect2(global_position, size)
+@onready var surface_area = $PaintingArea/CollisionShape2D
 
-var image: Image = Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
+var image: Image
 
 func _ready():
+	#reset(self.position, self.size);
+	pass
 
+func reset(painting_position: Vector2, painting_size: Vector2i):
+	self.position = painting_position
+	
+	# Recreate an image with new dimensions
+	self.image = Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
 	self.image.fill(Color.WHITE)
 	self.texture = ImageTexture.create_from_image(self.image)
+
+	# Also resize/shift the detection area
+	var rect = RectangleShape2D.new()
+	rect.size = painting_size
+	self.surface_area.shape = rect
+	self.surface_area.position = painting_size / 2.0
 
 
 func _process(_delta):
 	self.texture.update(self.image);
 
-
-func to_pack_vector2_array(array: Array[Vector2]) -> PackedVector2Array:
-	return PackedVector2Array(array)
-
 func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
-	var rect = Rect2(pixel_position, Vector2(width, width))
+	var rect = Rect2(pixel_position - position, Vector2(width, width))
 	self.image.fill_rect(rect, color)
 
 # Signal emited by Boid _process
-# TODO: eventually add linear velocity to draw a quick line
 func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2, color: Color, paint_level: int, delta) -> void:
 	var currentPos = boid_position
 	var precedentPos = boid_position - (boid_velocity * delta)
