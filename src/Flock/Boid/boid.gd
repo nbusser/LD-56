@@ -91,7 +91,7 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	color_quantity = area_parent.color_quantity
 
 func _input(event):
-	# TODO: discussed about this idea
+	# TODO: discuss about this idea
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.is_pressed():
 			repulsion_force = default_repulsion_force * 0.4
