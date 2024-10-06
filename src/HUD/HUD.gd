@@ -1,9 +1,8 @@
 extends Control
 
-@onready var level_label = $VBoxContainer2/VBoxContainer/Panel/LevelName
-@onready var goal_texture = $VBoxContainer2/VBoxContainer/Moulure/GoalTexture
+@onready var level_label = $VBoxContainer2/PanelContainer/VBoxContainer/Panel/LevelName
+@onready var goal_texture = $VBoxContainer2/PanelContainer/VBoxContainer/Moulure/GoalTexture
 @onready var timer_value = $VBoxContainer2/MarginContainer2/Timer/TimerValue
-@onready var timer = $VBoxContainer2/MarginContainer2/Timer/Timer
 @onready var time_up_label = $TimeIsUp
 @onready var fadeout_pane = $FadeOutPane
 
