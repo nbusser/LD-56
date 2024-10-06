@@ -3,40 +3,40 @@ class_name Boid
 var map_scene = preload("res://src/Map/Map.tscn")
 signal painting_drop(Vector2, Color, int)
 
+
 var stamina_threshold = 10
+
+var paintDropping = true
 
 var max_speed_value := 600.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
 var acceleration_factor := 200.0
+@onready var thisAnimatedSprite = $AnimatedSprite2D
 
 enum FlyingFormation {
 	SPACED,
 	TIGHTEN
 }
+
+
 var formations = {
 	FlyingFormation.SPACED: {
-		"mouse_follow_force": 80.0,
+		"mouse_follow_force": 85.0,
 		"cohesion_force": 60.0,
 		"align_force": 80.0,
 		"repulsion_force": 140.0,
+		"animation" : "still",
 	},
 	FlyingFormation.TIGHTEN: {
 		"mouse_follow_force": 80.0,
 		"cohesion_force": 60.0,
 		"align_force": 80.0,
 		"repulsion_force": 65.0,
+		"animation" : "super_duper_acceleration",
 	},
 }
-func change_formation(formation: FlyingFormation):
-	flying_formation = formation
 
-	if formations.has(formation):
-		mouse_follow_force = formations[formation]["mouse_follow_force"]
-		cohesion_force = formations[formation]["cohesion_force"]
-		align_force = formations[formation]["align_force"]
-		repulsion_force = formations[formation]["repulsion_force"]
-	else:
-		assert(false, "Unknown flying formation")
+
 
 
 var flying_formation = FlyingFormation.SPACED
@@ -48,17 +48,33 @@ var repulsion_force = formations[flying_formation]["repulsion_force"]
 
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
-#This could be usless but it is here if needed
 var color = Color(0, 0, 0, 1);
 var color_quantity = 0;
 
 @onready var flock := $"../.." as Flock
 @onready var repulsion_range := flock.repulsion_range
 
+var is_hovering_painting = false
+
+func _ready() -> void:
+	thisAnimatedSprite.play("acceleration")
+	pass
+	
+	
+func change_formation(formation: FlyingFormation):
+	flying_formation = formation
+
+	if formations.has(formation):
+		mouse_follow_force = formations[formation]["mouse_follow_force"]
+		cohesion_force = formations[formation]["cohesion_force"]
+		align_force = formations[formation]["align_force"]
+		repulsion_force = formations[formation]["repulsion_force"]
+		thisAnimatedSprite.play(formations[formation]["animation"])
+	else:
+		assert(false, "Unknown flying formation")
 
 func calculate_forces(target_position: Vector2) -> Array[Vector2]:
 	# return {"x": Vector2.from_angle(randf_range(0, 2 * PI)) * randf_range(0, 100)}
-
 	var center = flock.get_visible_neighbours_center(self)
 	var align_vector = flock.get_alignment_vector(self)
 	var repulsion_vector = flock.get_repulsion_vector(self)
@@ -112,7 +128,6 @@ func _physics_process(delta) -> void:
 	# Move
 	move_and_slide()
 
-
 func rand_triangulaire(low : float , high :float , center : float) -> float:
 	var u = randf()
 	if u < (center - low) / (high - low):
@@ -136,6 +151,12 @@ func _input(event):
 			change_formation(FlyingFormation.TIGHTEN)
 		elif event.button_index == 1 and not event.is_pressed():
 			change_formation(FlyingFormation.SPACED)
+		if event.button_index == 2 and event.is_pressed():
+			paintDropping = false
+			thisAnimatedSprite.play("still")
+		elif event.button_index == 2 and not event.is_pressed():
+			paintDropping = true
+			thisAnimatedSprite.play(formations[flying_formation]["animation"])
 
 func _process(delta: float) -> void:
 	#If they are compressed, lose stamina
@@ -150,15 +171,12 @@ func _process(delta: float) -> void:
 
 	#Drop paint
 	if color_quantity > 0:
-		if is_hovering_painting:
+		if is_hovering_painting and paintDropping:
 			emit_signal("painting_drop", global_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
 
-var is_hovering_painting = false
-
 func _on_painting_detector_area_entered(area: Area2D) -> void:
 	is_hovering_painting = true
-
 
 func _on_painting_detector_area_exited(area: Area2D) -> void:
 	is_hovering_painting = false

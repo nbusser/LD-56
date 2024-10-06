@@ -43,7 +43,7 @@ animations = [{
 "texture": ExtResource("7_yk2kt")
 }],
 "loop": true,
-"name": &"super_duper_cceleration",
+"name": &"super_duper_acceleration",
 "speed": 2.0
 }]
 
@@ -68,10 +68,8 @@ shape = SubResource("RectangleShape2D_idskf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_500v3")
-animation = &"super_duper_cceleration"
-frame_progress = 0.113007
+animation = &"super_duper_acceleration"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
