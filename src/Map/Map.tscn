@@ -94,6 +94,7 @@ z_index = -10
 texture = ExtResource("4_a43bv")
 
 [node name="Decor1" type="Sprite2D" parent="Decor"]
+z_index = 100
 position = Vector2(172, -364)
 scale = Vector2(0.73301, 0.73301)
 texture = ExtResource("5_nolx2")
