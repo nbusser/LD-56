@@ -12,5 +12,5 @@ func set_goal(compressed_texture: CompressedTexture2D):
 	goal_texture.texture = compressed_texture
 
 func update_timer(time_left: float) -> void:
-	#timer_value = time_left
-	pass
+	var time_left_int = int(time_left)
+	timer_value.text = str(floor(time_left_int / 60)).pad_zeros(2) + " : " + str(time_left_int % 60).pad_zeros(2)
