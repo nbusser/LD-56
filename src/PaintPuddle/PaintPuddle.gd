@@ -1,7 +1,7 @@
 extends Node2D
 class_name PaintPuddle
 
-var color = Color(255, 0, 0, 1)
+var color : Color
 var color_quantity = 100
 
 func init(pos: Vector2, size: int, color: Color, quantity: int) -> void:

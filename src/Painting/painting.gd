@@ -6,8 +6,11 @@ class_name Painting
 @onready var line: Line2D = Line2D.new()
 @onready var paintingRect = Rect2(global_position, size)
 @onready var surface_area = $PaintingArea/CollisionShape2D
+@onready var rectCheck = Rect2(Vector2.ZERO,size)
 
 var image: Image
+var basicTexture
+var basicColorImage : Image
 
 func _ready():
 	#reset(self.position, self.size);
@@ -20,20 +23,54 @@ func reset(painting_position: Vector2, painting_size: Vector2i):
 	self.image = Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
 	self.image.fill(Color.WHITE)
 	self.texture = ImageTexture.create_from_image(self.image)
-
+	
+	#The second image will be used for the tracking of the dark in the picture
+	self.basicColorImage = Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
+	self.basicColorImage.fill(Color.WHITE)
+	#self.basicTexture = ImageTexture.create_from_image(self.basicColorImage)
+	#$"../DebugPainting".texture = self.basicTexture
 	# Also resize/shift the detection area
 	var rect = RectangleShape2D.new()
 	rect.size = painting_size
 	self.surface_area.shape = rect
 	self.surface_area.position = painting_size / 2.0
 
-
 func _process(_delta):
 	self.texture.update(self.image);
+	#self.basicTexture.update(self.basicColorImage)
+	rectCheck = Rect2(Vector2.ZERO,size)
 
+
+func darken(color : Color):
+	var s = color.s
+	var v = color.v
+	var BORNE_INF = 0.5
+	var DARK_COEF = 1.01
+	s = BORNE_INF + (s-BORNE_INF)/DARK_COEF
+	v = BORNE_INF + (v-BORNE_INF)/DARK_COEF
+	
+	return Color.from_hsv(color.h,s,v)
+	
 func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
 	var rect = Rect2(pixel_position - position, Vector2(width, width))
-	self.image.fill_rect(rect, color)
+	
+	#Si dans le basicColorImage on a déjà cette couleur, on fonce la couleur qu'on veut
+	var basicColor : Color
+	#Si on va appliquer une couleur qui est y déjà
+	for x in range(width):
+		for y in range(width):
+			var pixelPoint = pixel_position-position + Vector2(x,y)
+			if rectCheck.has_point(pixelPoint):
+				basicColor = self.basicColorImage.get_pixel(pixelPoint.x,pixelPoint.y)
+				if basicColor == color:
+					var newColor = self.image.get_pixel(pixelPoint.x,pixelPoint.y)
+					#On doit foncer la couleur déjà présente
+					newColor = darken(newColor)
+					self.image.set_pixel(pixelPoint.x,pixelPoint.y,newColor)
+				else:
+					self.basicColorImage.set_pixel(pixelPoint.x,pixelPoint.y,color)
+					self.image.set_pixel(pixelPoint.x,pixelPoint.y,color)
+	
 
 # Signal emited by Boid _process
 func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2, color: Color, paint_level: int, delta) -> void:
@@ -67,4 +104,4 @@ func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2, color: Col
 			y_offset = -y_offset if randi() else y_offset
 			var pixel_position = interPos + Vector2(x_offset, y_offset)
 			var splash_width = width - 1
-			self._paint_with_width(pixel_position, splash_width, color)
+			#self._paint_with_width(pixel_position, splash_width, color)

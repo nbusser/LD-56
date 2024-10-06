@@ -10,23 +10,23 @@
 [sub_resource type="Resource" id="Resource_q5kmv"]
 script = ExtResource("4_uh455")
 position = Vector2(-200, -150)
-color = Color(255, 0, 0, 1)
+color = Color(1, 0, 0, 1)
 color_quantity = 100
 puddle_size = 2
 
 [sub_resource type="Resource" id="Resource_rowwc"]
 script = ExtResource("4_uh455")
 position = Vector2(-200, 0)
-color = Color(0.0862745, 0.545098, 0, 1)
+color = Color(0, 1, 0, 1)
 color_quantity = 100
 puddle_size = 3
 
 [sub_resource type="Resource" id="Resource_mxqyn"]
 script = ExtResource("4_uh455")
-position = Vector2(-200, 100)
-color = Color(0.294118, 0.407843, 0.92549, 1)
+position = Vector2(-200, 200)
+color = Color(1, 1, 0, 1)
 color_quantity = 100
-puddle_size = 1
+puddle_size = 3
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
