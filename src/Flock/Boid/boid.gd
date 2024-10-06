@@ -7,12 +7,14 @@ var max_speed_value := 300.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
 var acceleration_factor := 100.0
 
+const default_repulsion_force := 140.0
+
 # Force factors
 # var mouse_follow_factor := 1.0
 var mouse_follow_force := 50.0
 var cohesion_force := 100.0
 var align_force := 80.0
-var repulsion_force := 200.0
+var repulsion_force := default_repulsion_force
 
 
 #Color attributes
@@ -37,7 +39,7 @@ func calculate_forces(target_position: Vector2) -> Array[Vector2]:
 
 	# Force to go toward mouse
 	var mouse_vector = global_position.direction_to(target_position);
-	var is_mouse_too_close_smooth = smoothstep(repulsion_range *.75, repulsion_range * 1.25, global_position.distance_to(target_position))
+	var is_mouse_too_close_smooth = smoothstep(repulsion_range * .75, repulsion_range * 1.25, global_position.distance_to(target_position))
 	var mouse_force = mouse_vector.normalized() * mouse_follow_force * is_mouse_too_close_smooth
 
 	# return {
@@ -88,12 +90,20 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
 
+func _input(event):
+	# TODO: discussed about this idea
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.is_pressed():
+			repulsion_force = default_repulsion_force * 0.4
+		elif event.button_index == 1 and not event.is_pressed():
+			repulsion_force = default_repulsion_force
+
 func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity > 0:
 		if is_hovering_painting:
-			emit_signal("painting_drop", global_position, velocity ,color, color_quantity,delta)
-			color_quantity -= 20*delta
+			emit_signal("painting_drop", global_position, velocity, color, color_quantity, delta)
+			color_quantity -= 20 * delta
 
 
 var is_hovering_painting = false
