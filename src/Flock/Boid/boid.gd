@@ -112,15 +112,25 @@ func _physics_process(delta) -> void:
 	# Move
 	move_and_slide()
 
+
+func rand_triangulaire(low : float , high :float , center : float) -> float:
+	var u = randf()
+	if u < (center - low) / (high - low):
+		return low + sqrt(u * (high - low) * (center - low))
+	else:
+		return high - sqrt((1 - u) * (high - low) * (high - center))
+	
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	assert(area_parent is PaintPuddle)
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
+	#When they get the painting, randomize a little the qqty
+	color_quantity = (rand_triangulaire(color_quantity*0.75,color_quantity,color_quantity*1.1))
 
 func _input(event):
-	# TODO: discuss about this idea
+	# TODO: implement things similar ? like superpowers ?
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.is_pressed():
 			change_formation(FlyingFormation.TIGHTEN)

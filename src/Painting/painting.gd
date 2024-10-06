@@ -8,6 +8,9 @@ class_name Painting
 @onready var surface_area = $PaintingArea/CollisionShape2D
 @onready var rectCheck = Rect2(Vector2.ZERO,size)
 
+@onready var BORNE_INF = 0.5
+@onready var DARK_COEF = 1.01
+
 var image: Image
 var basicTexture
 var basicColorImage : Image
@@ -44,8 +47,6 @@ func _process(_delta):
 func darken(color : Color):
 	var s = color.s
 	var v = color.v
-	var BORNE_INF = 0.5
-	var DARK_COEF = 1.01
 	s = BORNE_INF + (s-BORNE_INF)/DARK_COEF
 	v = BORNE_INF + (v-BORNE_INF)/DARK_COEF
 
@@ -75,30 +76,19 @@ func on_painting_drop(boid_position: Vector2, boid_velocity: Vector2, color: Col
 	var precedentPos = boid_position - (boid_velocity * delta)
 	var echantillon = (2 / delta)
 
-	for index in range(1, echantillon):
+	for index in range(1, echantillon+1):
 		var interPos = precedentPos + (currentPos - precedentPos) * (index / echantillon)
 
 		var width: int
 		var n_splashes: int
-		if paint_level > 75:
-			width = 4
-			n_splashes = randi() % 3
-		elif paint_level > 50:
-			width = 3
-			n_splashes = randi() % 3
+		if paint_level > 85:
+			width = 10
+		elif paint_level > 60:
+			width = 7
+		elif paint_level > 45:
+			width = 5
 		else:
 			width = 2
-			n_splashes = randi() % 1
 
 		# Drop paint in the exact position
 		self._paint_with_width(interPos, width, color)
-
-		# Eventually splashes the surroundings
-		for s in range(n_splashes):
-			var x_offset = randi() % 3 + width + 4
-			x_offset = -x_offset if randi() else x_offset
-			var y_offset = randi() % 3 + width + 4
-			y_offset = -y_offset if randi() else y_offset
-			var pixel_position = interPos + Vector2(x_offset, y_offset)
-			var splash_width = width - 1
-			#self._paint_with_width(pixel_position, splash_width, color)
