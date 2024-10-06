@@ -5,39 +5,46 @@ signal painting_drop(Vector2, Color, int)
 
 var stamina_threshold = 10
 
-var max_speed_value := 300.0
+var max_speed_value := 600.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
-var acceleration_factor := 100.0
-
-# Force factors
-# var mouse_follow_factor := 1.0
-var mouse_follow_force := 50.0
-var cohesion_force := 100.0
-var align_force := 80.0
-var repulsion_force := 140.0
+var acceleration_factor := 200.0
 
 enum FlyingFormation {
 	SPACED,
 	TIGHTEN
 }
+var formations = {
+	FlyingFormation.SPACED: {
+		"mouse_follow_force": 80.0,
+		"cohesion_force": 60.0,
+		"align_force": 80.0,
+		"repulsion_force": 140.0,
+	},
+	FlyingFormation.TIGHTEN: {
+		"mouse_follow_force": 80.0,
+		"cohesion_force": 60.0,
+		"align_force": 80.0,
+		"repulsion_force": 65.0,
+	},
+}
 func change_formation(formation: FlyingFormation):
 	flying_formation = formation
-	
-	if formation == FlyingFormation.SPACED:
-		self.mouse_follow_force = 50.0
-		self.cohesion_force = 100.0
-		self.align_force = 80.0
-		self.repulsion_force = 140.0
-	elif formation == FlyingFormation.TIGHTEN:
-		self.mouse_follow_force = 50.0
-		self.cohesion_force = 100.0
-		self.align_force = 80.0
-		self.repulsion_force = 56.0
+
+	if formations.has(formation):
+		mouse_follow_force = formations[formation]["mouse_follow_force"]
+		cohesion_force = formations[formation]["cohesion_force"]
+		align_force = formations[formation]["align_force"]
+		repulsion_force = formations[formation]["repulsion_force"]
 	else:
 		assert(false, "Unknown flying formation")
 
 
 var flying_formation = FlyingFormation.SPACED
+
+var mouse_follow_force = formations[flying_formation]["mouse_follow_force"]
+var cohesion_force = formations[flying_formation]["cohesion_force"]
+var align_force = formations[flying_formation]["align_force"]
+var repulsion_force = formations[flying_formation]["repulsion_force"]
 
 #Color attributes
 #This qualify the color that the boid hold and the quantity remaining
@@ -61,7 +68,7 @@ func calculate_forces(target_position: Vector2) -> Array[Vector2]:
 
 	# Force to go toward mouse
 	var mouse_vector = global_position.direction_to(target_position);
-	var is_mouse_too_close_smooth = smoothstep(repulsion_range * .75, repulsion_range * 1.25, global_position.distance_to(target_position))
+	var is_mouse_too_close_smooth = smoothstep(repulsion_range*.3 * .75, repulsion_range*.3 * 1.25, global_position.distance_to(target_position))
 	var mouse_force = mouse_vector.normalized() * mouse_follow_force * is_mouse_too_close_smooth
 
 	# return {
