@@ -93,6 +93,9 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 func _input(event):
 	# TODO: discuss about this idea
 	if event is InputEventMouseButton:
+		if flock.flockStamina < 10 :
+			repulsion_force = default_repulsion_force
+			return	 
 		if event.button_index == 1 and event.is_pressed():
 			repulsion_force = default_repulsion_force * 0.4
 		elif event.button_index == 1 and not event.is_pressed():
@@ -104,6 +107,15 @@ func _process(delta: float) -> void:
 		if is_hovering_painting:
 			emit_signal("painting_drop", global_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
+	#If they are compressed
+	if repulsion_force == default_repulsion_force *0.4:	
+		flock.flockStamina -= 1*delta
+	#Reload stamina when not pressed
+	else:
+		flock.flockStamina += 1*delta if flock.flockStamina < 90 else 0
+	if flock.flockStamina < 10 :
+		repulsion_force = default_repulsion_force
+	
 
 
 var is_hovering_painting = false

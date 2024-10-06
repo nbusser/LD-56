@@ -15,7 +15,6 @@ func add_puddle(puddle_data: PaintPuddleData):
 func _process(delta: float) -> void:
 	pass
 
-
 # This fonction compare two images and return a value
 func compare_two_images(image1: Image, image2: Image) -> float:
 	image1.resize(min(image1.get_width(), image2.get_width()), min(image1.get_height(), image2.get_height()))

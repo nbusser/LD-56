@@ -16,7 +16,6 @@ func _ready():
 	level_label.text = str(level_number + 1)
 	coin_label.text = str("NOT IMPLEMENTED")
 
-
 func init(level_number):
 	self.level_number = level_number
 

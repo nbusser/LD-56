@@ -4,6 +4,7 @@ class_name Flock
 @onready var boids_node = $Boids
 @onready var painting = $"../Painting"
 
+@export var flockStamina = 100
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
