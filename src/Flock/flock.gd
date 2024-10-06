@@ -5,13 +5,9 @@ class_name Flock
 @onready var painting = $"../Painting"
 @onready var obstacleList = $"../Obstacles".get_children() as Array[Obstacle]
 
-<<<<<<< HEAD
 @export var flockStamina = 10000000
 @export var flockSize = 60
-=======
-@export var flockStamina = 1000000000000
 
->>>>>>> bcc6597a791d48d14cb59c4eafdf4567e246bc65
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
