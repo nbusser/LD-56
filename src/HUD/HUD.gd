@@ -1,7 +1,7 @@
 extends Control
 
-@onready var level_label = $VBoxContainer2/MarginContainer/LevelName
-@onready var goal_texture = $VBoxContainer2/CenterContainer/GoalTexture
+@onready var level_label = $VBoxContainer2/VBoxContainer/Panel/LevelName
+@onready var goal_texture = $VBoxContainer2/VBoxContainer/Moulure/GoalTexture
 @onready var timer_value = $VBoxContainer2/MarginContainer2/Timer/TimerValue
 @onready var timer = $VBoxContainer2/MarginContainer2/Timer/Timer
 
