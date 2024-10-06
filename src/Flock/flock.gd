@@ -2,7 +2,7 @@ extends Node2D
 class_name Flock
 
 @onready var boids_node = $Boids
-@onready var painting = $"../../Painting"
+@onready var painting = $"../Painting"
 
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 

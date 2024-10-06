@@ -1,65 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=7 format=3 uid="uid://btohiqrak4tcf"]
 
-[ext_resource type="Texture2D" uid="uid://51pr2epmlqdm" path="res://assets/sprites/icon.png" id="1"]
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
-[ext_resource type="TileSet" uid="uid://xvq787n68g1t" path="res://assets/sprites/tileset.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="PackedScene" uid="uid://bplnvb2hm31r3" path="res://src/Model/Model.tscn" id="6_wyjpu"]
-[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintPuddle/PaintPuddle.tscn" id="7_iw68h"]
-
-[sub_resource type="CapsuleShape2D" id="2"]
-radius = 6.62075
-height = 13.2415
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgp8"]
-size = Vector2(2901.5, 31.25)
+size = Vector2(1837.75, 31.25)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_6212v")
 
-[node name="Navigation2D" type="Node2D" parent="."]
+[node name="Flock" parent="." instance=ExtResource("2_wc082")]
 
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
-tile_set = ExtResource("3")
-format = 2
-layer_0/tile_data = PackedInt32Array(-589818, 12, 0, -589817, 12, 0, -589816, 12, 0, -589815, 12, 0, -589814, 12, 0, -589813, 12, 0, -589809, 12, 0, -589808, 12, 0, -589807, 12, 0, -589806, 12, 0, -589805, 12, 0, -589804, 12, 0, -524282, 12, 0, -524281, 12, 0, -524280, 12, 0, -524279, 12, 0, -524278, 12, 0, -524277, 12, 0, -524273, 12, 0, -524272, 12, 0, -524271, 12, 0, -524270, 12, 0, -524269, 12, 0, -524268, 12, 0, -458742, 12, 0, -458736, 12, 0, -393206, 12, 0, -393200, 12, 0, -327670, 12, 0, -327664, 12, 0, -262135, 12, 0, -262134, 12, 0, -262133, 12, 0, -262129, 12, 0, -262128, 12, 0, -262127, 12, 0, -262126, 12, 0, -262125, 12, 0, -262124, 12, 0, -262123, 12, 0, -196599, 12, 0, -196598, 12, 0, -196597, 12, 0, -196596, 12, 0, -196595, 12, 0, -196594, 12, 0, -196593, 12, 0, -196592, 12, 0, -196591, 12, 0, -196590, 12, 0, -196589, 12, 0, -196588, 12, 0, -196587, 12, 0, -196586, 12, 0, -196585, 13, 0, -196584, 13, 0, -196583, 13, 0, -131063, 12, 0, -131062, 12, 0, -131061, 12, 0, -131057, 12, 0, -131056, 12, 0, -131055, 12, 0, -131054, 12, 0, -131053, 12, 0, -131052, 12, 0, -131051, 12, 0, -65526, 12, 0, -65516, 12, 0, 10, 13, 0, 20, 12, 0, 65556, 12, 0, 131091, 12, 0, 131092, 12, 0, 131093, 12, 0, 196618, 13, 0, 196627, 12, 0, 196628, 12, 0, 196629, 12, 0, 262154, 12, 0, 262163, 12, 0, 262164, 12, 0, 262165, 12, 0, 327689, 12, 0, 327690, 12, 0, 327691, 12, 0, 393225, 12, 0, 393226, 12, 0, 393227, 12, 0, 458762, 12, 0, 524298, 13, 0, 720898, 13, 0, 720906, 13, 0, 786434, 12, 0, 786442, 12, 0, 851969, 12, 0, 851970, 12, 0, 851971, 12, 0, 851975, 12, 0, 851976, 12, 0, 851977, 12, 0, 851978, 12, 0, 851979, 12, 0, 851980, 12, 0, 851981, 12, 0, 917505, 12, 0, 917506, 12, 0, 917507, 12, 0, 917508, 12, 0, 917509, 12, 0, 917510, 12, 0, 917511, 12, 0, 917512, 12, 0, 917513, 12, 0, 917514, 12, 0, 917515, 12, 0, 917516, 12, 0, 917517, 12, 0, 983041, 12, 0, 983042, 12, 0, 983043, 12, 0, 983047, 12, 0, 983048, 12, 0, 983049, 12, 0, 983050, 12, 0, 983051, 12, 0, 983052, 12, 0, 983053, 12, 0)
+[node name="Camera2D" type="Camera2D" parent="Flock"]
 
-[node name="Flock" parent="Navigation2D" instance=ExtResource("2_wc082")]
+[node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Navigation2D/Flock"]
-
-[node name="Target" type="CharacterBody2D" parent="."]
-position = Vector2(661, 131)
-scale = Vector2(0.453125, 0.453125)
-collision_mask = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Target"]
-texture = ExtResource("1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
-shape = SubResource("2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-575, -1)
-
-[node name="Area2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Area2D" type="CollisionShape2D" parent="ScreenBoundaries"]
 position = Vector2(-860.25, 8)
 shape = SubResource("RectangleShape2D_houam")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(595, -815)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(63.125, -815)
 shape = SubResource("RectangleShape2D_8vgp8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(596.25, 802.625)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(0, 803)
 shape = SubResource("RectangleShape2D_8vgp8")
 
-[node name="Area2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2049, -8)
+[node name="Area2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(916, -8)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
@@ -70,5 +44,3 @@ offset_bottom = 1.0
 z_index = 250
 position = Vector2(498, -36)
 scale = Vector2(0.1, 0.1)
-
-[node name="PaintPuddle" parent="." instance=ExtResource("7_iw68h")]
