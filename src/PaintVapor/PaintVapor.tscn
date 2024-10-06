@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnhjdh3vkloms"]
+
+[ext_resource type="Script" path="res://src/PaintVapor/PaintVapor.gd" id="1_too26"]
+[ext_resource type="Texture2D" uid="uid://ma7bc2f8lwk2" path="res://assets/sprites/smoke.png" id="2_a0m1w"]
+[ext_resource type="Texture2D" uid="uid://on1ntvi5htd7" path="res://assets/sprites/bubble.png" id="3_o8ogg"]
+
+[sub_resource type="Curve" id="Curve_53qrc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.646667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_esc7t"]
+curve = SubResource("Curve_53qrc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8out4"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 118.28
+initial_velocity_max = 118.28
+gravity = Vector3(0, -200, 0)
+radial_accel_min = -90.0
+radial_accel_max = 90.0
+damping_max = 55.914
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_esc7t")
+turbulence_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wqny8"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 118.28
+initial_velocity_max = 118.28
+gravity = Vector3(0, -200, 0)
+damping_max = 55.914
+scale_min = 0.1
+scale_max = 0.2
+turbulence_enabled = true
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ju8jk"]
+radius = 35.0
+height = 244.0
+
+[node name="PaintVapor" type="Node2D"]
+script = ExtResource("1_too26")
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.3)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_8out4")
+texture = ExtResource("2_a0m1w")
+lifetime = 3.0
+randomness = 0.3
+
+[node name="Bubbles" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.8)
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_wqny8")
+texture = ExtResource("3_o8ogg")
+lifetime = 3.0
+randomness = 0.3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -112)
+shape = SubResource("CapsuleShape2D_ju8jk")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=12 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
+[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintVapor/PaintVapor.tscn" id="2_8dmq2"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
 [ext_resource type="Texture2D" uid="uid://favpnwgm47k3" path="res://assets/sprites/decors/background.png" id="4_a43bv"]
 [ext_resource type="Texture2D" uid="uid://bgb76817jvjvf" path="res://assets/sprites/decors/potion1.png" id="5_nolx2"]
@@ -102,3 +103,23 @@ texture = ExtResource("5_nolx2")
 [node name="Tube1" type="Sprite2D" parent="Decor"]
 position = Vector2(-820, 65)
 texture = ExtResource("6_bwsgd")
+
+[node name="PaintVapors" type="Node2D" parent="."]
+z_index = 200
+
+[node name="GreenPaintVapor" parent="PaintVapors" instance=ExtResource("2_8dmq2")]
+position = Vector2(173, -277)
+scale = Vector2(5, 1)
+color = Color(0.360784, 0.815686, 0.364706, 1)
+
+[node name="RedPaintVapor" parent="PaintVapors" instance=ExtResource("2_8dmq2")]
+position = Vector2(-780, -14)
+color = Color(0.815686, 0.290196, 0.27451, 1)
+
+[node name="YellowPaintVapor" parent="PaintVapors" instance=ExtResource("2_8dmq2")]
+position = Vector2(-856, -15)
+color = Color(0.870588, 0.686275, 0.141176, 1)
+
+[node name="BluePaintVapor" parent="PaintVapors" instance=ExtResource("2_8dmq2")]
+position = Vector2(140, 138)
+color = Color(0.289106, 0.523818, 0.928381, 1)

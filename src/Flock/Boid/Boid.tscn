@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g6ph1sygwj3e"]
+[gd_scene load_steps=14 format=3 uid="uid://g6ph1sygwj3e"]
 
 [ext_resource type="Texture2D" uid="uid://ctubfwwvj7bm1" path="res://assets/sprites/flies/2A.png" id="2_4c4w6"]
 [ext_resource type="Script" path="res://src/Flock/Boid/boid.gd" id="3_doarw"]
@@ -55,6 +55,9 @@ size = Vector2(375, 376)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qps"]
 size = Vector2(376, 375)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v2c0y"]
+polygon = PackedVector2Array(0, -60, 60, 0, 0, 60, -60, 0)
+
 [node name="Boid" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
 collision_layer = 2
@@ -88,6 +91,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingDetector"]
 position = Vector2(-2, 0.5)
 shape = SubResource("RectangleShape2D_h5qps")
+
+[node name="BubbleCollider" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_v2c0y")
 
 [connection signal="area_entered" from="PateintPuddleDetector" to="." method="_on_paint_puddle_detector_area_entered"]
 [connection signal="area_entered" from="PaintingDetector" to="." method="_on_painting_detector_area_entered"]

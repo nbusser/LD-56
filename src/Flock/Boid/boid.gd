@@ -138,7 +138,7 @@ func rand_triangulaire(low : float , high :float , center : float) -> float:
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
-	assert(area_parent is PaintPuddle)
+	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
 	color = area_parent.color
 	color_quantity = area_parent.color_quantity
 	#When they get the painting, randomize a little the qqty
