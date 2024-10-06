@@ -1,23 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwiu4cm7rlq0p"]
+[gd_scene load_steps=5 format=3 uid="uid://dwiu4cm7rlq0p"]
 
-[ext_resource type="FontFile" uid="uid://yno87q5jq4mk" path="res://assets/fonts/Jokerman.ttf" id="1"]
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
 [ext_resource type="Script" path="res://src/HUD/Timer.gd" id="3_5quvh"]
+[ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/clock.png" id="3_gm3l4"]
 
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("1")])
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="Theme" id="2"]
-default_font = SubResource("1")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3kykg"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -28,57 +15,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 300.0
 grow_horizontal = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+[node name="LevelName" type="Label" parent="VBoxContainer2/MarginContainer"]
 layout_mode = 2
-theme = SubResource("2")
-text = "Ludum Dare 56 - Les mouches qui font bzz bzz..."
+size_flags_horizontal = 6
+text = "Level name"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="ScoreCounter" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="Timer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer2"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/ScoreCounter"]
-layout_mode = 2
-text = "Score: "
-
-[node name="ScoreValue" type="Label" parent="VBoxContainer/VBoxContainer/ScoreCounter"]
-layout_mode = 2
-text = "/"
-
-[node name="LevelNumber" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/LevelNumber"]
-layout_mode = 2
-text = "Level: "
-
-[node name="LevelNumberValue" type="Label" parent="VBoxContainer/VBoxContainer/LevelNumber"]
-layout_mode = 2
-text = "/"
-
-[node name="Timer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_vertical = 4
 script = ExtResource("3_5quvh")
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/Timer"]
+[node name="TimerValue" type="Label" parent="VBoxContainer2/MarginContainer2/Timer"]
 layout_mode = 2
-text = "Timer: "
+text = "Timer val"
 
-[node name="TimerValue" type="Label" parent="VBoxContainer/VBoxContainer/Timer"]
+[node name="ChronoTexture" type="TextureRect" parent="VBoxContainer2/MarginContainer2/Timer"]
 layout_mode = 2
-text = "/"
+texture = ExtResource("3_gm3l4")
 
-[node name="Timer" type="Timer" parent="VBoxContainer/VBoxContainer/Timer"]
+[node name="Timer" type="Timer" parent="VBoxContainer2/MarginContainer2/Timer"]
 
-[connection signal="timeout" from="VBoxContainer/VBoxContainer/Timer/Timer" to="VBoxContainer/VBoxContainer/Timer" method="_on_timer_timeout"]
+[node name="CenterContainer" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="GoalTexture" type="TextureRect" parent="VBoxContainer2/CenterContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_3kykg")
+expand_mode = 1
+
+[connection signal="timeout" from="VBoxContainer2/MarginContainer2/Timer/Timer" to="VBoxContainer2/MarginContainer2/Timer" method="_on_timer_timeout"]

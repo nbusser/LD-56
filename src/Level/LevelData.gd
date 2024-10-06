@@ -5,6 +5,7 @@ class_name LevelData
 @export var goal_texture: CompressedTexture2D
 @export var canvas_position: Vector2
 @export var canvas_size: Vector2
+@export var time_limit: float
 
 # Set dynamically
 var number: int
