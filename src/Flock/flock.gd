@@ -3,8 +3,9 @@ class_name Flock
 
 @onready var boids_node = $Boids
 @onready var painting = $"../Painting"
+@onready var obstacleList = $"../Obstacles".get_children() as Array[Obstacle]
 
-@export var flockStamina = 1000000000000
+@export var flockStamina = 10000000
 @export var flockSize = 60
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
@@ -118,6 +119,12 @@ func get_repulsion_vector(boid: Boid) -> Vector2:
 	for other_boid in get_close_neighbour_boids(boid):
 		var distance = other_boid.global_position.distance_to(boid.global_position)
 		repulsion_vector += (boid.global_position - other_boid.global_position) / (1. if distance == 0 else pow(distance, 2))
+	
+	
+	for obstacle in obstacleList:
+		var distance = Vector2(-300,-100).distance_to(boid.global_position)
+		if distance < 100:
+			repulsion_vector += 1*(boid.global_position - Vector2(-300,-100)) / (1. if distance == 0 else pow(distance, 1.5))
 	return repulsion_vector
 
 func get_alignment_vector(boid: Boid) -> Vector2:

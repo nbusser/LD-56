@@ -77,3 +77,5 @@ offset_right = 200.0
 offset_bottom = 228.0
 text = "Painting name"
 horizontal_alignment = 1
+
+[node name="Obstacles" type="Node" parent="."]

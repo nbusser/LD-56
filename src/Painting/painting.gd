@@ -2,7 +2,7 @@ extends TextureRect
 class_name Painting
 
 @onready var canvas: CanvasItem = Node2D.new()
-@onready var map = $"../../../Map"
+@onready var map = $".."
 @onready var line: Line2D = Line2D.new()
 @onready var paintingRect = Rect2(global_position, size)
 @onready var surface_area = $PaintingArea/CollisionShape2D
