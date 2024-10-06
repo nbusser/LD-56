@@ -7,19 +7,25 @@ var level_data: LevelData
 
 @onready var hud = $UI/HUD
 @onready var map = $Map
+@onready var flock: Flock = $Map/Flock
+@onready var start_of_level_target: Node2D = $Map/StartOfLevelTarget
+@onready var end_of_level_target: Node2D = $Map/EndOfLevelTarget
 @onready var painting: Painting = $Map/Painting
 @onready var timer = $Timer
 
 func _ready():
-	hud.set_level_name(level_data.name)
-	hud.set_goal(level_data.goal_texture)
-	map.model_image = level_data.goal_texture.get_image()
 	timer.start(level_data.time_limit)
 	
 	for puddle in self.level_data.puddles:
 		map.add_puddle(puddle)
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
+	map.set_model(level_data.name, level_data.goal_texture)
+
+	flock.stop_following_mouse(start_of_level_target.position)
+	await get_tree().create_timer(1.0).timeout
+	flock.start_following_mouse()
+
 
 func _process(delta: float) -> void:
 	hud.update_timer(timer.time_left)
@@ -30,8 +36,10 @@ func init(level: LevelData):
 
 
 func _on_Timer_timeout():
-	await hud.time_up()
-	
+	var score = map.get_score()
+	flock.stop_following_mouse(end_of_level_target.position)
+	await hud.time_up(score)
+
 	if randi() % 2:
 		emit_signal("end_of_level")
 	else:

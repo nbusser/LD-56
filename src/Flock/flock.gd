@@ -26,6 +26,7 @@ func add_boid() -> void:
 		randf_range(0, 100),
 		randf_range(0, 100),
 	)
+	boid_instance.global_position = global_position
 	boid_instance.global_position += random_offset
 	boid_instance.velocity = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 100
 	boids.append(boid_instance)
@@ -79,7 +80,22 @@ func get_neighbour_cells(cell: Vector2i) -> Array:
 	]
 
 var boids_center = Vector2()
+
 var target = Vector2(0, 0)
+var follow_mouse = false
+
+func player_has_control():
+	return follow_mouse
+
+# When game stops
+func stop_following_mouse(new_target: Vector2):
+	follow_mouse = false
+	target = new_target
+
+# After intro
+func start_following_mouse():
+	follow_mouse = true
+
 func _physics_process(_delta):
 	boids_center = Vector2()
 	for boid in boids:
@@ -87,7 +103,9 @@ func _physics_process(_delta):
 	boids_center /= boids.size()
 
 	update_grids()
-	target = get_global_mouse_position()
+
+	if follow_mouse:
+		target = get_global_mouse_position()
 
 func get_visible_neighbours_center(boid: Boid) -> Vector2:
 	if boids.size() == 1:

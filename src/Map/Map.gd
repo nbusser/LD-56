@@ -1,7 +1,10 @@
 extends Node2D
 
-var model_image: Image
 @onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
+@onready var painting = $Painting
+@onready var model_texture = $Model/Texture
+@onready var model_label = $Model/Name
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -11,12 +14,21 @@ func add_puddle(puddle_data: PaintPuddleData):
 	newPuddle.init(puddle_data.position, puddle_data.puddle_size, puddle_data.color, puddle_data.color_quantity)
 	self.add_child(newPuddle)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_model(model_name: String, model_texture: CompressedTexture2D):
+	model_label.text = model_name
+	self.model_texture.texture = model_texture
+
 func _process(delta: float) -> void:
 	pass
 
+func get_score():
+	return 1.-_compare_two_images(
+		painting.texture.get_image(),
+		model_texture.texture.get_image()
+	)
+
 # This fonction compare two images and return a value
-func compare_two_images(image1: Image, image2: Image) -> float:
+func _compare_two_images(image1: Image, image2: Image) -> float:
 	image1.resize(min(image1.get_width(), image2.get_width()), min(image1.get_height(), image2.get_height()))
 	image2.resize(min(image1.get_width(), image2.get_width()), min(image1.get_height(), image2.get_height()))
 	var sum: float = 0.0

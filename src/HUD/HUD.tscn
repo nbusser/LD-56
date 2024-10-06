@@ -1,13 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://e51vc6ac3udb" path="res://assets/sprites/moulure.png" id="3_3m3tw"]
 [ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/clock.png" id="3_gm3l4"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3kykg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ni124"]
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_hprb0"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnbbu"]
+font_size = 30
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -18,98 +21,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+[node name="Timer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-offset_bottom = 300.0
-grow_horizontal = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Timer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer2"]
-layout_mode = 2
+offset_left = -140.0
+offset_bottom = 64.0
+grow_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TimerValue" type="Label" parent="VBoxContainer2/MarginContainer2/Timer"]
+[node name="TimerValue" type="Label" parent="Timer"]
 layout_mode = 2
 text = "Timer val"
 
-[node name="ChronoTexture" type="TextureRect" parent="VBoxContainer2/MarginContainer2/Timer"]
+[node name="ChronoTexture" type="TextureRect" parent="Timer"]
 layout_mode = 2
 texture = ExtResource("3_gm3l4")
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/PanelContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-
-[node name="Moulure" type="TextureRect" parent="VBoxContainer2/PanelContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_3m3tw")
-
-[node name="GoalTexture" type="TextureRect" parent="VBoxContainer2/PanelContainer/VBoxContainer/Moulure"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
-offset_top = -2.7
-offset_bottom = -2.70001
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_3kykg")
-expand_mode = 1
-
-[node name="Panel" type="Panel" parent="VBoxContainer2/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-
-[node name="LevelName" type="Label" parent="VBoxContainer2/PanelContainer/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -11.5
-offset_right = 56.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-text = "Painting name"
-
-[node name="TimeIsUp" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Time is up!"
-label_settings = SubResource("LabelSettings_ni124")
 
 [node name="FadeOutPane" type="ColorRect" parent="."]
 visible = false
@@ -120,3 +48,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TimeIsUp" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -68.5
+offset_right = 260.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeIsUpLabel" type="Label" parent="TimeIsUp"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Time is up!"
+label_settings = SubResource("LabelSettings_ni124")
+
+[node name="ScoreLabel" type="Label" parent="TimeIsUp"]
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_hprb0")
+
+[node name="CommentLabel" type="Label" parent="TimeIsUp"]
+layout_mode = 2
+text = "Comment"
+label_settings = SubResource("LabelSettings_pnbbu")
