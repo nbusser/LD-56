@@ -37,5 +37,3 @@ position = Vector2(916, -8)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
-offset_right = 1.0
-offset_bottom = 1.0
