@@ -34,7 +34,7 @@ name = "Le prince de la mosquée"
 goal_texture = ExtResource("3_7k6rp")
 canvas_position = Vector2(-100, -100)
 canvas_size = Vector2(400, 250)
-time_limit = 120.0
+time_limit = 10.0
 puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_q5kmv"), SubResource("Resource_rowwc"), SubResource("Resource_mxqyn")])
 
 [node name="SceneManager" type="Control"]

@@ -7,6 +7,8 @@ var level_data: LevelData
 
 @onready var hud = $UI/HUD
 @onready var map = $Map
+@onready var flock: Flock = $Map/Flock
+@onready var end_of_level_target: Node2D = $Map/EndOfLevelTarget
 @onready var painting: Painting = $Map/Painting
 @onready var timer = $Timer
 
@@ -29,6 +31,7 @@ func init(level: LevelData):
 
 func _on_Timer_timeout():
 	var score = map.get_score()
+	flock.stop_following_mouse(end_of_level_target.position)
 	await hud.time_up(score)
 
 	if randi() % 2:

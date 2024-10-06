@@ -78,7 +78,18 @@ func get_neighbour_cells(cell: Vector2i) -> Array:
 	]
 
 var boids_center = Vector2()
+
 var target = Vector2(0, 0)
+var follow_mouse = true
+
+func player_has_control():
+	return follow_mouse
+
+# When game stops
+func stop_following_mouse(new_target: Vector2):
+	follow_mouse = false
+	target = new_target
+
 func _physics_process(_delta):
 	boids_center = Vector2()
 	for boid in boids:
@@ -86,7 +97,9 @@ func _physics_process(_delta):
 	boids_center /= boids.size()
 
 	update_grids()
-	target = get_global_mouse_position()
+
+	if follow_mouse:
+		target = get_global_mouse_position()
 
 func get_visible_neighbours_center(boid: Boid) -> Vector2:
 	if boids.size() == 1:

@@ -20,6 +20,9 @@ position = Vector2(186, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Flock"]
 
+[node name="EndOfLevelTarget" type="Node2D" parent="."]
+position = Vector2(-687, 0)
+
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
 [node name="Area2D" type="CollisionShape2D" parent="ScreenBoundaries"]
