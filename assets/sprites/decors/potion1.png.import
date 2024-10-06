@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1y6g0qxtsnpw"
-path="res://.godot/imported/clock.png-d5b80cf4af540b668434937bb0b843c8.ctex"
+uid="uid://bgb76817jvjvf"
+path="res://.godot/imported/potion1.png-683a4a31433591508f32d367b00ff2d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/clock.png"
-dest_files=["res://.godot/imported/clock.png-d5b80cf4af540b668434937bb0b843c8.ctex"]
+source_file="res://assets/sprites/decors/potion1.png"
+dest_files=["res://.godot/imported/potion1.png-683a4a31433591508f32d367b00ff2d1.ctex"]
 
 [params]
 

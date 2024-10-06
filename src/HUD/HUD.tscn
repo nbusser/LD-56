@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/clock.png" id="3_gm3l4"]
+[ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/ui/clock.png" id="2_yio7s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ni124"]
 font_size = 100
@@ -37,7 +37,7 @@ text = "Timer val"
 
 [node name="ChronoTexture" type="TextureRect" parent="Timer"]
 layout_mode = 2
-texture = ExtResource("3_gm3l4")
+texture = ExtResource("2_yio7s")
 
 [node name="FadeOutPane" type="ColorRect" parent="."]
 visible = false

@@ -3,34 +3,34 @@
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
 [ext_resource type="AudioStream" uid="uid://c8hkt50a1hi0t" path="res://assets/musics/example2.ogg" id="3"]
-[ext_resource type="Texture2D" uid="uid://bxbvwbn2tjei1" path="res://assets/sprites/Model1.png" id="3_7k6rp"]
+[ext_resource type="Texture2D" uid="uid://bxbvwbn2tjei1" path="res://assets/sprites/models/Model1.png" id="3_kt8ar"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="AudioStream" uid="uid://deoulgxys1qw5" path="res://assets/musics/music1.mp3" id="5_41quc"]
 
 [sub_resource type="Resource" id="Resource_3x4mv"]
 script = ExtResource("4_uh455")
-position = Vector2(-200, -275)
+position = Vector2(-800, -275)
 color = Color(1, 1, 1, 1)
 color_quantity = 0
 puddle_size = 3
 
 [sub_resource type="Resource" id="Resource_q5kmv"]
 script = ExtResource("4_uh455")
-position = Vector2(-200, -150)
+position = Vector2(-800, -150)
 color = Color(1, 0, 0, 1)
 color_quantity = 100
 puddle_size = 2
 
 [sub_resource type="Resource" id="Resource_rowwc"]
 script = ExtResource("4_uh455")
-position = Vector2(-200, 0)
+position = Vector2(-800, 0)
 color = Color(0, 1, 0, 1)
 color_quantity = 100
 puddle_size = 3
 
 [sub_resource type="Resource" id="Resource_mxqyn"]
 script = ExtResource("4_uh455")
-position = Vector2(-200, 150)
+position = Vector2(-800, 150)
 color = Color(1, 1, 0, 1)
 color_quantity = 100
 puddle_size = 5
@@ -39,7 +39,7 @@ puddle_size = 5
 script = ExtResource("2_s5lya")
 flock_size = 50
 name = "Le prince de la mosquée"
-goal_texture = ExtResource("3_7k6rp")
+goal_texture = ExtResource("3_kt8ar")
 canvas_position = Vector2(-100, -100)
 canvas_size = Vector2(400, 250)
 time_limit = 60.0
@@ -56,20 +56,22 @@ script = ExtResource("1")
 levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Musics" type="Node" parent="."]
 
 [node name="Music1" type="AudioStreamPlayer" parent="Musics"]
 stream = ExtResource("5_41quc")
+volume_db = 11.086
 bus = &"Music"
 
 [node name="Music2" type="AudioStreamPlayer" parent="Musics"]

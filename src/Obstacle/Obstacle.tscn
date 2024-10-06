@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://7qeealxjwkpq"]
 
 [ext_resource type="Script" path="res://src/Obstacle/Obstacle.gd" id="1_ann4i"]
-[ext_resource type="Texture2D" uid="uid://1ycyerujbgfw" path="res://assets/sprites/obstacle.png" id="1_d8bfc"]
+[ext_resource type="Texture2D" uid="uid://1ycyerujbgfw" path="res://assets/sprites/elements/obstacle.png" id="2_a0qij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6crwi"]
 
@@ -17,4 +17,4 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_6crwi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d8bfc")
+texture = ExtResource("2_a0qij")

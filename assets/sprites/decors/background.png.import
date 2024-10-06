@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e51vc6ac3udb"
-path="res://.godot/imported/moulure.png-532b818ae8dbac3cf4318295b7fcdd1c.ctex"
+uid="uid://favpnwgm47k3"
+path="res://.godot/imported/background.png-144bc45cdcbcecec30a89481cf453d3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/moulure.png"
-dest_files=["res://.godot/imported/moulure.png-532b818ae8dbac3cf4318295b7fcdd1c.ctex"]
+source_file="res://assets/sprites/decors/background.png"
+dest_files=["res://.godot/imported/background.png-144bc45cdcbcecec30a89481cf453d3d.ctex"]
 
 [params]
 

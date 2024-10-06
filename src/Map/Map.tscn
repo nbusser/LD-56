@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=11 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
+[ext_resource type="Texture2D" uid="uid://favpnwgm47k3" path="res://assets/sprites/decors/background.png" id="4_a43bv"]
+[ext_resource type="Texture2D" uid="uid://bgb76817jvjvf" path="res://assets/sprites/decors/potion1.png" id="5_nolx2"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
+[ext_resource type="Texture2D" uid="uid://0vxtlelhrqb8" path="res://assets/sprites/decors/tube1.png" id="6_bwsgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgp8"]
-size = Vector2(1837.75, 31.25)
+size = Vector2(1979.03, 35.625)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n7vxi"]
 
@@ -31,22 +34,23 @@ position = Vector2(-687, 0)
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
 [node name="Area2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(-860.25, 8)
+position = Vector2(-959, 11)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(63.125, -815)
+position = Vector2(16.9688, -537.813)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(0, 803)
+position = Vector2(34, 528)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="Area2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(916, -8)
+position = Vector2(959, 0)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
+metadata/_edit_use_anchors_ = true
 
 [node name="DebugPainting" type="TextureRect" parent="."]
 visible = false
@@ -63,12 +67,14 @@ offset_left = 316.0
 offset_top = -251.0
 offset_right = 316.0
 offset_bottom = -251.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Texture" type="TextureRect" parent="Model"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 0
 texture = SubResource("PlaceholderTexture2D_rjo2u")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="Label" parent="Model"]
 layout_mode = 0
@@ -77,5 +83,21 @@ offset_right = 200.0
 offset_bottom = 228.0
 text = "Painting name"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Obstacles" type="Node" parent="."]
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Decor"]
+z_index = -10
+texture = ExtResource("4_a43bv")
+
+[node name="Decor1" type="Sprite2D" parent="Decor"]
+position = Vector2(172, -364)
+scale = Vector2(0.73301, 0.73301)
+texture = ExtResource("5_nolx2")
+
+[node name="Tube1" type="Sprite2D" parent="Decor"]
+position = Vector2(-820, 65)
+texture = ExtResource("6_bwsgd")

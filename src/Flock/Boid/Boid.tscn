@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://g6ph1sygwj3e"]
 
 [ext_resource type="Texture2D" uid="uid://ctubfwwvj7bm1" path="res://assets/sprites/flies/2A.png" id="2_4c4w6"]
-[ext_resource type="Texture2D" uid="uid://bprdj2krbpywu" path="res://assets/sprites/player.png" id="2_g6d5n"]
 [ext_resource type="Script" path="res://src/Flock/Boid/boid.gd" id="3_doarw"]
 [ext_resource type="Texture2D" uid="uid://dp5iywcuvy0vt" path="res://assets/sprites/flies/2B.png" id="3_owk7a"]
 [ext_resource type="Texture2D" uid="uid://j0i6yqxm58hl" path="res://assets/sprites/flies/1A.png" id="4_6ks8w"]
@@ -47,6 +46,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gkcuc"]
+load_path = "res://.godot/imported/player.png-e1eaffe0873063c60a0d0b322e4d87d9.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
 size = Vector2(375, 376)
 
@@ -73,7 +75,7 @@ animation = &"super_duper_acceleration"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_g6d5n")
+texture = SubResource("CompressedTexture2D_gkcuc")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
