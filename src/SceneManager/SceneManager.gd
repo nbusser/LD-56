@@ -20,6 +20,7 @@ var current_scene: set = set_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	for i in range(levels.size()):
 		levels[i].number = i
 
