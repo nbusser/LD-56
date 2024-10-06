@@ -15,6 +15,7 @@ size = Vector2(1837.75, 31.25)
 script = ExtResource("1_6212v")
 
 [node name="Flock" parent="." instance=ExtResource("2_wc082")]
+position = Vector2(186, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Flock"]
 

@@ -2,12 +2,10 @@ extends TextureRect
 
 @onready var canvas: CanvasItem = Node2D.new()
 @onready var map = $"../../../Map"
-
-var image: Image = Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
-
-
 @onready var line: Line2D = Line2D.new()
 @onready var paintingRect = Rect2(global_position, size)
+
+var image: Image = Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
 
 func _ready():
 

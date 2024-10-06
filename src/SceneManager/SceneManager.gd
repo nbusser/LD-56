@@ -1,10 +1,10 @@
 extends Control
 
+@export var levels: Array[LevelData]
 var current_level_number = 0
-var nb_coins = 0
 
 var current_player: AudioStreamPlayer
-var current_scene : set = set_scene
+var current_scene: set = set_scene
 
 @onready var music_players = $Musics.get_children() as Array[AudioStreamPlayer]
 
@@ -19,6 +19,9 @@ var current_scene : set = set_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in range(levels.size()):
+		levels[i].number = i
+
 	randomize()
 	_run_main_menu()
 
@@ -55,7 +58,7 @@ func set_scene(new_scene):
 
 func _load_level():
 	var scene = level.instantiate()
-	scene.init(current_level_number, nb_coins)
+	scene.init(levels[current_level_number])
 
 	scene.connect("end_of_level", Callable(self, "_on_end_of_level"))
 	scene.connect("game_over", Callable(self, "_on_game_over"))
@@ -64,15 +67,11 @@ func _load_level():
 
 
 func _on_end_of_level():
-	if current_level_number + 1 >= 2:
+	if current_level_number + 1 >= levels.size():
 		# Win
 		_run_credits(false)
 	else:
 		_load_end_level()
-
-
-func first_level():
-	return current_level_number == 0
 
 
 func _on_game_over():
@@ -94,7 +93,7 @@ func _on_restart_select_level():
 
 func _load_end_level():
 	var scene = change_level.instantiate()
-	scene.init(current_level_number, nb_coins)
+	scene.init(levels[current_level_number])
 
 	scene.connect("next_level", Callable(self, "_on_next_level"))
 
