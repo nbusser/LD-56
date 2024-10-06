@@ -13,6 +13,7 @@ var current_scene: set = set_scene
 @onready var change_level = preload("res://src/EndLevel/EndLevel.tscn")
 @onready var credits = preload("res://src/Credits/Credits.tscn")
 @onready var game_over = preload("res://src/GameOver/GameOver.tscn")
+@onready var select_level = preload("res://src/SelectLevel/select_level.tscn")
 
 @onready var viewport = $SubViewportContainer/SubViewport
 
@@ -124,6 +125,7 @@ func _run_main_menu():
 	scene.connect("start_game", Callable(self, "_on_start_game"))
 	scene.connect("quit_game", Callable(self, "_on_quit_game"))
 	scene.connect("show_credits", Callable(self, "_on_show_credits"))
+	scene.connect("select_level", Callable(self, "_on_select_level"))
 
 	self.current_scene = scene
 
@@ -135,3 +137,19 @@ func change_music_track(new_player: AudioStreamPlayer):
 
 		new_player.play()
 		current_player = new_player
+
+func _run_select_level():
+	var scene = select_level.instantiate()
+	
+	scene.init(len(levels))
+	scene.connect("level_selected", Callable(self, "_on_level_selected"))
+	scene.connect("back", Callable(self, "_run_main_menu"))
+
+	self.current_scene = scene
+
+func _on_select_level():
+	_run_select_level()
+
+func _on_level_selected(level):
+	current_level_number = level - 1
+	_on_next_level()
