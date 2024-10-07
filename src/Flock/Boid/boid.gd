@@ -138,6 +138,8 @@ func rand_triangulaire(low: float, high: float, center: float) -> float:
 
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
+	if not flock.player_has_control():
+		return
 	var area_parent = area.get_parent()
 	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
 	color = area_parent.color
@@ -173,7 +175,7 @@ func _process(delta: float) -> void:
 		flock.flockStamina += 0.75 * delta if flock.flockStamina < 90 else 0
 
 	#Drop paint only if following mouse (not cutscene mode)
-	if color_quantity > 0 and flock.follow_mouse:
+	if color_quantity > 0 and flock.player_has_control():
 		if is_hovering_painting and paintDropping:
 			emit_signal("painting_drop", global_position, previous_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta

@@ -20,8 +20,8 @@ func start_level_animation():
 	$ModelLight.visible = true
 	await get_tree().create_timer(1.5).timeout
 	$PaintingLight.visible = true
-	await get_tree().create_timer(1.5).timeout
-
+	
+func start_level_animations_2():
 	var paratween = create_tween()
 	paratween.parallel().tween_property($DarkLight, "energy", 0.0, 1.0)
 	paratween.parallel().tween_property($ModelLight, "energy", 0.0, 1.0)

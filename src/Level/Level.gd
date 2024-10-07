@@ -33,7 +33,7 @@ func _ready():
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
 
-	# Map anim
+	# Map anim 1
 	if level_data.show_cutscene:
 		await map.start_level_animation()
 
@@ -41,7 +41,11 @@ func _ready():
 	flock.stop_following_mouse(start_of_level_target.position)
 	map.set_boundaries(false)
 	flock.set_active(true)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(4.0).timeout
+	
+	# Map anim 2
+	if level_data.show_cutscene:
+		await map.start_level_animations_2()
 
 	# Game starts for real
 	map.set_boundaries(true)
