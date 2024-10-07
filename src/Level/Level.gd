@@ -64,6 +64,8 @@ func init(level: LevelData):
 
 
 func _on_Timer_timeout():
+	$TimesUpSound.play_sound() # TODO: PLACEHOLDER
+	
 	var score = map.get_score()
 	flock.stop_following_mouse(end_of_level_target.position)
 	map.set_boundaries(false)
