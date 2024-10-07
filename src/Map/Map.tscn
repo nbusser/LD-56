@@ -164,7 +164,7 @@ position = Vector2(893, 318)
 scale = Vector2(0.260508, 0.260508)
 sprite_frames = SubResource("SpriteFrames_nl6kk")
 animation = &"flame"
-frame_progress = 0.132228
+frame_progress = 0.0156744
 script = SubResource("GDScript_rrkm0")
 
 [node name="DarkLight" type="DirectionalLight2D" parent="."]

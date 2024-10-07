@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="3_q5fsa"]
 [ext_resource type="AudioStream" uid="uid://cr0wx86hn05gk" path="res://assets/sounds/drumroll_v1.wav" id="4_xmj51"]
 [ext_resource type="AudioStream" uid="uid://me6ikup0cfy2" path="res://assets/sounds/tick.wav" id="5_yd1ww"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_umdmm"]
+[ext_resource type="AudioStream" uid="uid://jv4vt14tdceh" path="res://assets/sounds/crowd_cheer.wav" id="6_lf25v"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4o14p"]
 size = Vector2(560, 680)
@@ -110,4 +110,4 @@ sounds = Array[AudioStream]([ExtResource("5_yd1ww")])
 
 [node name="Whoah" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_q5fsa")
-sounds = Array[AudioStream]([ExtResource("6_umdmm")])
+sounds = Array[AudioStream]([ExtResource("6_lf25v")])

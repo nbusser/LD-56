@@ -68,7 +68,7 @@ func _ready() -> void:
 		await get_tree().create_timer(0.04).timeout
 	await get_tree().create_timer(1.0).timeout
 	
-	$Whoah.play_sound() # TODO: PLACEHOLDER
+	$Whoah.play_sound()
 	$Tick.play_sound()
 	score_label.text = "Grade: " + _score_to_note(grade)
 	await get_tree().create_timer(1.0).timeout

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btohiqrak4tcf" path="res://src/Map/Map.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dwiu4cm7rlq0p" path="res://src/HUD/HUD.tscn" id="3_p81om"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="4_n44fy"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="5_opm4h"]
+[ext_resource type="AudioStream" uid="uid://ce8nt7ve34crw" path="res://assets/sounds/timeUP.wav" id="5_eco77"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1")
@@ -21,6 +21,6 @@ one_shot = true
 
 [node name="TimesUpSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("4_n44fy")
-sounds = Array[AudioStream]([ExtResource("5_opm4h")])
+sounds = Array[AudioStream]([ExtResource("5_eco77")])
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

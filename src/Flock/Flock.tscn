@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xhh4o1xr8v3t"]
+[gd_scene load_steps=5 format=3 uid="uid://xhh4o1xr8v3t"]
 
 [ext_resource type="Script" path="res://src/Flock/flock.gd" id="1_v13y4"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="2_4atsw"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="3_iw8s4"]
+[ext_resource type="AudioStream" uid="uid://cwut61jle3l72" path="res://assets/sounds/out.mp3" id="3_v3mxp"]
+[ext_resource type="AudioStream" uid="uid://dixmtao1615bf" path="res://assets/sounds/in.mp3" id="4_o16np"]
 
 [node name="Flock" type="Node2D"]
 z_index = 150
@@ -12,8 +13,8 @@ script = ExtResource("1_v13y4")
 
 [node name="BuzzSpaced" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_4atsw")
-sounds = Array[AudioStream]([ExtResource("3_iw8s4")])
+sounds = Array[AudioStream]([ExtResource("3_v3mxp")])
 
 [node name="BuzzTightened" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_4atsw")
-sounds = Array[AudioStream]([ExtResource("3_iw8s4")])
+sounds = Array[AudioStream]([ExtResource("4_o16np")])
