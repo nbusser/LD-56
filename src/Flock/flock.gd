@@ -88,9 +88,13 @@ var boids_center = Vector2()
 
 var target = Vector2(0, 0)
 var follow_mouse = false
+var active = false
 
 func player_has_control():
-	return follow_mouse
+	return active and follow_mouse
+
+func set_active(value: bool):
+	active = value
 
 # When game stops
 func stop_following_mouse(new_target: Vector2):
@@ -126,9 +130,9 @@ func get_repulsion_vector(boid: Boid) -> Vector2:
 	
 	
 	for obstacle in obstacleList:
-		var distance = Vector2(-300,-100).distance_to(boid.global_position)
+		var distance = Vector2(-300, -100).distance_to(boid.global_position)
 		if distance < 100:
-			repulsion_vector += 1*(boid.global_position - Vector2(-300,-100)) / (1. if distance == 0 else pow(distance, 1.5))
+			repulsion_vector += 1 * (boid.global_position - Vector2(-300, -100)) / (1. if distance == 0 else pow(distance, 1.5))
 	return repulsion_vector
 
 func get_alignment_vector(boid: Boid) -> Vector2:

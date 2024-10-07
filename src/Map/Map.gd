@@ -8,6 +8,17 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+	
+func start_level_animation():
+	$DarkLight.visible = true
+	$ModelLight.visible = false
+	$PaintingLight.visible = false
+
+	await get_tree().create_timer(1.0).timeout
+	$ModelLight.visible = true
+	await get_tree().create_timer(1.5).timeout
+	$PaintingLight.visible = true
+	await get_tree().create_timer(1.5).timeout
 
 func add_puddle(puddle_data: PaintPuddleData):
 	var newPuddle: PaintPuddle = puddleScene.instantiate()
@@ -22,7 +33,7 @@ func _process(delta: float) -> void:
 	pass
 
 func get_score():
-	return 1.-_compare_two_images(
+	return 1. - _compare_two_images(
 		painting.texture.get_image(),
 		model_texture.texture.get_image()
 	)

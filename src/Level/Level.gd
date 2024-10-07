@@ -24,11 +24,18 @@ func _ready():
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
 
+	# Map anim
+	await map.start_level_animation()
+
+	# Run flock
 	flock.stop_following_mouse(start_of_level_target.position)
 	map.set_boundaries(false)
+	flock.set_active(true)
 	await get_tree().create_timer(1.0).timeout
-	flock.start_following_mouse()
+
+	# Game starts for real
 	map.set_boundaries(true)
+	flock.start_following_mouse()
 
 
 func _process(delta: float) -> void:

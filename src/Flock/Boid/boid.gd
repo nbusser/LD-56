@@ -25,18 +25,16 @@ var formations = {
 		"cohesion_force": 60.0,
 		"align_force": 80.0,
 		"repulsion_force": 140.0,
-		"animation" : "acceleration",
+		"animation": "acceleration",
 	},
 	FlyingFormation.TIGHTEN: {
 		"mouse_follow_force": 80.0,
 		"cohesion_force": 60.0,
 		"align_force": 80.0,
 		"repulsion_force": 65.0,
-		"animation" : "super_duper_acceleration",
+		"animation": "super_duper_acceleration",
 	},
 }
-
-
 
 
 var flying_formation = FlyingFormation.SPACED
@@ -84,7 +82,7 @@ func calculate_forces(target_position: Vector2) -> Array[Vector2]:
 
 	# Force to go toward mouse
 	var mouse_vector = global_position.direction_to(target_position);
-	var is_mouse_too_close_smooth = smoothstep(repulsion_range*.3 * .75, repulsion_range*.3 * 1.25, global_position.distance_to(target_position))
+	var is_mouse_too_close_smooth = smoothstep(repulsion_range * .3 * .75, repulsion_range * .3 * 1.25, global_position.distance_to(target_position))
 	var mouse_force = mouse_vector.normalized() * mouse_follow_force * is_mouse_too_close_smooth
 
 	# return {
@@ -103,6 +101,9 @@ func calculate_forces(target_position: Vector2) -> Array[Vector2]:
 	]
 
 func _physics_process(delta) -> void:
+	if flock.active == false:
+		return
+
 	# Force
 	var forces = calculate_forces(flock.target)
 	# var sum_forces = Vector2() if forces.is_empty() else forces.values().reduce(func(acc, val): return acc + val)
@@ -128,7 +129,7 @@ func _physics_process(delta) -> void:
 	# Move
 	move_and_slide()
 
-func rand_triangulaire(low : float , high :float , center : float) -> float:
+func rand_triangulaire(low: float, high: float, center: float) -> float:
 	var u = randf()
 	if u < (center - low) / (high - low):
 		return low + sqrt(u * (high - low) * (center - low))
@@ -143,7 +144,7 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	assert(color != Color.WHITE)
 	color_quantity = area_parent.color_quantity
 	#When they get the painting, randomize a little the qqty
-	color_quantity = (rand_triangulaire(color_quantity*0.75,color_quantity,color_quantity*1.1))
+	color_quantity = (rand_triangulaire(color_quantity * 0.75, color_quantity, color_quantity * 1.1))
 
 func _input(event):
 	# TODO: implement things similar ? like superpowers ?

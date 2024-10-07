@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=13 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintVapor/PaintVapor.tscn" id="2_8dmq2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgb76817jvjvf" path="res://assets/sprites/decors/potion1.png" id="5_nolx2"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="Texture2D" uid="uid://0vxtlelhrqb8" path="res://assets/sprites/decors/tube1.png" id="6_bwsgd"]
+[ext_resource type="Texture2D" uid="uid://b0ct20fof5xj6" path="res://assets/sprites/light_shape.png" id="8_8ewea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1636)
@@ -125,3 +126,19 @@ color = Color(0.870588, 0.686275, 0.141176, 1)
 [node name="BluePaintVapor" parent="PaintVapors" instance=ExtResource("2_8dmq2")]
 position = Vector2(140, 138)
 color = Color(0.289106, 0.523818, 0.928381, 1)
+
+[node name="DarkLight" type="DirectionalLight2D" parent="."]
+visible = false
+blend_mode = 1
+
+[node name="ModelLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(554.5, -544.476)
+scale = Vector2(4.11523, 8.53311)
+texture = ExtResource("8_8ewea")
+
+[node name="PaintingLight" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-326, -540.977)
+scale = Vector2(4.11523, 8.64444)
+texture = ExtResource("8_8ewea")
