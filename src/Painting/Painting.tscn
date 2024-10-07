@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck5gtekjyxb4"]
+[gd_scene load_steps=5 format=3 uid="uid://ck5gtekjyxb4"]
 
 [ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
+[ext_resource type="Material" uid="uid://c5tda36yoi01e" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_st7ok"]
 size = Vector2(0, 0)
@@ -20,3 +21,23 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingArea"]
 shape = SubResource("RectangleShape2D_b7a6o")
+
+[node name="subviewports" type="Node" parent="."]
+
+[node name="ShaderSubViewport" type="SubViewport" parent="subviewports"]
+disable_3d = true
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="subviewports/ShaderSubViewport"]
+material = ExtResource("2_g62w3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="subviewports/ShaderSubViewport"]
+visible = false
+material = ExtResource("2_g62w3")
+offset_right = 40.0
+offset_bottom = 40.0

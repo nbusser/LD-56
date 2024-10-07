@@ -134,12 +134,13 @@ func rand_triangulaire(low : float , high :float , center : float) -> float:
 		return low + sqrt(u * (high - low) * (center - low))
 	else:
 		return high - sqrt((1 - u) * (high - low) * (high - center))
-	
+
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
 	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
 	color = area_parent.color
+	assert(color != Color.WHITE)
 	color_quantity = area_parent.color_quantity
 	#When they get the painting, randomize a little the qqty
 	color_quantity = (rand_triangulaire(color_quantity*0.75,color_quantity,color_quantity*1.1))
@@ -158,6 +159,7 @@ func _input(event):
 			paintDropping = true
 			thisAnimatedSprite.play(formations[flying_formation]["animation"])
 
+@onready var previous_position = global_position
 func _process(delta: float) -> void:
 	#If they are compressed, lose stamina
 	if flying_formation == FlyingFormation.TIGHTEN:
@@ -172,8 +174,9 @@ func _process(delta: float) -> void:
 	#Drop paint
 	if color_quantity > 0:
 		if is_hovering_painting and paintDropping:
-			emit_signal("painting_drop", global_position, velocity, color, color_quantity, delta)
+			emit_signal("painting_drop", global_position, previous_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
+	previous_position = global_position
 
 func _on_painting_detector_area_entered(area: Area2D) -> void:
 	is_hovering_painting = true

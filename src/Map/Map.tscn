@@ -35,19 +35,19 @@ position = Vector2(-687, 0)
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
 [node name="Area2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(-959, 11)
+position = Vector2(-967.49, 11)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(16.9688, -537.813)
+position = Vector2(16.969, -553.08)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(34, 528)
+position = Vector2(34, 550.795)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="Area2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(959, 0)
+position = Vector2(968.165, 0)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
