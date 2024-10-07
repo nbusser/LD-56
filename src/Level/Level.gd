@@ -17,18 +17,18 @@ func _ready():
 	hud.update_timer(level_data.time_limit)
 	
 	flock.spawn(level_data.flock_size)
-	
-	for i in range(5):
-		var puddle = PaintPuddleData.new()
-		puddle.color = [Color.FIREBRICK, Color.GOLD, Color.LIGHT_GREEN, Color.BLUE_VIOLET, Color.ROYAL_BLUE].pick_random()
-		puddle.container_type = PaintPuddle.ContainerType.values().pick_random()
-		puddle.position = Vector2((randf()-0.5)*1000, (randf()-0.5)*1000)
-		puddle.puddle_size = 1
-		puddle.color_quantity = 1
-		map.add_puddle(puddle)
+	#Random below
+	#for i in range(0):
+	#	var puddle = PaintPuddleData.new()
+	#	puddle.color = [Color.FIREBRICK, Color.GOLD, Color.LIGHT_GREEN, Color.BLUE_VIOLET, Color.ROYAL_BLUE].pick_random()
+	#	puddle.container_type = PaintPuddle.ContainerType.values().pick_random()
+	#	puddle.position = Vector2((randf()-0.5)*1000, (randf()-0.5)*1000)
+	#	puddle.puddle_size = 1
+	#	puddle.color_quantity = 1
+	#	map.add_puddle(puddle)
 
-	#for puddle in self.level_data.puddles:
-		#map.add_puddle(puddle)
+	for puddle in self.level_data.puddles:
+		map.add_puddle(puddle)
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)

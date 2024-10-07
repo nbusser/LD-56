@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=20 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
-[ext_resource type="Texture2D" uid="uid://bxbvwbn2tjei1" path="res://assets/sprites/models/Model1.png" id="3_kt8ar"]
+[ext_resource type="Texture2D" uid="uid://b5brpraqjb3fq" path="res://assets/sprites/models/1-malekitsch.png" id="3_nqw0q"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="Texture2D" uid="uid://bvuwdnbueue6s" path="res://assets/sprites/models/windob.png" id="5_bskrg"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
@@ -11,16 +11,48 @@
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
 [ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 
+[sub_resource type="Resource" id="Resource_notdt"]
+script = ExtResource("4_uh455")
+position = Vector2(-835, -300)
+color = Color(0.733333, 0.278431, 0.282353, 1)
+color_quantity = 55
+puddle_size = 1
+container_type = 4
+
+[sub_resource type="Resource" id="Resource_7l6us"]
+script = ExtResource("4_uh455")
+position = Vector2(150, -300)
+color = Color(0.113725, 0.207843, 0.521569, 1)
+color_quantity = 35
+puddle_size = 1
+container_type = 2
+
+[sub_resource type="Resource" id="Resource_0r3pa"]
+script = ExtResource("4_uh455")
+position = Vector2(-800, 300)
+color = Color(0.737255, 0.666667, 0.101961, 1)
+color_quantity = 25
+puddle_size = 1
+container_type = 0
+
+[sub_resource type="Resource" id="Resource_blw3d"]
+script = ExtResource("4_uh455")
+position = Vector2(750, 150)
+color = Color(0.74902, 0.34902, 0.0705882, 1)
+color_quantity = 20
+puddle_size = 1
+container_type = 3
+
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
-flock_size = 50
-name = "Le prince de la mosquée"
-goal_texture = ExtResource("3_kt8ar")
+flock_size = 40
+name = "Malekitsch"
+goal_texture = ExtResource("3_nqw0q")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
-time_limit = 20.0
-puddles = Array[ExtResource("4_uh455")]([])
-show_cutscene = true
+time_limit = 40.0
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_notdt"), SubResource("Resource_7l6us"), SubResource("Resource_0r3pa"), SubResource("Resource_blw3d")])
+show_cutscene = false
 obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_rio58"]

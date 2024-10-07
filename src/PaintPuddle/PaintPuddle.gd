@@ -42,7 +42,7 @@ func init(pos: Vector2, size: int, color: Color, quantity: int, container_type: 
 	#Modulate the quantity depending on the quantity and the scaling
 	#TODO CHANGE THE 3 DEPENDING ON THE SCALING OF THE ITEM
 	#This will result in less paint from the start of the bidule
-	self.color_quantity = quantity * size/5
+	self.color_quantity = quantity
 	self.container_type = container_type
 
 func _ready() -> void:

@@ -7,7 +7,6 @@ class_name PaintVapor
 	set(value):
 		self._on_update_color(value)
 		color = value
-var color_quantity = 100
 
 @onready var bubbles = $Bubbles
 @onready var smoke = $Smoke

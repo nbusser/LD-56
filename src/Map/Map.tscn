@@ -119,3 +119,6 @@ sounds = Array[AudioStream]([ExtResource("6_ulso1")])
 [node name="Allelujah" type="AudioStreamPlayer" parent="."]
 script = ExtResource("6_rbfmj")
 sounds = Array[AudioStream]([ExtResource("6_ulso1")])
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-823.953, 420.108)
