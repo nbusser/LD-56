@@ -134,12 +134,12 @@ func _physics_process(delta) -> void:
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	if not flock.player_has_control():
 		return
-	$GotPaintedSound.play_sound() # TODO: PLACEHOLDER
 	var area_parent = area.get_parent()
 	if area_parent is not PaintPuddle and area_parent is not PaintVapor:
 		#Cat
 		return
 	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
+	$GotPaintedSound.play_sound() # TODO: PLACEHOLDER
 	color = area_parent.color
 	assert(color != Color.WHITE)
 	self.modulate = color

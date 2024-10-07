@@ -19,7 +19,6 @@ func start_level_animation():
 	await create_tween().tween_property($DarkLight, "energy", 0.85, 2.5).finished
 	await get_tree().create_timer(1.0).timeout
 	$ModelLight.visible = true
-	#Thx to https://freesound.org/people/InspectorJ/sounds/414434/
 	$LightUp.play_sound()
 	$Allelujah.play_sound()
 	
