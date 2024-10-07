@@ -37,11 +37,10 @@ texture = ExtResource("2_jxje3")
 position = Vector2(-3.89999, -325.9)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ew31e")
-frame = 1
-frame_progress = 0.0537051
+autoplay = "default"
 
 [node name="PaintVapor" parent="." instance=ExtResource("2_hopff")]
-scale = Vector2(8, 1)
+scale = Vector2(8, 1.5)
 
 [node name="CauldronFg" type="Sprite2D" parent="."]
 position = Vector2(-3.89999, -325.9)

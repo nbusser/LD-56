@@ -12,16 +12,16 @@ script = ExtResource("1_yf3fr")
 [node name="PaintVapor" parent="." instance=ExtResource("2_ijt2t")]
 
 [node name="TubeMg" type="Sprite2D" parent="."]
-position = Vector2(-11, 129)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-4, 53)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_2vcbv")
 
 [node name="TubeBg" type="Sprite2D" parent="."]
-position = Vector2(-7.5, 124.5)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-3, 51)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_suuy6")
 
 [node name="TubeFgSmall" type="Sprite2D" parent="."]
-position = Vector2(0.5, 118.5)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1, 46)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_isnyg")

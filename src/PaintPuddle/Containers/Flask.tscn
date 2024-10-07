@@ -32,16 +32,17 @@ script = ExtResource("1_fytik")
 scale = Vector2(2, 1)
 
 [node name="FlaskBg" type="Sprite2D" parent="."]
-position = Vector2(14, 98)
-scale = Vector2(0.4, 0.4)
+position = Vector2(7.6, 50.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_mq5cn")
 
 [node name="FlaskMg" type="AnimatedSprite2D" parent="."]
-position = Vector2(18.5, -69.4)
-scale = Vector2(0.4, 0.4)
+position = Vector2(9.6, -33.7)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_5uf0l")
+autoplay = "default"
 
 [node name="FlaskFg" type="Sprite2D" parent="."]
-position = Vector2(14, 98)
-scale = Vector2(0.4, 0.4)
+position = Vector2(7.6, 50.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_jpgmm")

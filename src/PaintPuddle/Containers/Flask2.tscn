@@ -51,15 +51,13 @@ script = ExtResource("1_dydts")
 position = Vector2(-0.999999, 197)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ltxi3")
-frame = 2
-frame_progress = 0.455419
+autoplay = "default"
 
 [node name="Flask2Mg" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.38419e-07, 79)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_425w2")
-frame = 1
-frame_progress = 0.734999
+autoplay = "default"
 
 [node name="PaintVapor" parent="." instance=ExtResource("2_bk1fe")]
 scale = Vector2(2, 1)
