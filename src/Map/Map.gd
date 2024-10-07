@@ -44,3 +44,7 @@ func _compare_two_images(image1: Image, image2: Image) -> float:
 	#Plus la note est éloignée de 0, moins c'est bien
 	#On divise par 3 pour normaliser en 3D
 	return sum / (3 * (image1.get_width() * image1.get_height()))
+
+func set_boundaries(value: bool):
+	for shape in $ScreenBoundaries.get_children():
+		shape.disabled = !value

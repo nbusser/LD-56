@@ -25,8 +25,10 @@ func _ready():
 	map.set_model(level_data.name, level_data.goal_texture)
 
 	flock.stop_following_mouse(start_of_level_target.position)
+	map.set_boundaries(false)
 	await get_tree().create_timer(1.0).timeout
 	flock.start_following_mouse()
+	map.set_boundaries(true)
 
 
 func _process(delta: float) -> void:
@@ -40,6 +42,8 @@ func init(level: LevelData):
 func _on_Timer_timeout():
 	var score = map.get_score()
 	flock.stop_following_mouse(end_of_level_target.position)
+	map.set_boundaries(false)
+
 	await hud.time_up(score)
 
 	emit_signal("end_of_level")

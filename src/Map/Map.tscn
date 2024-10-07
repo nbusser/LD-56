@@ -24,13 +24,13 @@ script = ExtResource("1_6212v")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Flock" parent="." instance=ExtResource("2_wc082")]
-position = Vector2(-763, 0)
+position = Vector2(-1414, -392)
 
 [node name="StartOfLevelTarget" type="Node2D" parent="."]
-position = Vector2(-430, -150)
+position = Vector2(-764, -398)
 
 [node name="EndOfLevelTarget" type="Node2D" parent="."]
-position = Vector2(-687, 0)
+position = Vector2(-1747, 2)
 
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
