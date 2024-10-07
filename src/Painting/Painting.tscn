@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck5gtekjyxb4"]
+[gd_scene load_steps=7 format=3 uid="uid://ck5gtekjyxb4"]
 
 [ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
 [ext_resource type="Material" uid="uid://c5tda36yoi01e" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
+[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="3_ey3bf"]
+[ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="4_q5pmv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_st7ok"]
 size = Vector2(0, 0)
@@ -35,3 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PaintSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_q5pmv")
+sounds = Array[AudioStream]([ExtResource("3_ey3bf")])

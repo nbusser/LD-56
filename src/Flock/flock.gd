@@ -23,9 +23,9 @@ func _process(delta: float) -> void:
 		if boid.flying_formation != flying_formation:
 			flying_formation = boid.flying_formation
 			if flying_formation == Globals.FlyingFormation.SPACED:
-				$BuzzSpaced.play_sound()
+				$BuzzSpaced.play_sound() # TODO: PLACEHOLDER
 			elif flying_formation == Globals.FlyingFormation.TIGHTEN:
-				$BuzzTightened.play_sound()
+				$BuzzTightened.play_sound() # TODO: PLACEHOLDER
 
 func spawn(flock_size: int):
 	for _i in range(flock_size):
