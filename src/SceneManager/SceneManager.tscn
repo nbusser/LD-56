@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=13 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cleqgjfw4pwdu" path="res://assets/musics/music1.wav" id="5_eqnit"]
 [ext_resource type="AudioStream" uid="uid://rp7gsbaau2km" path="res://assets/musics/music2.wav" id="6_arco6"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
+[ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
@@ -77,3 +78,6 @@ bus = &"Music"
 stream = ExtResource("6_arco6")
 volume_db = 5.0
 bus = &"Music"
+
+[node name="Menu" type="AudioStreamPlayer" parent="Musics"]
+stream = ExtResource("7_u1d1h")

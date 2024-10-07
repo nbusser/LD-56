@@ -39,6 +39,7 @@ func _on_quit_game():
 
 
 func _on_start_game():
+	change_music_track(music_players[0])
 	_load_level()
 
 
@@ -127,7 +128,7 @@ func _run_credits(can_go_back):
 func _run_main_menu():
 	var scene = main_menu.instantiate()
 
-	change_music_track(music_players[0])
+	change_music_track(music_players[music_players.size() - 1])
 
 	scene.connect("start_game", Callable(self, "_on_start_game"))
 	scene.connect("quit_game", Callable(self, "_on_quit_game"))
