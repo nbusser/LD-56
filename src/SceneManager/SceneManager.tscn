@@ -96,7 +96,7 @@ canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
 time_limit = 35.0
 puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_7t5cy"), SubResource("Resource_wl5f0"), SubResource("Resource_dm37x")])
-show_cutscene = false
+show_cutscene = true
 obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_rio58")])
 
 [sub_resource type="Resource" id="Resource_gyg0o"]

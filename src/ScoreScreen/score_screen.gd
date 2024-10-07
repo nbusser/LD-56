@@ -68,7 +68,16 @@ func _ready() -> void:
 		await get_tree().create_timer(0.04).timeout
 	await get_tree().create_timer(1.0).timeout
 	
-	$Whoah.play_sound()
+	#$Whoah.play_sound()
+	var strnote = _score_to_note(grade)
+	if strnote == "A" or strnote == "A+" or strnote == "A-":
+		$A.play_sound() 
+	elif strnote == "B" or strnote == "B+" or strnote == "B-":
+		$B.play_sound() 
+	elif strnote == "C" or strnote == "C+" or strnote == "C-":
+		$C.play_sound() 
+	if strnote == "D" or strnote == "D+" or strnote == "D-":
+		$D.play_sound() 
 	$Tick.play_sound()
 	score_label.text = "Grade: " + _score_to_note(grade)
 	await get_tree().create_timer(1.0).timeout
