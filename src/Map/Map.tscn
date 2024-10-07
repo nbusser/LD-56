@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=22 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
@@ -8,7 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="6_rbfmj"]
 [ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_ulso1"]
+[ext_resource type="Script" path="res://src/Map/decor.gd" id="6_vhle0"]
+[ext_resource type="Texture2D" uid="uid://lopffysdkmjm" path="res://assets/sprites/tabouert.png" id="7_f3mwm"]
 [ext_resource type="Texture2D" uid="uid://b0ct20fof5xj6" path="res://assets/sprites/light_shape.png" id="8_8ewea"]
+[ext_resource type="Texture2D" uid="uid://cpplnmirawpko" path="res://assets/sprites/candle/LD56_bougie.png" id="8_yd3kp"]
+[ext_resource type="Texture2D" uid="uid://e6kh5bxt1ivh" path="res://assets/sprites/candle/LD56_bougie flamme 1.png" id="9_fmt2c"]
+[ext_resource type="Texture2D" uid="uid://dmdds4bffhyb3" path="res://assets/sprites/candle/LD56_bougie flamme 2.png" id="10_po8n2"]
+[ext_resource type="Texture2D" uid="uid://ieqlr48m881s" path="res://assets/sprites/candle/LD56_bougie flamme 3.png" id="11_08na1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1144)
@@ -19,6 +25,38 @@ size = Vector2(1947, 35.625)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n7vxi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rjo2u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nl6kk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fmt2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_po8n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_08na1")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 7.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_rrkm0"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_6212v")
@@ -105,10 +143,29 @@ texture = ExtResource("5_evsel")
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Decor" type="Node2D" parent="."]
+script = ExtResource("6_vhle0")
 
 [node name="Background" type="Sprite2D" parent="Decor"]
 z_index = -10
 texture = ExtResource("4_a43bv")
+
+[node name="Tabouret" type="Sprite2D" parent="Decor"]
+position = Vector2(882, 467)
+scale = Vector2(0.216402, 0.216402)
+texture = ExtResource("7_f3mwm")
+
+[node name="Candle" type="Sprite2D" parent="Decor"]
+position = Vector2(893, 311)
+scale = Vector2(0.216402, 0.216402)
+texture = ExtResource("8_yd3kp")
+
+[node name="CandleFlame" type="AnimatedSprite2D" parent="Decor"]
+position = Vector2(893, 318)
+scale = Vector2(0.260508, 0.260508)
+sprite_frames = SubResource("SpriteFrames_nl6kk")
+animation = &"flame"
+frame_progress = 0.132228
+script = SubResource("GDScript_rrkm0")
 
 [node name="DarkLight" type="DirectionalLight2D" parent="."]
 visible = false
