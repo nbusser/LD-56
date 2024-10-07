@@ -6,7 +6,7 @@ signal quit_game
 signal select_level
 
 func _ready():
-	$AnimationPlayer.play("cloud")
+	$Splash/AnimationPlayer.play("cloud")
 
 func _on_Start_pressed():
 	emit_signal("start_game")
