@@ -18,10 +18,10 @@ func _ready():
 	
 	flock.spawn(level_data.flock_size)
 	
-	for i in range(20):
+	for i in range(5):
 		var puddle = PaintPuddleData.new()
 		puddle.color = [Color.FIREBRICK, Color.GOLD, Color.LIGHT_GREEN, Color.BLUE_VIOLET, Color.ROYAL_BLUE].pick_random()
-		puddle.container_type = PaintPuddle.ContainerType.keys().pick_random()
+		puddle.container_type = PaintPuddle.ContainerType.values().pick_random()
 		puddle.position = Vector2((randf()-0.5)*1000, (randf()-0.5)*1000)
 		puddle.puddle_size = 1
 		puddle.color_quantity = 1

@@ -29,20 +29,20 @@ animations = [{
 script = ExtResource("1_xpte8")
 
 [node name="CauldronBg" type="Sprite2D" parent="."]
-position = Vector2(-3.89999, -325.9)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_jxje3")
 
 [node name="CauldronMg" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3.89999, -325.9)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ew31e")
 autoplay = "default"
 
 [node name="PaintVapor" parent="." instance=ExtResource("2_hopff")]
-scale = Vector2(8, 1.5)
+scale = Vector2(4, 1)
 
 [node name="CauldronFg" type="Sprite2D" parent="."]
-position = Vector2(-3.89999, -325.9)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_kvnds")
