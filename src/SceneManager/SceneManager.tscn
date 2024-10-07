@@ -15,7 +15,7 @@
 script = ExtResource("4_uh455")
 position = Vector2(-835, -300)
 color = Color(0.733333, 0.278431, 0.282353, 1)
-color_quantity = 55
+color_quantity = 60
 puddle_size = 1
 container_type = 4
 
@@ -23,7 +23,7 @@ container_type = 4
 script = ExtResource("4_uh455")
 position = Vector2(150, -300)
 color = Color(0.113725, 0.207843, 0.521569, 1)
-color_quantity = 35
+color_quantity = 45
 puddle_size = 1
 container_type = 2
 
@@ -31,7 +31,7 @@ container_type = 2
 script = ExtResource("4_uh455")
 position = Vector2(-800, 300)
 color = Color(0.737255, 0.666667, 0.101961, 1)
-color_quantity = 25
+color_quantity = 30
 puddle_size = 1
 container_type = 0
 
