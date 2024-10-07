@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwisnncrljj33"]
+
+[ext_resource type="Script" path="res://src/PaintPuddle/Containers/Flask.gd" id="1_fytik"]
+[ext_resource type="Texture2D" uid="uid://b888i17qhmf6i" path="res://assets/sprites/containers/flask/flask_bg.png" id="3_mq5cn"]
+[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintVapor/PaintVapor.tscn" id="3_pyxnt"]
+[ext_resource type="Texture2D" uid="uid://bdnk2t0wt3a3y" path="res://assets/sprites/containers/flask/flask_mg1.png" id="4_ykvjm"]
+[ext_resource type="Texture2D" uid="uid://cg4hf6j1elfom" path="res://assets/sprites/containers/flask/flask_mg2.png" id="5_8nlel"]
+[ext_resource type="Texture2D" uid="uid://cxmoc55ntogx2" path="res://assets/sprites/containers/flask/flask_fg.png" id="5_jpgmm"]
+[ext_resource type="Texture2D" uid="uid://bfpg0sgpxj3lk" path="res://assets/sprites/containers/flask/flask_mg3.png" id="6_a444e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uf0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ykvjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8nlel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a444e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flask" type="Node2D"]
+script = ExtResource("1_fytik")
+
+[node name="PaintVapor" parent="." instance=ExtResource("3_pyxnt")]
+scale = Vector2(2, 1)
+
+[node name="FlaskBg" type="Sprite2D" parent="."]
+position = Vector2(7.6, 50.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_mq5cn")
+
+[node name="FlaskMg" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.6, -33.7)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_5uf0l")
+autoplay = "default"
+
+[node name="FlaskFg" type="Sprite2D" parent="."]
+position = Vector2(7.6, 50.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_jpgmm")

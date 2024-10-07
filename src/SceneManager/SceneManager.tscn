@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bxbvwbn2tjei1" path="res://assets/sprites/models/Model1.png" id="3_kt8ar"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="Texture2D" uid="uid://bvuwdnbueue6s" path="res://assets/sprites/models/windob.png" id="5_bskrg"]
-[ext_resource type="AudioStream" uid="uid://cleqgjfw4pwdu" path="res://assets/musics/music1.wav" id="5_eqnit"]
-[ext_resource type="AudioStream" uid="uid://rp7gsbaau2km" path="res://assets/musics/music2.wav" id="6_arco6"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
 [ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
+[ext_resource type="AudioStream" uid="uid://cqk7jl4q12skq" path="res://assets/musics/game music 1_v2.mp3" id="7_6p4f3"]
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
+[ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
@@ -86,12 +86,12 @@ render_target_update_mode = 4
 [node name="Musics" type="Node" parent="."]
 
 [node name="Music1" type="AudioStreamPlayer" parent="Musics"]
-stream = ExtResource("5_eqnit")
+stream = ExtResource("7_6p4f3")
 volume_db = 5.0
 bus = &"Music"
 
 [node name="Music2" type="AudioStreamPlayer" parent="Musics"]
-stream = ExtResource("6_arco6")
+stream = ExtResource("8_rlbh6")
 volume_db = 5.0
 bus = &"Music"
 

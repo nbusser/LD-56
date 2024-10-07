@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://bejj2as1nko3x"]
+
+[ext_resource type="Script" path="res://src/PaintPuddle/Containers/Cauldron.gd" id="1_xpte8"]
+[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintVapor/PaintVapor.tscn" id="2_hopff"]
+[ext_resource type="Texture2D" uid="uid://gv5duydm37as" path="res://assets/sprites/containers/cauldron/cauldron_bg.png" id="2_jxje3"]
+[ext_resource type="Texture2D" uid="uid://cr7xyja0sdghj" path="res://assets/sprites/containers/cauldron/cauldron_mg1.png" id="3_lrw23"]
+[ext_resource type="Texture2D" uid="uid://bdp6shobi1lvd" path="res://assets/sprites/containers/cauldron/cauldron_mg2.png" id="4_i6c5j"]
+[ext_resource type="Texture2D" uid="uid://dv5piu2h5t6f7" path="res://assets/sprites/containers/cauldron/cauldron_fg.png" id="4_kvnds"]
+[ext_resource type="Texture2D" uid="uid://cvs0lvqbkrp42" path="res://assets/sprites/containers/cauldron/cauldron_mg3.png" id="5_b3ni5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew31e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lrw23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i6c5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b3ni5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cauldron" type="Node2D"]
+script = ExtResource("1_xpte8")
+
+[node name="CauldronBg" type="Sprite2D" parent="."]
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jxje3")
+
+[node name="CauldronMg" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ew31e")
+autoplay = "default"
+
+[node name="PaintVapor" parent="." instance=ExtResource("2_hopff")]
+scale = Vector2(4, 1)
+
+[node name="CauldronFg" type="Sprite2D" parent="."]
+position = Vector2(-0.299999, -100.3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_kvnds")

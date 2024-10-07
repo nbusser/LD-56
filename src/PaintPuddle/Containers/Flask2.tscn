@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqlwp7fx4tv5f"]
+
+[ext_resource type="Script" path="res://src/PaintPuddle/Containers/Flask2.gd" id="1_dydts"]
+[ext_resource type="PackedScene" uid="uid://bnhjdh3vkloms" path="res://src/PaintVapor/PaintVapor.tscn" id="2_bk1fe"]
+[ext_resource type="Texture2D" uid="uid://lumqw8b45gwg" path="res://assets/sprites/containers/flask2/flask2_fg.png" id="3_awci4"]
+[ext_resource type="Texture2D" uid="uid://5x6ia1vtoubn" path="res://assets/sprites/containers/flask2/flask2_bg1.png" id="4_o5awb"]
+[ext_resource type="Texture2D" uid="uid://bymfdpkss26lf" path="res://assets/sprites/containers/flask2/flask2_bg2.png" id="5_e13w8"]
+[ext_resource type="Texture2D" uid="uid://cdjaonnibdivk" path="res://assets/sprites/containers/flask2/flask2_bg3.png" id="6_a3jc6"]
+[ext_resource type="Texture2D" uid="uid://w3lesyf6lyql" path="res://assets/sprites/containers/flask2/flask2_mg1.png" id="7_3v0t7"]
+[ext_resource type="Texture2D" uid="uid://b1s6xd15o51gd" path="res://assets/sprites/containers/flask2/flask2_mg2.png" id="8_0clbi"]
+[ext_resource type="Texture2D" uid="uid://8ngf17at2i6l" path="res://assets/sprites/containers/flask2/flask2_mg3.png" id="9_oxx3x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltxi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o5awb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e13w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a3jc6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_425w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3v0t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0clbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oxx3x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flask2" type="Node2D"]
+script = ExtResource("1_dydts")
+
+[node name="Flask2Bg" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.999999, 197)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ltxi3")
+autoplay = "default"
+
+[node name="Flask2Mg" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, 79)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_425w2")
+autoplay = "default"
+
+[node name="PaintVapor" parent="." instance=ExtResource("2_bk1fe")]
+scale = Vector2(2, 1)
+
+[node name="Flask2Fg" type="Sprite2D" parent="."]
+position = Vector2(-0.0999908, 79.9)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_awci4")

@@ -31,6 +31,7 @@ enabled=PackedStringArray()
 
 [gui]
 
+theme/custom="res://assets/global_theme.tres"
 theme/custom_font="res://assets/fonts/smallburg-Regular.ttf"
 
 [input]

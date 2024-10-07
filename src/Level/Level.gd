@@ -18,16 +18,29 @@ func _ready():
 	
 	flock.spawn(level_data.flock_size)
 	
-	for puddle in self.level_data.puddles:
+	for i in range(5):
+		var puddle = PaintPuddleData.new()
+		puddle.color = [Color.FIREBRICK, Color.GOLD, Color.LIGHT_GREEN, Color.BLUE_VIOLET, Color.ROYAL_BLUE].pick_random()
+		puddle.container_type = PaintPuddle.ContainerType.values().pick_random()
+		puddle.position = Vector2((randf()-0.5)*1000, (randf()-0.5)*1000)
+		puddle.puddle_size = 1
+		puddle.color_quantity = 1
 		map.add_puddle(puddle)
+
+	#for puddle in self.level_data.puddles:
+		#map.add_puddle(puddle)
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
 
+<<<<<<< HEAD
 	#Obstacles
 	for obstacle in self.level_data.obstacles:
 		map.add_obstacle(obstacle)
 	# Map anim
+=======
+	# Map anim 1
+>>>>>>> 22177dd0f659962e529177c70035368cc48c6b28
 	if level_data.show_cutscene:
 		await map.start_level_animation()
 
@@ -35,7 +48,11 @@ func _ready():
 	flock.stop_following_mouse(start_of_level_target.position)
 	map.set_boundaries(false)
 	flock.set_active(true)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(4.0).timeout
+	
+	# Map anim 2
+	if level_data.show_cutscene:
+		await map.start_level_animations_2()
 
 	# Game starts for real
 	map.set_boundaries(true)
@@ -58,7 +75,7 @@ func _on_Timer_timeout():
 	flock.stop_following_mouse(end_of_level_target.position)
 	map.set_boundaries(false)
 
-	await hud.time_up(score)
+	await hud.time_up()
 
 	emit_signal("end_of_level", painting.texture.get_image(), score)
 	#emit_signal("game_over")

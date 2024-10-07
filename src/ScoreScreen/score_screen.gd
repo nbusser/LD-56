@@ -63,15 +63,16 @@ func _ready() -> void:
 		for mod in modificators:
 			all_ratings.push_back(rating + mod)
 
-	for i in range(randi() % 10 + 20):
+	$Drums.play_sound()
+	for i in range(55):
 		var fake_rating = ratings[randi()%ratings.size()] + modificators[randi()%modificators.size()]
 		score_label.text = "Grade: " + _score_to_note(randf())
 		await get_tree().create_timer(0.04).timeout
-	await get_tree().create_timer(1.0).timeout
 	
 	score_label.text = "Grade: " + _score_to_note(grade)
 	await get_tree().create_timer(1.0).timeout
 	
+	$Tick.play_sound()
 	comment_label.text = _score_to_comment(grade)
 	comment_label.visible = true
 	await get_tree().create_timer(1.5).timeout
