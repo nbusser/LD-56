@@ -10,28 +10,28 @@ extends Node2D
 func _ready() -> void:
 	pass
 
-func start_level_animation():
+func start_level_animation(duration_factor: float):
 	$DarkLight.visible = true
 	$ModelLight.visible = false
 	$PaintingLight.visible = false
 
-	await get_tree().create_timer(0.3).timeout
-	await create_tween().tween_property($DarkLight, "energy", 0.85, 2.5).finished
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.3 * duration_factor).timeout
+	await create_tween().tween_property($DarkLight, "energy", 0.85, 2.5 * duration_factor).finished
+	await get_tree().create_timer(1.0 * duration_factor).timeout
 	$ModelLight.visible = true
 	$LightUp.play_sound()
 	$Allelujah.play_sound()
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.5 * duration_factor).timeout
 	$PaintingLight.visible = true
 	$LightUp.play_sound()
 	
 
-func start_level_animations_2():
+func start_level_animations_2(duration_factor: float):
 	var paratween = create_tween()
-	paratween.parallel().tween_property($DarkLight, "energy", 0.0, 1.0)
-	paratween.parallel().tween_property($ModelLight, "energy", 0.0, 1.0)
-	paratween.parallel().tween_property($PaintingLight, "energy", 0.0, 1.0)
+	paratween.parallel().tween_property($DarkLight, "energy", 0.0, 1.0 * duration_factor)
+	paratween.parallel().tween_property($ModelLight, "energy", 0.0, 1.0 * duration_factor)
+	paratween.parallel().tween_property($PaintingLight, "energy", 0.0, 1.0 * duration_factor)
 	await paratween.finished
 
 func add_puddle(puddle_data: PaintPuddleData):
