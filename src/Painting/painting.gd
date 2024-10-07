@@ -64,17 +64,8 @@ func reset(painting_position: Vector2, painting_size: Vector2i):
 	var base =  Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
 	base.fill(Color(1,1,1,0))
 	oldtex = ImageTexture.create_from_image(base)
-	# Recreate an image with new dimensions
-	# self.image = Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
-	# self.image.fill(Color.WHITE)
-	# self.texture = ImageTexture.create_from_image(self.image)
 	self.texture = textures[RENDERING_ITEM.ALL_HISTORY]
 
-	#The second image will be used for the tracking of the dark in the picture
-	# self.basicColorImage = Image.create(painting_size.x, painting_size.y, false, Image.FORMAT_RGBA8)
-	# self.basicColorImage.fill(Color.WHITE)
-	#self.basicTexture = ImageTexture.create_from_image(self.basicColorImage)
-	#$"../DebugPainting".texture = self.basicTexture
 	# Also resize/shift the detection area
 	var rect = RectangleShape2D.new()
 	rect.size = painting_size
@@ -106,44 +97,16 @@ func swap_rendering_items(a: RENDERING_ITEM, b: RENDERING_ITEM):
 	canvas_list[b] = tmp
 
 func merge():
-	# shaderMaterial.set_shader_parameter("history", textures[RENDERING_ITEM.ALL_HISTORY])
 	shaderMaterial.set_shader_parameter("history", oldtex)
-	# shaderMaterial.set_shader_parameter("history", ImageTexture.create_from_image(textures[RENDERING_ITEM.ALL_HISTORY].get_image())) DOESN't work
 	shaderMaterial.set_shader_parameter("tmp", textures[RENDERING_ITEM.TMP_LINES])
 	shaderMaterial.set_shader_parameter("new", textures[RENDERING_ITEM.NEW_LINES])
-	# print("Texture formats:")
-	# print("ALL_HISTORY format:", oldtex.has_alpha())
-	# print("TMP_LINES format:", textures[RENDERING_ITEM.TMP_LINES].has_alpha())
-	# print("NEW_LINES format:", textures[RENDERING_ITEM.NEW_LINES].has_alpha())
-	# var images = []a
-	# for i in range(3):
-	# 	images.append(textures[i].get_image())
-	# # Iterate over each pixel of the textures
-	# print("Drawing")
-	# for x in range(CANVAS_SIZE):
-	# 	for y in range(CANVAS_SIZE):
-	# 		var pixel_pos = Vector2(x, y)
-	# 		var history_color = images[RENDERING_ITEM.ALL_HISTORY].get_pixelv(pixel_pos)
-	# 		var tmp_color = images[RENDERING_ITEM.TMP_LINES].get_pixelv(pixel_pos)
-	# 		var new_color = images[RENDERING_ITEM.NEW_LINES].get_pixelv(pixel_pos)
-
-	# 		# Blend the colors (you can adjust the blending method as needed)
-	# 		var final_color = history_color.blend(tmp_color).blend(new_color)
-
-	# 		# Set the pixel in the ALL_HISTORY texture
-	# 		# images[RENDERING_ITEM.ALL_HISTORY].set_pixelv(pixel_pos, final_color)
-	# 		RenderingServer.canvas_item_add_rect(canvas_list[RENDERING_ITEM.ALL_HISTORY].get_canvas_item(), Rect2(pixel_pos, Vector2(1, 1)), final_color)
 
 func render_server_add_line(canvas_item: RID, from: Vector2, to: Vector2, color: Color, width: float = 1.0) -> void:
-	# print("Drawing line", from, to, color, width)
 	RenderingServer.canvas_item_add_line(canvas_item, from, to, color, width)
-	# RenderingServer.canvas_item_add_line(canvas_item, Vector2.ZERO, Vector2(200, 200), color, width)
 
 func draw_segments():
 	if segments.size() == 0:
 		return
-	# print("Drawing segments", segments.size())
-
 	# compute new history with history, tmp and new
 	merge()
 
