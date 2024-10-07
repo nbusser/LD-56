@@ -43,7 +43,7 @@ text = "Start"
 
 [node name="SelectLevel" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "levels"
+text = "paintings"
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
