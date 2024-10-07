@@ -12,7 +12,10 @@ var model_texture: Texture
 func _ready() -> void:
 	painting.texture = painting_texture
 	$Model.texture = model_texture
-	
+
+	$Blackout.visible = true
+	await create_tween().tween_property($Blackout, "modulate", Color.TRANSPARENT, 1).finished
+		
 	await get_tree().create_timer(2.0).timeout
 	emit_signal("score_end")
 
