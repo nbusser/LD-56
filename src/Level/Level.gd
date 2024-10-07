@@ -14,9 +14,9 @@ var level_data: LevelData
 @onready var timer = $Timer
 
 func _ready():
-	flock.spawn(level_data.flock_size)
+	hud.update_timer(level_data.time_limit)
 	
-	timer.start(level_data.time_limit)
+	flock.spawn(level_data.flock_size)
 	
 	for puddle in self.level_data.puddles:
 		map.add_puddle(puddle)
@@ -36,10 +36,13 @@ func _ready():
 	# Game starts for real
 	map.set_boundaries(true)
 	flock.start_following_mouse()
+	
+	timer.start(level_data.time_limit)
 
 
 func _process(delta: float) -> void:
-	hud.update_timer(timer.time_left)
+	if not timer.is_stopped():
+		hud.update_timer(timer.time_left)
 
 
 func init(level: LevelData):
