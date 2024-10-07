@@ -60,7 +60,6 @@ func _on_update_container_type(value: ContainerType):
 		return
 	
 	container = null
-	print('ok')
 	for child in container_parent.get_children():
 		child.queue_free()
 	match value:
@@ -76,3 +75,4 @@ func _on_update_container_type(value: ContainerType):
 			container = Cauldron.instantiate()
 	if container:
 		container_parent.add_child(container)
+		_on_update_color(self.color)
