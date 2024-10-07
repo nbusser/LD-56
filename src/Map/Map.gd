@@ -21,6 +21,12 @@ func start_level_animation():
 	await get_tree().create_timer(1.5).timeout
 	$PaintingLight.visible = true
 	await get_tree().create_timer(1.5).timeout
+	
+	var paratween = create_tween()
+	paratween.parallel().tween_property($DarkLight, "energy", 0.0, 1.0)
+	paratween.parallel().tween_property($ModelLight, "energy", 0.0, 1.0)
+	paratween.parallel().tween_property($PaintingLight, "energy", 0.0, 1.0)
+	await paratween.finished
 
 func add_puddle(puddle_data: PaintPuddleData):
 	var newPuddle: PaintPuddle = puddleScene.instantiate()
