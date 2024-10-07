@@ -30,7 +30,7 @@ func start_level_animation():
 
 func add_puddle(puddle_data: PaintPuddleData):
 	var newPuddle: PaintPuddle = puddleScene.instantiate()
-	newPuddle.init(puddle_data.position, puddle_data.puddle_size, puddle_data.color, puddle_data.color_quantity)
+	newPuddle.init(puddle_data.position, puddle_data.puddle_size, puddle_data.color, puddle_data.color_quantity, puddle_data.container_type)
 	self.add_child(newPuddle)
 
 func set_model(model_name: String, model_texture: CompressedTexture2D):
