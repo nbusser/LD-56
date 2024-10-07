@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://e6kh5bxt1ivh" path="res://assets/sprites/candle/LD56_bougie flamme 1.png" id="9_fmt2c"]
 [ext_resource type="Texture2D" uid="uid://dmdds4bffhyb3" path="res://assets/sprites/candle/LD56_bougie flamme 2.png" id="10_po8n2"]
 [ext_resource type="Texture2D" uid="uid://ieqlr48m881s" path="res://assets/sprites/candle/LD56_bougie flamme 3.png" id="11_08na1"]
-[ext_resource type="AudioStream" uid="uid://ciyqqgd0cs4jm" path="res://assets/sounds/lightswitch.mp3" id="15_glqco"]
+[ext_resource type="AudioStream" uid="uid://dh63mgbfph47u" path="res://assets/sounds/lightswitch.wav" id="15_vn4mu"]
 [ext_resource type="AudioStream" uid="uid://c83t6ulxfcw7f" path="res://assets/sounds/holy.wav" id="15_yuygs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
@@ -185,8 +185,9 @@ scale = Vector2(3.78125, 9.35835)
 texture = ExtResource("8_8ewea")
 
 [node name="LightUp" type="AudioStreamPlayer" parent="."]
+volume_db = 20.0
 script = ExtResource("6_rbfmj")
-sounds = Array[AudioStream]([ExtResource("15_glqco")])
+sounds = Array[AudioStream]([ExtResource("15_vn4mu")])
 
 [node name="Allelujah" type="AudioStreamPlayer" parent="."]
 script = ExtResource("6_rbfmj")
