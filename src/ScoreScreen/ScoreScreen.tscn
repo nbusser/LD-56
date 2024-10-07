@@ -78,12 +78,13 @@ offset_bottom = 826.0
 layout_mode = 0
 offset_left = 597.0
 offset_top = 654.0
-offset_right = 637.0
-offset_bottom = 677.0
+offset_right = 923.0
+offset_bottom = 723.0
 text = "Score: [Score]"
 label_settings = SubResource("LabelSettings_wd3k4")
 
 [node name="CommentLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 597.0
 offset_top = 737.0
 offset_right = 868.0
