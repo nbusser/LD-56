@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=8 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
@@ -6,34 +6,6 @@
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="AudioStream" uid="uid://cleqgjfw4pwdu" path="res://assets/musics/music1.wav" id="5_eqnit"]
 [ext_resource type="AudioStream" uid="uid://rp7gsbaau2km" path="res://assets/musics/music2.wav" id="6_arco6"]
-
-[sub_resource type="Resource" id="Resource_3x4mv"]
-script = ExtResource("4_uh455")
-position = Vector2(-800, -275)
-color = Color(0.996078, 0.996078, 0.996078, 1)
-color_quantity = 0
-puddle_size = 3
-
-[sub_resource type="Resource" id="Resource_q5kmv"]
-script = ExtResource("4_uh455")
-position = Vector2(-800, -150)
-color = Color(1, 0, 0, 1)
-color_quantity = 100
-puddle_size = 2
-
-[sub_resource type="Resource" id="Resource_rowwc"]
-script = ExtResource("4_uh455")
-position = Vector2(-800, 0)
-color = Color(0, 1, 0, 1)
-color_quantity = 100
-puddle_size = 3
-
-[sub_resource type="Resource" id="Resource_mxqyn"]
-script = ExtResource("4_uh455")
-position = Vector2(-800, 150)
-color = Color(1, 1, 0, 1)
-color_quantity = 100
-puddle_size = 5
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
@@ -43,7 +15,7 @@ goal_texture = ExtResource("3_kt8ar")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
 time_limit = 60.0
-puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_3x4mv"), SubResource("Resource_q5kmv"), SubResource("Resource_rowwc"), SubResource("Resource_mxqyn")])
+puddles = Array[ExtResource("4_uh455")]([])
 
 [node name="SceneManager" type="Control"]
 layout_mode = 3

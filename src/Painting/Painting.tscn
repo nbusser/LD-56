@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck5gtekjyxb4"]
 
 [ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
-[ext_resource type="Material" uid="uid://c5tda36yoi01e" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
+[ext_resource type="Material" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_st7ok"]
 size = Vector2(0, 0)
