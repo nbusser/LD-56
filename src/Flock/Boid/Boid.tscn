@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://g6ph1sygwj3e"]
 
-[ext_resource type="Texture2D" uid="uid://ctubfwwvj7bm1" path="res://assets/sprites/flies/2A.png" id="2_4c4w6"]
+[ext_resource type="Texture2D" uid="uid://cjn5bkb01025d" path="res://assets/sprites/flies/moving1.png" id="2_518sq"]
+[ext_resource type="Texture2D" uid="uid://cyuaukx7tyj35" path="res://assets/sprites/flies/moving2.png" id="3_7m8de"]
 [ext_resource type="Script" path="res://src/Flock/Boid/boid.gd" id="3_doarw"]
-[ext_resource type="Texture2D" uid="uid://dp5iywcuvy0vt" path="res://assets/sprites/flies/2B.png" id="3_owk7a"]
-[ext_resource type="Texture2D" uid="uid://j0i6yqxm58hl" path="res://assets/sprites/flies/1A.png" id="4_6ks8w"]
-[ext_resource type="Texture2D" uid="uid://4ososvvd3w1x" path="res://assets/sprites/flies/1B.png" id="5_ggps7"]
-[ext_resource type="Texture2D" uid="uid://cen6sljerp7ke" path="res://assets/sprites/flies/3A.png" id="6_j6n8k"]
-[ext_resource type="Texture2D" uid="uid://bbwceq88vxfqa" path="res://assets/sprites/flies/3B.png" id="7_yk2kt"]
+[ext_resource type="Texture2D" uid="uid://bliwr80t885kb" path="res://assets/sprites/flies/still1.png" id="4_b05cn"]
+[ext_resource type="Texture2D" uid="uid://cjqch2qgpatle" path="res://assets/sprites/flies/still2.png" id="5_7x8mg"]
+[ext_resource type="Texture2D" uid="uid://ti1xveq0rg30" path="res://assets/sprites/flies/fast1.png" id="6_3b0um"]
+[ext_resource type="Texture2D" uid="uid://j1wo154ml6df" path="res://assets/sprites/flies/fast2.png" id="7_c4yjj"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="8_tagib"]
 [ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="9_nb178"]
 
@@ -16,10 +16,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4c4w6")
+"texture": ExtResource("2_518sq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_owk7a")
+"texture": ExtResource("3_7m8de")
 }],
 "loop": true,
 "name": &"acceleration",
@@ -27,10 +27,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6ks8w")
+"texture": ExtResource("4_b05cn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ggps7")
+"texture": ExtResource("5_7x8mg")
 }],
 "loop": true,
 "name": &"still",
@@ -38,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_j6n8k")
+"texture": ExtResource("6_3b0um")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_yk2kt")
+"texture": ExtResource("7_c4yjj")
 }],
 "loop": true,
 "name": &"super_duper_acceleration",
@@ -51,14 +51,14 @@ animations = [{
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gkcuc"]
 load_path = "res://.godot/imported/player.png-e1eaffe0873063c60a0d0b322e4d87d9.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qps"]
-size = Vector2(376, 375)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7acmk"]
+radius = 60.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v2c0y"]
 polygon = PackedVector2Array(0, -60, 60, 0, 0, 60, -60, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
-size = Vector2(375, 376)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gr7p"]
+radius = 59.5
 
 [node name="Boid" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -75,6 +75,7 @@ shape = SubResource("RectangleShape2D_idskf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_500v3")
 animation = &"super_duper_acceleration"
 
@@ -87,15 +88,14 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingDetector"]
-position = Vector2(-2, 0.5)
-shape = SubResource("RectangleShape2D_h5qps")
+shape = SubResource("CircleShape2D_7acmk")
 
 [node name="BubbleCollider" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_v2c0y")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_hlim7")
+shape = SubResource("CircleShape2D_2gr7p")
 
 [node name="GotPaintedSound" type="AudioStreamPlayer" parent="."]
 volume_db = -8.0
