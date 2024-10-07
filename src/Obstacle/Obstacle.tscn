@@ -59,7 +59,6 @@ animations = [{
 radius = 280.0
 
 [node name="Obstacle" type="Node2D"]
-z_index = 50
 scale = Vector2(2, 2)
 script = ExtResource("1_ann4i")
 

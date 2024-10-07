@@ -60,7 +60,7 @@ obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_rio58"]
 script = ExtResource("7_oxt4e")
-position = Vector2(-350, 355)
+position = Vector2(-350, 335)
 obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_7t5cy"]
@@ -186,7 +186,7 @@ obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_e7uxu"]
 script = ExtResource("7_oxt4e")
-position = Vector2(-350, 355)
+position = Vector2(-350, 335)
 obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_5pogv"]

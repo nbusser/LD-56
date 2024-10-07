@@ -4,6 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CandleFlame.play("flame")
+	$leaf.play("leaf")
 	pass # Replace with function body.
 
 
