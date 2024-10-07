@@ -44,6 +44,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TimeIsUp" type="PanelContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(580, 0)
 layout_mode = 1
 anchors_preset = 8
