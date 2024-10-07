@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cs8yaqbe324v0"]
 
 [ext_resource type="Script" path="res://src/ScoreScreen/score_screen.gd" id="1_aa13u"]
-[ext_resource type="PackedScene" uid="uid://bjg4y5r83peud" path="res://src/MainMenu/Splash.tscn" id="2_5vhs2"]
+[ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="2_5vhs2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4o14p"]
 size = Vector2(560, 680)
@@ -67,28 +67,22 @@ scale = Vector2(0.5, 0.5)
 texture = SubResource("PlaceholderTexture2D_bn34h")
 expand_mode = 1
 
-[node name="TextPane" type="Panel" parent="."]
+[node name="TextPane" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 538.0
+offset_left = 563.0
 offset_top = 646.0
 offset_right = 1338.0
 offset_bottom = 826.0
 
-[node name="ScoreLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 597.0
-offset_top = 654.0
-offset_right = 923.0
-offset_bottom = 723.0
-text = "Score: [Score]"
+[node name="ScoreLabel" type="Label" parent="TextPane"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Grade: [Score]"
 label_settings = SubResource("LabelSettings_wd3k4")
 
-[node name="CommentLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 597.0
-offset_top = 737.0
-offset_right = 868.0
-offset_bottom = 806.0
+[node name="CommentLabel" type="Label" parent="TextPane"]
+layout_mode = 2
+size_flags_vertical = 8
 text = "[Comment]"
 label_settings = SubResource("LabelSettings_wd3k4")
 
