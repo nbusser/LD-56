@@ -60,7 +60,7 @@ func _compare_two_images(image1: Image, image2: Image) -> float:
 				pixelVector1 = Vector3(1, 1, 1)
 			var pixelColor2 = image2.get_pixel(x, y)
 			var pixelVector2 = Vector3(pixelColor2.r, pixelColor2.g, pixelColor2.b)
-			if pixelVector2.a < 0.5:
+			if pixelColor2.a < 0.5:
 				pixelVector2 = Vector3(1, 1, 1)
 			sum += pixelVector1.distance_squared_to(pixelVector2)
 
