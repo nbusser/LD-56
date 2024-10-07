@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck5gtekjyxb4"]
+[gd_scene load_steps=9 format=3 uid="uid://ck5gtekjyxb4"]
 
 [ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
 [ext_resource type="Material" uid="uid://c5tda36yoi01e" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="3_ey3bf"]
+[ext_resource type="AudioStream" uid="uid://bvvvgtf5v2t6c" path="res://assets/sounds/brush_loop_00.wav" id="4_2oyi4"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="4_q5pmv"]
+[ext_resource type="AudioStream" uid="uid://h28f2uwqpv4d" path="res://assets/sounds/brush_loop_01.wav" id="6_spcgc"]
+[ext_resource type="AudioStream" uid="uid://c4qb0wpsvmcaw" path="res://assets/sounds/brush_loop_02.wav" id="7_hucl2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_st7ok"]
 size = Vector2(0, 0)
@@ -39,6 +41,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PaintSound" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
+volume_db = 18.0
 script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("3_ey3bf")])
+sounds = Array[AudioStream]([ExtResource("4_2oyi4")])
+
+[node name="PaintSound2" type="AudioStreamPlayer" parent="."]
+volume_db = 18.0
+script = ExtResource("4_q5pmv")
+sounds = Array[AudioStream]([ExtResource("6_spcgc")])
+
+[node name="PaintSound3" type="AudioStreamPlayer" parent="."]
+volume_db = 18.0
+script = ExtResource("4_q5pmv")
+sounds = Array[AudioStream]([ExtResource("7_hucl2")])

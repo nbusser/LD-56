@@ -75,7 +75,13 @@ func reset(painting_position: Vector2, painting_size: Vector2i):
 @onready var oldtex = ImageTexture.new()
 
 @onready var flock = $"../Flock"
+@onready var sounds = [
+	$PaintSound,
+	$PaintSound2,
+	$PaintSound3
+]
 func _process(delta):
+	var is_painting = false
 	for boid in flock.boids:
 		if boid.shouldPaint():
 			var currentPos = boid.global_position
@@ -83,7 +89,13 @@ func _process(delta):
 			var width = boid.color_quantity / 5.
 			segments.append([precedentPos, currentPos, boid.color, width])
 			boid.color_quantity -= 27 * delta
+			if width >= 2.:
+				is_painting = true
 		boid.previous_position = boid.global_position
+	if is_painting:
+		if not $PaintSound.playing and not $PaintSound2.playing and not $PaintSound3.playing:
+			var random_sound = randi() % sounds.size()
+			sounds[random_sound].play_sound()
 
 	draw_segments()
 	segments.clear()
