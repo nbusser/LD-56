@@ -1,6 +1,8 @@
 extends Control
 
-@onready var timer_value = $Timer/TimerValue
+@onready var timer_value: Label = %TimerValue
+@onready var clock_short: Sprite2D = %ClockShort
+@onready var clock_long: Sprite2D = %ClockLong
 
 @onready var time_up_panel = $TimeIsUp
 @onready var time_up_label = $TimeIsUp/TimeIsUpLabel
@@ -9,7 +11,9 @@ extends Control
 
 func update_timer(time_left: float) -> void:
 	var time_left_int = int(time_left)
-	timer_value.text = str(floor(time_left_int / 60)).pad_zeros(2) + " : " + str(time_left_int % 60).pad_zeros(2)
+	timer_value.text = str(floor(time_left_int / 60)).pad_zeros(2) + ":" + str(time_left_int % 60).pad_zeros(2)
+	clock_short.rotation_degrees = time_left_int / 60 * 6
+	clock_long.rotation_degrees = time_left_int % 60 * 6
 
 func time_up():
 	time_up_panel.visible = 1
