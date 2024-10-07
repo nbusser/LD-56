@@ -8,6 +8,7 @@ signal select_level
 func _ready():
 	$Splash/AnimationPlayer.play("cloud")
 
+
 func _on_Start_pressed():
 	emit_signal("start_game")
 	queue_free()
