@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwiu4cm7rlq0p"]
+[gd_scene load_steps=9 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/ui/clock.png" id="2_yio7s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cm1hdgvmu2s3n" path="res://assets/sprites/ui/clock-short.png" id="4_3eup4"]
 [ext_resource type="Texture2D" uid="uid://b3enh5lsa8o45" path="res://assets/sprites/ui/reset.png" id="5_3kt6h"]
 [ext_resource type="Texture2D" uid="uid://kxt4e0eyuj7d" path="res://assets/sprites/ui/controls.png" id="5_yp1by"]
+[ext_resource type="Texture2D" uid="uid://djhx2v6duccmo" path="res://assets/sprites/ui/vignette.png" id="7_4da65"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ni124"]
 font_size = 100
@@ -120,5 +121,12 @@ modulate = Color(1, 1, 1, 0.866667)
 position = Vector2(89.6001, 65.5)
 scale = Vector2(0.254, 0.254)
 texture = ExtResource("5_yp1by")
+
+[node name="Vignette" type="Sprite2D" parent="."]
+process_mode = 4
+modulate = Color(0.0901961, 0.0627451, 0.0352941, 0.498039)
+position = Vector2(960, 540)
+scale = Vector2(11.7963, 11.7963)
+texture = ExtResource("7_4da65")
 
 [connection signal="button_down" from="Clock/Reset/ResetButton" to="." method="_on_reset_button_button_down"]
