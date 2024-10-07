@@ -78,6 +78,7 @@ texture = ExtResource("4_3eup4")
 
 [node name="TimerValue" type="Label" parent="Clock"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 1714.2
 offset_top = 173.6
 offset_right = 1902.2
