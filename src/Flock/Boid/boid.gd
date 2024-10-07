@@ -170,7 +170,7 @@ func _process(delta: float) -> void:
 			change_formation(FlyingFormation.SPACED)
 	#Reload stamina when not pressed
 	else:
-		flock.flockStamina += 1 * delta if flock.flockStamina < 90 else 0
+		flock.flockStamina += 0.75 * delta if flock.flockStamina < 90 else 0
 
 	#Drop paint only if following mouse (not cutscene mode)
 	if color_quantity > 0 and flock.follow_mouse:

@@ -5,7 +5,7 @@ class_name Flock
 @onready var painting = $"../Painting"
 @onready var obstacleList = $"../Obstacles".get_children() as Array[Obstacle]
 
-@export var flockStamina = 10000000
+@export var flockStamina = 150
 @export var flockSize = 60
 
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
