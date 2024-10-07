@@ -29,3 +29,8 @@ func time_up():
 	
 	await create_tween().tween_property(fadeout_pane, "modulate", Color.BLACK, 1).finished
 	await get_tree().create_timer(0.5).timeout
+
+
+func _on_reset_button_button_down() -> void:
+	var sm = get_parent().get_parent().get_parent().get_parent().get_parent()
+	sm._load_level()
