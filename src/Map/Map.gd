@@ -20,7 +20,7 @@ func start_level_animation():
 	$ModelLight.visible = true
 	await get_tree().create_timer(1.5).timeout
 	$PaintingLight.visible = true
-	
+
 func start_level_animations_2():
 	var paratween = create_tween()
 	paratween.parallel().tween_property($DarkLight, "energy", 0.0, 1.0)
@@ -53,20 +53,20 @@ func _compare_two_images(image1: Image, image2: Image) -> float:
 	var sum: float = 0.0
 	for y in range(image1.get_height()):
 		for x in range(image1.get_width()):
-			#Run distance_squared cause it is faster (source:godot doc)
 			var pixelColor1 = image1.get_pixel(x, y)
-			var pixelVector1 = Vector3(pixelColor1.r, pixelColor1.g, pixelColor1.b)
 			if pixelColor1.a < 0.5:
-				pixelVector1 = Vector3(1, 1, 1)
+				pixelColor1 = Color(1, 1, 1)
 			var pixelColor2 = image2.get_pixel(x, y)
-			var pixelVector2 = Vector3(pixelColor2.r, pixelColor2.g, pixelColor2.b)
 			if pixelColor2.a < 0.5:
-				pixelVector2 = Vector3(1, 1, 1)
-			sum += pixelVector1.distance_squared_to(pixelVector2)
+				pixelColor2 = Color(1, 1, 1)
+			var hue1 = pixelColor1.h
+			var hue2 = pixelColor2.h
+			var hue_distance = min(abs(hue1 - hue2), 1.0 - abs(hue1 - hue2))
+			if ((pixelColor1 == Color(1, 1, 1)) != (pixelColor2 == Color(1, 1, 1))):
+				hue_distance = 1.0
+			sum += hue_distance
 
-	#Plus la note est éloignée de 0, moins c'est bien
-	#On divise par 3 pour normaliser en 3D
-	return sum / (3 * (image1.get_width() * image1.get_height()))
+	return sum / (image1.get_width() * image1.get_height())
 
 func set_boundaries(value: bool):
 	for shape in $ScreenBoundaries.get_children():
