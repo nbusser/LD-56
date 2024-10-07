@@ -104,6 +104,6 @@ void fragment()
 	} else if (h.a > 0. && abs(h_hue - n_hue) < 0.1 && t.a == 0.0) {
 		COLOR.rgb = darken(h.rgb);
 	}
-	if (h.rgb == vec3(0.0))
+	if (COLOR.rgb == vec3(0.0))
 		COLOR = vec4(1.0, 1.0, 1.0, 0.0);
 }
