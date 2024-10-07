@@ -25,7 +25,8 @@ func _ready():
 	map.set_model(level_data.name, level_data.goal_texture)
 
 	# Map anim
-	await map.start_level_animation()
+	if level_data.show_cutscene:
+		await map.start_level_animation()
 
 	# Run flock
 	flock.stop_following_mouse(start_of_level_target.position)

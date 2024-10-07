@@ -8,6 +8,7 @@ class_name LevelData
 @export var canvas_size: Vector2
 @export var time_limit: float
 @export var puddles: Array[PaintPuddleData]
+@export var show_cutscene: bool = true
 
 # Set dynamically
 var number: int
