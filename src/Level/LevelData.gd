@@ -9,6 +9,7 @@ class_name LevelData
 @export var time_limit: float
 @export var puddles: Array[PaintPuddleData]
 @export var show_cutscene: bool = true
+@export var obstacles : Array[ObstacleData]
 
 # Set dynamically
 var number: int

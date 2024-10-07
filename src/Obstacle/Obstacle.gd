@@ -1,11 +1,9 @@
 extends Node2D
 class_name Obstacle
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func init(pos: Vector2, size: float) -> void:
+	self.scale *= size
+	self.position = pos
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#If the animation is not playing when starting
+#Add it on _ready . caimez

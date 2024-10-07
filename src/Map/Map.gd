@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
+@onready var obstacleScene = preload("res://src/Obstacle/Obstacle.tscn")
 @onready var painting = $Painting
 @onready var model_texture = $Model/Texture
 @onready var model_label = $Model/Name
@@ -32,6 +33,13 @@ func add_puddle(puddle_data: PaintPuddleData):
 	var newPuddle: PaintPuddle = puddleScene.instantiate()
 	newPuddle.init(puddle_data.position, puddle_data.puddle_size, puddle_data.color, puddle_data.color_quantity)
 	self.add_child(newPuddle)
+	
+func add_obstacle(obstacle_data : ObstacleData):
+	var newObstacle : Obstacle = obstacleScene.instantiate()
+	newObstacle.init(obstacle_data.position, obstacle_data.obstacle_size)
+	$Obstacles.add_child(newObstacle)
+	$Flock.obstacleList.append(newObstacle)
+	
 
 func set_model(model_name: String, model_texture: CompressedTexture2D):
 	model_label.text = model_name

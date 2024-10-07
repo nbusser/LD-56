@@ -24,6 +24,9 @@ func _ready():
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
 
+	#Obstacles
+	for obstacle in self.level_data.obstacles:
+		map.add_obstacle(obstacle)
 	# Map anim
 	if level_data.show_cutscene:
 		await map.start_level_animation()

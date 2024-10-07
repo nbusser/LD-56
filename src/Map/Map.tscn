@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b0ct20fof5xj6" path="res://assets/sprites/light_shape.png" id="8_8ewea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
-size = Vector2(28.5, 1636)
+size = Vector2(28.5, 1144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgp8"]
-size = Vector2(1979.03, 35.625)
+size = Vector2(1947, 35.625)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n7vxi"]
 
@@ -36,15 +36,15 @@ position = Vector2(-1747, 2)
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
 [node name="Area2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(-967.49, 11)
+position = Vector2(-967.49, 0)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(16.969, -553.08)
+position = Vector2(5.727, -553.08)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(34, 550.795)
+position = Vector2(9.49997, 550.795)
 shape = SubResource("RectangleShape2D_8vgp8")
 
 [node name="Area2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
@@ -89,7 +89,7 @@ text = "Painting name"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Decor" type="Node2D" parent="."]
 

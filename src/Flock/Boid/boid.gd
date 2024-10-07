@@ -139,6 +139,9 @@ func rand_triangulaire(low: float, high: float, center: float) -> float:
 # Enter paint puddle
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	var area_parent = area.get_parent()
+	if area_parent is not PaintPuddle and area_parent is not PaintVapor:
+		return
+		#Cat
 	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
 	color = area_parent.color
 	assert(color != Color.WHITE)

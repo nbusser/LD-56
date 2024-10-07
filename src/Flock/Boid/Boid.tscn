@@ -49,14 +49,14 @@ animations = [{
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gkcuc"]
 load_path = "res://.godot/imported/player.png-e1eaffe0873063c60a0d0b322e4d87d9.ctex"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
-size = Vector2(375, 376)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5qps"]
 size = Vector2(376, 375)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v2c0y"]
 polygon = PackedVector2Array(0, -60, 60, 0, 0, 60, -60, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlim7"]
+size = Vector2(375, 376)
 
 [node name="Boid" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -66,7 +66,7 @@ script = ExtResource("3_doarw")
 
 [node name="PateintPuddleDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 512
+collision_mask = 516
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PateintPuddleDetector"]
 shape = SubResource("RectangleShape2D_idskf")
@@ -74,15 +74,11 @@ shape = SubResource("RectangleShape2D_idskf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_500v3")
-animation = &"still"
+animation = &"super_duper_acceleration"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("CompressedTexture2D_gkcuc")
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_hlim7")
 
 [node name="PaintingDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -94,6 +90,10 @@ shape = SubResource("RectangleShape2D_h5qps")
 
 [node name="BubbleCollider" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_v2c0y")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_hlim7")
 
 [connection signal="area_entered" from="PateintPuddleDetector" to="." method="_on_paint_puddle_detector_area_entered"]
 [connection signal="area_entered" from="PaintingDetector" to="." method="_on_painting_detector_area_entered"]

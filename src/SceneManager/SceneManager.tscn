@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=15 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cleqgjfw4pwdu" path="res://assets/musics/music1.wav" id="5_eqnit"]
 [ext_resource type="AudioStream" uid="uid://rp7gsbaau2km" path="res://assets/musics/music2.wav" id="6_arco6"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
+[ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
@@ -20,6 +21,12 @@ canvas_size = Vector2(698, 821)
 time_limit = 20.0
 puddles = Array[ExtResource("4_uh455")]([])
 show_cutscene = true
+obstacles = Array[ExtResource("7_oxt4e")]([])
+
+[sub_resource type="Resource" id="Resource_kuk25"]
+script = ExtResource("7_oxt4e")
+position = Vector2(380, 340)
+obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_gpeil"]
 script = ExtResource("2_s5lya")
@@ -31,6 +38,7 @@ canvas_size = Vector2(698, 821)
 time_limit = 40.0
 puddles = Array[ExtResource("4_uh455")]([])
 show_cutscene = false
+obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_kuk25")])
 
 [sub_resource type="Resource" id="Resource_wtsh4"]
 script = ExtResource("2_s5lya")
@@ -42,6 +50,7 @@ canvas_size = Vector2(698, 821)
 time_limit = 5.0
 puddles = Array[ExtResource("4_uh455")]([])
 show_cutscene = false
+obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [node name="SceneManager" type="Control"]
 layout_mode = 3

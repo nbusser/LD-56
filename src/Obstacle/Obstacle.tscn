@@ -1,12 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://7qeealxjwkpq"]
+[gd_scene load_steps=15 format=3 uid="uid://7qeealxjwkpq"]
 
 [ext_resource type="Script" path="res://src/Obstacle/Obstacle.gd" id="1_ann4i"]
 [ext_resource type="Texture2D" uid="uid://1ycyerujbgfw" path="res://assets/sprites/elements/obstacle.png" id="2_a0qij"]
+[ext_resource type="Texture2D" uid="uid://7b2iapknk1p0" path="res://assets/sprites/cat/LD56_chat 1.png" id="3_mb2tn"]
+[ext_resource type="Texture2D" uid="uid://n2edddx23ak4" path="res://assets/sprites/cat/LD56_chat 2.png" id="4_qjbgo"]
+[ext_resource type="Texture2D" uid="uid://2c7f2rj6sktc" path="res://assets/sprites/cat/LD56_chat 3.png" id="5_uv8ke"]
+[ext_resource type="Texture2D" uid="uid://c4dg1tuwx1aqi" path="res://assets/sprites/cat/LD56_chat 4.png" id="6_v6wsq"]
+[ext_resource type="Texture2D" uid="uid://yoe64uowbxv8" path="res://assets/sprites/cat/LD56_chat 5.png" id="7_b673q"]
+[ext_resource type="Texture2D" uid="uid://xsdg1mep62jt" path="res://assets/sprites/cat/LD56_tête chat 1.png" id="8_uwkul"]
+[ext_resource type="Texture2D" uid="uid://b6v7exg4jlg3d" path="res://assets/sprites/cat/LD56_tête chat 2.png" id="9_wy35l"]
+[ext_resource type="Texture2D" uid="uid://s86rgb4nyd1y" path="res://assets/sprites/cat/LD56_tête chat 3.png" id="10_vvou1"]
+[ext_resource type="Texture2D" uid="uid://cwjqtcvc6xtpd" path="res://assets/sprites/cat/LD56_tête chat 4.png" id="11_tt706"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6crwi"]
+size = Vector2(3242.5, 683.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc2d6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mb2tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qjbgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uv8ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v6wsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b673q")
+}],
+"loop": true,
+"name": &"idleBody",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_uwkul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wy35l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vvou1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tt706")
+}],
+"loop": true,
+"name": &"idleHead",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q4yi"]
+radius = 280.0
 
 [node name="Obstacle" type="Node2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_ann4i")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -16,5 +68,49 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_6crwi")
 
+[node name="CatHead" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_wc2d6")
+animation = &"idleBody"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_a0qij")
+
+[node name="CatBody" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wc2d6")
+animation = &"idleHead"
+
+[node name="emiters" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="emiters"]
+position = Vector2(-926, 0)
+
+[node name="Area2D" type="Area2D" parent="emiters/1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emiters/1/Area2D"]
+shape = SubResource("CircleShape2D_2q4yi")
+
+[node name="2" type="Node2D" parent="emiters"]
+position = Vector2(-200, 0)
+
+[node name="Area2D" type="Area2D" parent="emiters/2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emiters/2/Area2D"]
+shape = SubResource("CircleShape2D_2q4yi")
+
+[node name="3" type="Node2D" parent="emiters"]
+position = Vector2(500, 0)
+
+[node name="Area2D" type="Area2D" parent="emiters/3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emiters/3/Area2D"]
+shape = SubResource("CircleShape2D_2q4yi")
+
+[node name="4" type="Node2D" parent="emiters"]
+position = Vector2(1200, 0)
+
+[node name="Area2D" type="Area2D" parent="emiters/4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emiters/4/Area2D"]
+shape = SubResource("CircleShape2D_2q4yi")
