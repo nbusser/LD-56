@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://g6ph1sygwj3e"]
+[gd_scene load_steps=38 format=3 uid="uid://g6ph1sygwj3e"]
 
 [ext_resource type="Texture2D" uid="uid://cjn5bkb01025d" path="res://assets/sprites/flies/moving1.png" id="2_518sq"]
 [ext_resource type="Texture2D" uid="uid://cyuaukx7tyj35" path="res://assets/sprites/flies/moving2.png" id="3_7m8de"]
@@ -8,7 +8,29 @@
 [ext_resource type="Texture2D" uid="uid://ti1xveq0rg30" path="res://assets/sprites/flies/fast1.png" id="6_3b0um"]
 [ext_resource type="Texture2D" uid="uid://j1wo154ml6df" path="res://assets/sprites/flies/fast2.png" id="7_c4yjj"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="8_tagib"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="9_nb178"]
+[ext_resource type="AudioStream" uid="uid://6vw6w8xqr70e" path="res://assets/sounds/blub/1.wav" id="9_ajrf5"]
+[ext_resource type="AudioStream" uid="uid://c2r6gr0iohtyo" path="res://assets/sounds/blub/2.wav" id="10_evprj"]
+[ext_resource type="AudioStream" uid="uid://bygcksbfd2pjh" path="res://assets/sounds/blub/3.wav" id="11_lpxi5"]
+[ext_resource type="AudioStream" uid="uid://bnrbo2xl37p33" path="res://assets/sounds/blub/4.wav" id="12_xhcl5"]
+[ext_resource type="AudioStream" uid="uid://c84wjlbscabr1" path="res://assets/sounds/blub/5.wav" id="13_jyblr"]
+[ext_resource type="AudioStream" uid="uid://d1t2ane0xr52f" path="res://assets/sounds/blub/6.wav" id="14_3b8h8"]
+[ext_resource type="AudioStream" uid="uid://jljay2bsyqyf" path="res://assets/sounds/blub/7.wav" id="15_8a6at"]
+[ext_resource type="AudioStream" uid="uid://b1cjsdqvk35nf" path="res://assets/sounds/blub/8.wav" id="16_6yiyp"]
+[ext_resource type="AudioStream" uid="uid://b2ssbjud2q2mp" path="res://assets/sounds/blub/9.wav" id="17_vnnnd"]
+[ext_resource type="AudioStream" uid="uid://b4shbychof7k2" path="res://assets/sounds/blub/10.wav" id="18_rrong"]
+[ext_resource type="AudioStream" uid="uid://cjof2gqjbxfjc" path="res://assets/sounds/blub/11.wav" id="19_04w0k"]
+[ext_resource type="AudioStream" uid="uid://4g84nsorsvc2" path="res://assets/sounds/blub/12.wav" id="20_10b6s"]
+[ext_resource type="AudioStream" uid="uid://iovvaw1ge8ql" path="res://assets/sounds/blub/13.wav" id="21_njqid"]
+[ext_resource type="AudioStream" uid="uid://byrhww07klgyf" path="res://assets/sounds/blub/14.wav" id="22_j4v6i"]
+[ext_resource type="AudioStream" uid="uid://b8geepnef1tec" path="res://assets/sounds/blub/15.wav" id="23_0j2bu"]
+[ext_resource type="AudioStream" uid="uid://c4qhehd5i8mnd" path="res://assets/sounds/blub/16.wav" id="24_y8i8c"]
+[ext_resource type="AudioStream" uid="uid://grtutv17x7lh" path="res://assets/sounds/blub/17.wav" id="25_j6tpv"]
+[ext_resource type="AudioStream" uid="uid://b0kkp2er8x6jv" path="res://assets/sounds/blub/18.wav" id="26_p35du"]
+[ext_resource type="AudioStream" uid="uid://dkxuo4qlvjeyd" path="res://assets/sounds/blub/19.wav" id="27_ca8a5"]
+[ext_resource type="AudioStream" uid="uid://y15blv48w4jl" path="res://assets/sounds/blub/21.wav" id="28_tcqct"]
+[ext_resource type="AudioStream" uid="uid://bql8dcwrdmei7" path="res://assets/sounds/blub/22.wav" id="29_yrvu1"]
+[ext_resource type="AudioStream" uid="uid://df13no2svglcr" path="res://assets/sounds/blub/23.wav" id="30_gh4gt"]
+[ext_resource type="AudioStream" uid="uid://x4psthnspc3f" path="res://assets/sounds/blub/24.wav" id="31_vucvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idskf"]
 
@@ -98,9 +120,9 @@ position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_2gr7p")
 
 [node name="GotPaintedSound" type="AudioStreamPlayer" parent="."]
-volume_db = -8.0
+volume_db = 13.0
 script = ExtResource("8_tagib")
-sounds = Array[AudioStream]([ExtResource("9_nb178")])
+sounds = Array[AudioStream]([ExtResource("9_ajrf5"), ExtResource("10_evprj"), ExtResource("11_lpxi5"), ExtResource("12_xhcl5"), ExtResource("13_jyblr"), ExtResource("14_3b8h8"), ExtResource("15_8a6at"), ExtResource("16_6yiyp"), ExtResource("17_vnnnd"), ExtResource("18_rrong"), ExtResource("19_04w0k"), ExtResource("20_10b6s"), ExtResource("21_njqid"), ExtResource("22_j4v6i"), ExtResource("23_0j2bu"), ExtResource("24_y8i8c"), ExtResource("25_j6tpv"), ExtResource("26_p35du"), ExtResource("27_ca8a5"), ExtResource("28_tcqct"), ExtResource("29_yrvu1"), ExtResource("30_gh4gt"), ExtResource("31_vucvu")])
 
 [connection signal="area_entered" from="PateintPuddleDetector" to="." method="_on_paint_puddle_detector_area_entered"]
 [connection signal="area_entered" from="PaintingDetector" to="." method="_on_painting_detector_area_entered"]

@@ -43,14 +43,4 @@ grow_vertical = 2
 [node name="PaintSound" type="AudioStreamPlayer" parent="."]
 volume_db = 18.0
 script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("4_2oyi4")])
-
-[node name="PaintSound2" type="AudioStreamPlayer" parent="."]
-volume_db = 18.0
-script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("6_spcgc")])
-
-[node name="PaintSound3" type="AudioStreamPlayer" parent="."]
-volume_db = 18.0
-script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("7_hucl2")])
+sounds = Array[AudioStream]([ExtResource("4_2oyi4"), ExtResource("6_spcgc"), ExtResource("7_hucl2")])
