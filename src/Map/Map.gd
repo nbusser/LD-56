@@ -14,6 +14,8 @@ func start_level_animation():
 	$ModelLight.visible = false
 	$PaintingLight.visible = false
 
+	await get_tree().create_timer(0.3).timeout
+	await create_tween().tween_property($DarkLight, "energy", 0.85, 2.5).finished
 	await get_tree().create_timer(1.0).timeout
 	$ModelLight.visible = true
 	await get_tree().create_timer(1.5).timeout

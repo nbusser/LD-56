@@ -128,15 +128,17 @@ position = Vector2(140, 138)
 color = Color(0.289106, 0.523818, 0.928381, 1)
 
 [node name="DarkLight" type="DirectionalLight2D" parent="."]
-energy = 0.8
+visible = false
 blend_mode = 1
 
 [node name="ModelLight" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(552, -543)
 scale = Vector2(4.11523, 8.99014)
 texture = ExtResource("8_8ewea")
 
 [node name="PaintingLight" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(-448.625, -541)
 scale = Vector2(4.09131, 8.99796)
 texture = ExtResource("8_8ewea")
