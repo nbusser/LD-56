@@ -68,7 +68,7 @@ func _on_Timer_timeout():
 	flock.stop_following_mouse(end_of_level_target.position)
 	map.set_boundaries(false)
 
-	await hud.time_up(score)
+	await hud.time_up()
 
 	emit_signal("end_of_level", painting.texture.get_image(), score)
 	#emit_signal("game_over")
