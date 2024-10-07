@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=23 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
 [ext_resource type="Texture2D" uid="uid://b5brpraqjb3fq" path="res://assets/sprites/models/1-malekitsch.png" id="3_nqw0q"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
-[ext_resource type="Texture2D" uid="uid://bvuwdnbueue6s" path="res://assets/sprites/models/windob.png" id="5_bskrg"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
+[ext_resource type="Texture2D" uid="uid://qos5o80ygheo" path="res://assets/sprites/models/2-triskel.png" id="6_cgkkk"]
 [ext_resource type="AudioStream" uid="uid://cqk7jl4q12skq" path="res://assets/musics/game music 1_v2.mp3" id="7_6p4f3"]
 [ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
@@ -52,24 +52,48 @@ canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
 time_limit = 40.0
 puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_notdt"), SubResource("Resource_7l6us"), SubResource("Resource_0r3pa"), SubResource("Resource_blw3d")])
-show_cutscene = false
+show_cutscene = true
 obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_rio58"]
 script = ExtResource("7_oxt4e")
-position = Vector2(380, 340)
+position = Vector2(420, 340)
 obstacle_size = 0.1
+
+[sub_resource type="Resource" id="Resource_7t5cy"]
+script = ExtResource("4_uh455")
+position = Vector2(-750, -250)
+color = Color(0.27451, 0.254902, 0.501961, 1)
+color_quantity = 20
+puddle_size = 1
+container_type = 2
+
+[sub_resource type="Resource" id="Resource_wl5f0"]
+script = ExtResource("4_uh455")
+position = Vector2(100, 300)
+color = Color(0.709804, 0.278431, 0.207843, 1)
+color_quantity = 80
+puddle_size = 1
+container_type = 0
+
+[sub_resource type="Resource" id="Resource_dm37x"]
+script = ExtResource("4_uh455")
+position = Vector2(300, -300)
+color = Color(0.34902, 0.545098, 0.34902, 1)
+color_quantity = 50
+puddle_size = 1
+container_type = 4
 
 [sub_resource type="Resource" id="Resource_gpeil"]
 script = ExtResource("2_s5lya")
 flock_size = 30
-name = "Windobe"
-goal_texture = ExtResource("5_bskrg")
+name = "tri-bald"
+goal_texture = ExtResource("6_cgkkk")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
-time_limit = 40.0
-puddles = Array[ExtResource("4_uh455")]([])
-show_cutscene = false
+time_limit = 35.0
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_7t5cy"), SubResource("Resource_wl5f0"), SubResource("Resource_dm37x")])
+show_cutscene = true
 obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_rio58")])
 
 [sub_resource type="Resource" id="Resource_gyg0o"]

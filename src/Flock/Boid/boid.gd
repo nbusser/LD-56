@@ -142,7 +142,7 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	self.modulate = color
 	color_quantity = area_parent.get_parent().get_parent().get_parent().color_quantity
 	#When they get the painting, randomize a little the qqty
-	print(color_quantity)
+	#REMOVED : caimez - it was usless
 
 func _input(event):
 	# TODO: implement things similar ? like superpowers ?
