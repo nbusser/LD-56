@@ -8,11 +8,24 @@ class_name Flock
 @export var flockStamina = 150
 @export var flockSize = 60
 
+var flying_formation = Globals.FlyingFormation.SPACED
+
 var boid_scene = preload("res://src/Flock/Boid/Boid.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+
+func _process(delta: float) -> void:
+	# Ugly but no time
+	if $Boids.get_children().size() > 0:
+		var boid = ($Boids.get_child(0) as Boid)
+		if boid.flying_formation != flying_formation:
+			flying_formation = boid.flying_formation
+			if flying_formation == Globals.FlyingFormation.SPACED:
+				$BuzzSpaced.play_sound()
+			elif flying_formation == Globals.FlyingFormation.TIGHTEN:
+				$BuzzTightened.play_sound()
 
 func spawn(flock_size: int):
 	for _i in range(flock_size):

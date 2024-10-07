@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=12 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
 [ext_resource type="Texture2D" uid="uid://favpnwgm47k3" path="res://assets/sprites/decors/background.png" id="4_a43bv"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
+[ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="6_rbfmj"]
+[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_ulso1"]
 [ext_resource type="Texture2D" uid="uid://b0ct20fof5xj6" path="res://assets/sprites/light_shape.png" id="8_8ewea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
@@ -109,3 +111,11 @@ visible = false
 position = Vector2(-294, -530)
 scale = Vector2(3.78125, 9.35835)
 texture = ExtResource("8_8ewea")
+
+[node name="LightUp" type="AudioStreamPlayer" parent="."]
+script = ExtResource("6_rbfmj")
+sounds = Array[AudioStream]([ExtResource("6_ulso1")])
+
+[node name="Allelujah" type="AudioStreamPlayer" parent="."]
+script = ExtResource("6_rbfmj")
+sounds = Array[AudioStream]([ExtResource("6_ulso1")])
