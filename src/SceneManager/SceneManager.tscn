@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=43 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://686r447qcgda" path="res://assets/sprites/models/4-fluffy pile.png" id="8_fvckb"]
 [ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 [ext_resource type="Texture2D" uid="uid://cksde4d1l2ig5" path="res://assets/sprites/models/5The_great_wizard.png" id="9_b25ks"]
+[ext_resource type="Texture2D" uid="uid://iufvx31dj7a8" path="res://assets/sprites/models/7-girl with a pearl earring.png" id="10_rbupg"]
 
 [sub_resource type="Resource" id="Resource_notdt"]
 script = ExtResource("4_uh455")
@@ -219,6 +220,50 @@ puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_5pogv"), SubResou
 show_cutscene = false
 obstacles = Array[ExtResource("7_oxt4e")]([])
 
+[sub_resource type="Resource" id="Resource_g6y12"]
+script = ExtResource("4_uh455")
+position = Vector2(-750, -100)
+color = Color(0, 0.121569, 0.443137, 1)
+color_quantity = 45
+puddle_size = 1
+container_type = 0
+
+[sub_resource type="Resource" id="Resource_xmk7b"]
+script = ExtResource("4_uh455")
+position = Vector2(100, -300)
+color = Color(0.733333, 0.627451, 0.396078, 1)
+color_quantity = 75
+puddle_size = 1
+container_type = 4
+
+[sub_resource type="Resource" id="Resource_fg30m"]
+script = ExtResource("4_uh455")
+position = Vector2(-800, 250)
+color = Color(0.0802664, 0.0327847, 0.0327906, 1)
+color_quantity = 85
+puddle_size = 1
+container_type = 3
+
+[sub_resource type="Resource" id="Resource_4l3dv"]
+script = ExtResource("4_uh455")
+position = Vector2(100, 250)
+color = Color(0.321569, 0.309804, 0.152941, 1)
+color_quantity = 65
+puddle_size = 1
+container_type = 0
+
+[sub_resource type="Resource" id="Resource_5t8xq"]
+script = ExtResource("2_s5lya")
+flock_size = 45
+name = "Go da"
+goal_texture = ExtResource("10_rbupg")
+canvas_position = Vector2(-665, -429)
+canvas_size = Vector2(698, 821)
+time_limit = 70.0
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_g6y12"), SubResource("Resource_xmk7b"), SubResource("Resource_fg30m"), SubResource("Resource_4l3dv")])
+show_cutscene = false
+obstacles = Array[ExtResource("7_oxt4e")]([])
+
 [node name="SceneManager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -229,7 +274,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
-levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2"), SubResource("Resource_gpeil"), SubResource("Resource_wtsh4"), SubResource("Resource_p0en5"), SubResource("Resource_01qy8")])
+levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2"), SubResource("Resource_gpeil"), SubResource("Resource_wtsh4"), SubResource("Resource_p0en5"), SubResource("Resource_01qy8"), SubResource("Resource_5t8xq")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
