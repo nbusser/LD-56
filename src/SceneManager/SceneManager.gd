@@ -142,7 +142,7 @@ func change_music_track(new_player: AudioStreamPlayer):
 func _run_select_level():
 	var scene = select_level.instantiate()
 	
-	scene.init(len(levels))
+	scene.init(levels)
 	scene.connect("level_selected", Callable(self, "_on_level_selected"))
 	scene.connect("back", Callable(self, "_run_main_menu"))
 
