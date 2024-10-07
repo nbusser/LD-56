@@ -59,6 +59,7 @@ animations = [{
 radius = 280.0
 
 [node name="Obstacle" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_ann4i")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -108,7 +109,7 @@ position = Vector2(500, 0)
 shape = SubResource("CircleShape2D_2q4yi")
 
 [node name="4" type="Node2D" parent="emiters"]
-position = Vector2(1200, 0)
+position = Vector2(1100, 0)
 
 [node name="Area2D" type="Area2D" parent="emiters/4"]
 
