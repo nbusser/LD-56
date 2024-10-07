@@ -12,6 +12,7 @@ var current_scene: set = set_scene
 @onready var level = preload("res://src/Level/Level.tscn")
 @onready var change_level = preload("res://src/EndLevel/EndLevel.tscn")
 @onready var credits = preload("res://src/Credits/Credits.tscn")
+@onready var intro = preload("res://src/Storyboard/StoryBoard.tscn")
 @onready var game_over = preload("res://src/GameOver/GameOver.tscn")
 @onready var select_level = preload("res://src/SelectLevel/select_level.tscn")
 @onready var score_screen = preload("res://src/ScoreScreen/ScoreScreen.tscn")
@@ -46,6 +47,8 @@ func _on_start_game():
 func _on_show_credits():
 	_run_credits(true)
 
+func _on_show_intro():
+	_run_intro()
 
 func _on_show_main_menu():
 	_run_main_menu()
@@ -125,13 +128,18 @@ func _run_credits(can_go_back):
 	self.current_scene = scene
 
 
+func _run_intro():
+	var scene = intro.instantiate()
+	scene.connect("start_game", Callable(self, "_on_start_game"))
+	self.current_scene = scene
+
 func _run_main_menu():
 	var scene = main_menu.instantiate()
 
 	change_music_track(music_players[music_players.size() - 1])
 
-	scene.connect("start_game", Callable(self, "_on_start_game"))
 	scene.connect("quit_game", Callable(self, "_on_quit_game"))
+	scene.connect("show_intro", Callable(self, "_on_show_intro"))
 	scene.connect("show_credits", Callable(self, "_on_show_credits"))
 	scene.connect("select_level", Callable(self, "_on_select_level"))
 

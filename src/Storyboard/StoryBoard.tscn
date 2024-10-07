@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnuv5pjadrqrj"]
+
+[ext_resource type="Texture2D" uid="uid://eob2eqpisrdb" path="res://assets/sprites/storyboard/1.jpg" id="1_7km4v"]
+[ext_resource type="Script" path="res://src/Storyboard/story_board.gd" id="1_7135c"]
+[ext_resource type="PackedScene" uid="uid://b8vya7htebadb" path="res://src/MainMenu/Splash.tscn" id="2_2ibm8"]
+[ext_resource type="Texture2D" uid="uid://cr0n45icq0x0e" path="res://assets/sprites/storyboard/2.jpg" id="2_ck3ph"]
+[ext_resource type="Texture2D" uid="uid://e2v4ebd174nl" path="res://assets/sprites/storyboard/3.jpg" id="3_7budq"]
+[ext_resource type="Texture2D" uid="uid://e6ppyce6qynp" path="res://assets/sprites/storyboard/4.jpg" id="4_tofox"]
+[ext_resource type="Texture2D" uid="uid://bgkxy21ib3a1e" path="res://assets/sprites/storyboard/5.jpg" id="5_rq6qh"]
+[ext_resource type="Texture2D" uid="uid://cf0qwcavlpeqo" path="res://assets/sprites/storyboard/6.jpg" id="6_yi4hh"]
+[ext_resource type="Texture2D" uid="uid://bpnvjxl1r2cua" path="res://assets/sprites/storyboard/7.jpg" id="7_5pd68"]
+[ext_resource type="Texture2D" uid="uid://cdqvmkjh84e3q" path="res://assets/sprites/storyboard/8.jpg" id="8_pun0q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f482"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_7km4v")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_ck3ph")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_7budq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_tofox")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_rq6qh")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_yi4hh")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_5pd68")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_pun0q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="StoryBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7135c")
+
+[node name="Splash" parent="." instance=ExtResource("2_2ibm8")]
+layout_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(296, 42)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_6f482")
+centered = false
