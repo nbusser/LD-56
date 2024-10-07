@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwiu4cm7rlq0p"]
+[gd_scene load_steps=8 format=3 uid="uid://dwiu4cm7rlq0p"]
 
 [ext_resource type="Script" path="res://src/HUD/HUD.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/ui/clock.png" id="2_yio7s"]
 [ext_resource type="Texture2D" uid="uid://0q8l6xr83pxl" path="res://assets/sprites/ui/clock-long.png" id="3_8fqqv"]
 [ext_resource type="Texture2D" uid="uid://cm1hdgvmu2s3n" path="res://assets/sprites/ui/clock-short.png" id="4_3eup4"]
+[ext_resource type="Texture2D" uid="uid://b3enh5lsa8o45" path="res://assets/sprites/ui/reset.png" id="5_3kt6h"]
 [ext_resource type="Texture2D" uid="uid://kxt4e0eyuj7d" path="res://assets/sprites/ui/controls.png" id="5_yp1by"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ni124"]
@@ -59,8 +60,8 @@ offset_right = 50.0
 offset_bottom = 69.0
 
 [node name="Clock" type="Sprite2D" parent="Clock"]
-position = Vector2(1768, 156)
-scale = Vector2(0.4, 0.4)
+position = Vector2(1811.2, 98.6)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_yio7s")
 
 [node name="ClockLong" type="Sprite2D" parent="Clock/Clock"]
@@ -77,24 +78,40 @@ texture = ExtResource("4_3eup4")
 
 [node name="TimerValue" type="Label" parent="Clock"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 1671.0
-offset_top = 255.0
-offset_right = 1859.0
-offset_bottom = 320.0
+offset_left = 1714.2
+offset_top = 173.6
+offset_right = 1902.2
+offset_bottom = 238.6
 theme_override_colors/font_color = Color(0.376471, 0.196078, 0.0901961, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.266667)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 0
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 40
 text = "00:00"
 horizontal_alignment = 1
 
+[node name="Reset" type="Sprite2D" parent="Clock"]
+position = Vector2(1828, 972)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("5_3kt6h")
+
+[node name="ResetButton" type="Button" parent="Clock/Reset"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 1715.0
+offset_left = 1553.0
 offset_top = 914.0
-offset_right = 1884.0
+offset_right = 1722.0
 offset_bottom = 1041.0
 
 [node name="Controls" type="Sprite2D" parent="PanelContainer"]
@@ -102,3 +119,5 @@ modulate = Color(1, 1, 1, 0.866667)
 position = Vector2(89.6001, 65.5)
 scale = Vector2(0.254, 0.254)
 texture = ExtResource("5_yp1by")
+
+[connection signal="button_down" from="Clock/Reset/ResetButton" to="." method="_on_reset_button_button_down"]

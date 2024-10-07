@@ -74,13 +74,23 @@ func reset(painting_position: Vector2, painting_size: Vector2i):
 
 @onready var oldtex = ImageTexture.new()
 
-func _process(_delta):
+@onready var flock = $"../Flock"
+func _process(delta):
+	for boid in flock.boids:
+		if boid.shouldPaint():
+			var currentPos = boid.global_position
+			var precedentPos = boid.previous_position
+			var width = boid.color_quantity / 5.
+			segments.append([precedentPos, currentPos, boid.color, width])
+			boid.color_quantity -= 27 * delta
+		boid.previous_position = boid.global_position
+
 	draw_segments()
 	segments.clear()
 	# self.texture.update(self.image);
 	#self.basicTexture.update(self.basicColorImage)
 	rectCheck = Rect2(Vector2.ZERO,size)
-	await RenderingServer.frame_post_draw
+	# await RenderingServer.frame_post_draw
 	oldtex = ImageTexture.create_from_image(textures[RENDERING_ITEM.ALL_HISTORY].get_image())
 
 func swap_rendering_items(a: RENDERING_ITEM, b: RENDERING_ITEM):
@@ -152,11 +162,3 @@ func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
 	self.basicColorImage.fill_rect(rect, color)
 
 var segments = []
-# Signal emited by Boid _process
-func on_painting_drop(boid_position: Vector2, previous_position: Vector2, _boid_velocity: Vector2, color: Color, paint_level: int, delta) -> void:
-	$PaintSound.play_sound() # TODO: PLACEHOLDER frotti
-	var currentPos = boid_position
-	var precedentPos = previous_position
-	var width = paint_level / 10.
-
-	segments.append([precedentPos, currentPos, color, width])

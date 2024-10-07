@@ -173,15 +173,12 @@ func _process(delta: float) -> void:
 	else:
 		flock.flockStamina += 0.75 * delta if flock.flockStamina < 90 else 0
 
-	#Drop paint only if following mouse (not cutscene mode)
-	if color_quantity > 0 and flock.player_has_control():
-		if is_hovering_painting and paintDropping:
-			emit_signal("painting_drop", global_position, previous_position, velocity, color, color_quantity, delta)
-			color_quantity -= 20 * delta
-			if color_quantity < 0:
-				color_quantity = 0
-				self.modulate = BASE_COLOR
-	previous_position = global_position
+	if color_quantity < 0:
+		color_quantity = 0
+		self.modulate = BASE_COLOR
+
+func shouldPaint() -> bool:
+	return is_hovering_painting and paintDropping and color_quantity > 0 and flock.player_has_control()
 
 func _on_painting_detector_area_entered(area: Area2D) -> void:
 	is_hovering_painting = true
