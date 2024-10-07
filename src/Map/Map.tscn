@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=14 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
 [ext_resource type="Texture2D" uid="uid://bvqpr5max1dwk" path="res://assets/sprites/tableau_name.png" id="4_6nvum"]
 [ext_resource type="Texture2D" uid="uid://favpnwgm47k3" path="res://assets/sprites/decors/background.png" id="4_a43bv"]
+[ext_resource type="Texture2D" uid="uid://da6lo385fe411" path="res://assets/sprites/paint_shadow.png" id="5_evsel"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="6_rbfmj"]
 [ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_ulso1"]
@@ -94,6 +95,12 @@ z_index = -1
 position = Vector2(282, 727)
 scale = Vector2(0.268753, 0.441546)
 texture = ExtResource("4_6nvum")
+
+[node name="shadow" type="Sprite2D" parent="Model"]
+z_index = -9
+position = Vector2(286, 344.5)
+scale = Vector2(11.44, 13.78)
+texture = ExtResource("5_evsel")
 
 [node name="Obstacles" type="Node2D" parent="."]
 
