@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck5gtekjyxb4"]
+[gd_scene load_steps=9 format=3 uid="uid://ck5gtekjyxb4"]
 
 [ext_resource type="Script" path="res://src/Painting/painting.gd" id="1_ujhf0"]
 [ext_resource type="Material" uid="uid://c5tda36yoi01e" path="res://src/Painting/PaintingMaterial.tres" id="2_g62w3"]
 [ext_resource type="AudioStream" uid="uid://bvvvgtf5v2t6c" path="res://assets/sounds/brush_loop_00.wav" id="4_2oyi4"]
-[ext_resource type="AudioStream" uid="uid://4a5md5ew5grq" path="res://assets/sounds/brush_complete.wav" id="4_3ue34"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="4_q5pmv"]
 [ext_resource type="AudioStream" uid="uid://h28f2uwqpv4d" path="res://assets/sounds/brush_loop_01.wav" id="6_spcgc"]
 [ext_resource type="AudioStream" uid="uid://c4qb0wpsvmcaw" path="res://assets/sounds/brush_loop_02.wav" id="7_hucl2"]
@@ -47,11 +46,11 @@ script = ExtResource("4_q5pmv")
 sounds = Array[AudioStream]([ExtResource("4_2oyi4")])
 
 [node name="PaintSound2" type="AudioStreamPlayer" parent="."]
-volume_db = 20.8
+volume_db = 18.0
 script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("4_3ue34"), ExtResource("6_spcgc")])
+sounds = Array[AudioStream]([ExtResource("6_spcgc")])
 
 [node name="PaintSound3" type="AudioStreamPlayer" parent="."]
-volume_db = 20.8
+volume_db = 18.0
 script = ExtResource("4_q5pmv")
-sounds = Array[AudioStream]([ExtResource("4_3ue34"), ExtResource("7_hucl2")])
+sounds = Array[AudioStream]([ExtResource("7_hucl2")])

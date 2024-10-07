@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=24 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
@@ -22,6 +22,9 @@ size = Vector2(28.5, 1144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgp8"]
 size = Vector2(1947, 35.625)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_st7ok"]
+size = Vector2(0, 0)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n7vxi"]
 
@@ -92,6 +95,7 @@ position = Vector2(968.165, 0)
 shape = SubResource("RectangleShape2D_houam")
 
 [node name="Painting" parent="." instance=ExtResource("5_pc36q")]
+texture = SubResource("PlaceholderTexture2D_st7ok")
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugPainting" type="TextureRect" parent="."]
