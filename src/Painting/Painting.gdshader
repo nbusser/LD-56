@@ -74,7 +74,7 @@ vec3 hsl_to_rgb(vec3 hsl)
 	return rgb;
 }
 
-const float DARK_COEF = 1.1;
+const float DARK_COEF = 1.3;
 const float BORNE_INF = 0.5;
 vec3 darken(vec3 color)
 {
@@ -101,7 +101,7 @@ void fragment()
 	COLOR = n;
 	if (n.a == 0.0) {
 		COLOR = h;
-	} else if (abs(h_hue - n_hue) < 0.1 && t.a == 0.0) {
+	} else if (h.a > 0. && abs(h_hue - n_hue) < 0.1 && t.a == 0.0) {
 		COLOR.rgb = darken(h.rgb);
 	}
 }
