@@ -144,6 +144,7 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	assert(area_parent is PaintPuddle or area_parent is PaintVapor)
 	color = area_parent.color
 	assert(color != Color.WHITE)
+	self.modulate = color
 	color_quantity = area_parent.color_quantity
 	#When they get the painting, randomize a little the qqty
 	color_quantity = (rand_triangulaire(color_quantity * 0.75, color_quantity, color_quantity * 1.1))
@@ -179,6 +180,9 @@ func _process(delta: float) -> void:
 		if is_hovering_painting and paintDropping:
 			emit_signal("painting_drop", global_position, previous_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
+			if color_quantity < 0:
+				color_quantity = 0
+				self.modulate = Color.WHITE
 	previous_position = global_position
 
 func _on_painting_detector_area_entered(area: Area2D) -> void:
