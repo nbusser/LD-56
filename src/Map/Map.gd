@@ -3,7 +3,7 @@ extends Node2D
 @onready var puddleScene = preload("res://src/PaintPuddle/PaintPuddle.tscn")
 @onready var painting = $Painting
 @onready var model_texture = $Model/Texture
-@onready var model_label = $ModelName
+@onready var model_label = $Model/Name
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
