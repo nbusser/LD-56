@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dn2kcq5twovj5"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dkxqfxsu8iv6i"]
 
 [ext_resource type="Texture2D" uid="uid://bq7w6a11tytee" path="res://assets/sprites/ui/panel.png" id="1_lxc18"]
 [ext_resource type="FontFile" uid="uid://evfgvqfjqgux" path="res://assets/fonts/smallburg-Regular.ttf" id="1_o5rhv"]

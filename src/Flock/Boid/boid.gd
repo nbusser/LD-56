@@ -137,6 +137,7 @@ func rand_triangulaire(low: float, high: float, center: float) -> float:
 func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	if not flock.player_has_control():
 		return
+	$GotPaintedSound.play_sound() # TODO: PLACEHOLDER
 	var area_parent = area.get_parent()
 	if area_parent is not PaintPuddle and area_parent is not PaintVapor:
 		return

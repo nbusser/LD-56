@@ -19,8 +19,13 @@ func start_level_animation():
 	await create_tween().tween_property($DarkLight, "energy", 0.85, 2.5).finished
 	await get_tree().create_timer(1.0).timeout
 	$ModelLight.visible = true
+	$LightUp.play_sound() # TODO: PLACEHOLDER
+	$Allelujah.play_sound() # TODO: PLACEHOLDER
+	
 	await get_tree().create_timer(1.5).timeout
 	$PaintingLight.visible = true
+	$LightUp.play_sound() # TODO: PLACEHOLDER
+	
 
 func start_level_animations_2():
 	var paratween = create_tween()

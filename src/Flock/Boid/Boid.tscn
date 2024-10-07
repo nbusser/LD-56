@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://g6ph1sygwj3e"]
+[gd_scene load_steps=16 format=3 uid="uid://g6ph1sygwj3e"]
 
 [ext_resource type="Texture2D" uid="uid://ctubfwwvj7bm1" path="res://assets/sprites/flies/2A.png" id="2_4c4w6"]
 [ext_resource type="Script" path="res://src/Flock/Boid/boid.gd" id="3_doarw"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://4ososvvd3w1x" path="res://assets/sprites/flies/1B.png" id="5_ggps7"]
 [ext_resource type="Texture2D" uid="uid://cen6sljerp7ke" path="res://assets/sprites/flies/3A.png" id="6_j6n8k"]
 [ext_resource type="Texture2D" uid="uid://bbwceq88vxfqa" path="res://assets/sprites/flies/3B.png" id="7_yk2kt"]
+[ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="8_tagib"]
+[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="9_nb178"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idskf"]
 
@@ -94,6 +96,11 @@ occluder = SubResource("OccluderPolygon2D_v2c0y")
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_hlim7")
+
+[node name="GotPaintedSound" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
+script = ExtResource("8_tagib")
+sounds = Array[AudioStream]([ExtResource("9_nb178")])
 
 [connection signal="area_entered" from="PateintPuddleDetector" to="." method="_on_paint_puddle_detector_area_entered"]
 [connection signal="area_entered" from="PaintingDetector" to="." method="_on_painting_detector_area_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs8yaqbe324v0"]
+[gd_scene load_steps=10 format=3 uid="uid://cs8yaqbe324v0"]
 
 [ext_resource type="Script" path="res://src/ScoreScreen/score_screen.gd" id="1_aa13u"]
 [ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="2_5vhs2"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="3_q5fsa"]
 [ext_resource type="AudioStream" uid="uid://cr0wx86hn05gk" path="res://assets/sounds/drumroll_v1.wav" id="4_xmj51"]
 [ext_resource type="AudioStream" uid="uid://me6ikup0cfy2" path="res://assets/sounds/tick.wav" id="5_yd1ww"]
+[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_umdmm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4o14p"]
 size = Vector2(560, 680)
@@ -106,3 +107,7 @@ sounds = Array[AudioStream]([ExtResource("4_xmj51")])
 [node name="Tick" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_q5fsa")
 sounds = Array[AudioStream]([ExtResource("5_yd1ww")])
+
+[node name="Whoah" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_q5fsa")
+sounds = Array[AudioStream]([ExtResource("6_umdmm")])

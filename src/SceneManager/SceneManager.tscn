@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="Texture2D" uid="uid://bvuwdnbueue6s" path="res://assets/sprites/models/windob.png" id="5_bskrg"]
 [ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
-[ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
 [ext_resource type="AudioStream" uid="uid://cqk7jl4q12skq" path="res://assets/musics/game music 1_v2.mp3" id="7_6p4f3"]
+[ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
 [ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 

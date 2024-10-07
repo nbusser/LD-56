@@ -32,15 +32,13 @@ func _ready():
 		
 	painting.reset(level_data.canvas_position, level_data.canvas_size)
 	map.set_model(level_data.name, level_data.goal_texture)
-
-<<<<<<< HEAD
+	
 	#Obstacles
 	for obstacle in self.level_data.obstacles:
 		map.add_obstacle(obstacle)
 	# Map anim
-=======
 	# Map anim 1
->>>>>>> 22177dd0f659962e529177c70035368cc48c6b28
+
 	if level_data.show_cutscene:
 		await map.start_level_animation()
 
@@ -71,6 +69,8 @@ func init(level: LevelData):
 
 
 func _on_Timer_timeout():
+	$TimesUpSound.play_sound() # TODO: PLACEHOLDER
+	
 	var score = map.get_score()
 	flock.stop_following_mouse(end_of_level_target.position)
 	map.set_boundaries(false)

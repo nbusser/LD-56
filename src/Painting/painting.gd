@@ -154,6 +154,7 @@ func _paint_with_width(pixel_position: Vector2, width: int, color: Color):
 var segments = []
 # Signal emited by Boid _process
 func on_painting_drop(boid_position: Vector2, previous_position: Vector2, _boid_velocity: Vector2, color: Color, paint_level: int, delta) -> void:
+	$PaintSound.play_sound() # TODO: PLACEHOLDER
 	var currentPos = boid_position
 	var precedentPos = previous_position
 	var width = paint_level / 10.

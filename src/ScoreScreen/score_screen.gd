@@ -23,7 +23,6 @@ var comments = [
 ]
 
 func _score_to_note(score: float):
-	print("Score", score)
 	var n = all_ratings.size()
 	var index = int(score * n)
 	if index >= n:
@@ -31,7 +30,6 @@ func _score_to_note(score: float):
 	return all_ratings[index]
 
 func _score_to_comment(score: float):
-	print("Score", score)
 	var n = comments.size()
 	var index = int(score * n)
 	if index >= n:
@@ -68,7 +66,10 @@ func _ready() -> void:
 		var fake_rating = ratings[randi()%ratings.size()] + modificators[randi()%modificators.size()]
 		score_label.text = "Grade: " + _score_to_note(randf())
 		await get_tree().create_timer(0.04).timeout
+	await get_tree().create_timer(1.0).timeout
 	
+	$Whoah.play_sound() # TODO: PLACEHOLDER
+	$Tick.play_sound()
 	score_label.text = "Grade: " + _score_to_note(grade)
 	await get_tree().create_timer(1.0).timeout
 	
