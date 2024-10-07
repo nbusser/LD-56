@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjg4y5r83peud"]
+
+[ext_resource type="Texture2D" uid="uid://c21gb7uyapkgl" path="res://assets/sprites/menu/menu_1.png" id="1_aprhl"]
+[ext_resource type="Texture2D" uid="uid://2kptultn4vpa" path="res://assets/sprites/menu/menu_2.png" id="2_18mit"]
+[ext_resource type="Texture2D" uid="uid://frvnd6c4gux8" path="res://assets/sprites/menu/menu_3.png" id="3_ti0im"]
+[ext_resource type="Shader" path="res://src/MainMenu/MainMenu.gdshader" id="4_qwtoi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8siv"]
+shader = ExtResource("4_qwtoi")
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aprhl")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_18mit")
+centered = false
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ti0im")
+expand_mode = 1
+
+[node name="effect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_t8siv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ti0im")
+expand_mode = 1
