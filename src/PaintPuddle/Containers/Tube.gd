@@ -1,5 +1,3 @@
-@tool
-
 extends Node2D
 
 @onready var paint_vapor: PaintVapor = $PaintVapor

@@ -1,5 +1,3 @@
-@tool
-
 extends Node2D
 class_name PaintPuddle
 
@@ -41,7 +39,6 @@ func init(pos: Vector2, size: int, color: Color, quantity: int, container_type: 
 	self.scale *= size
 	self.position = pos
 	self.color = color
-	self.modulate = color
 	#Modulate the quantity depending on the quantity and the scaling
 	#TODO CHANGE THE 3 DEPENDING ON THE SCALING OF THE ITEM
 	#This will result in less paint from the start of the bidule
