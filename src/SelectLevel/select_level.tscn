@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgbx2cabfyi1n"]
+[gd_scene load_steps=3 format=3 uid="uid://bgbx2cabfyi1n"]
 
 [ext_resource type="Script" path="res://src/SelectLevel/select_level.gd" id="1_y5qxf"]
+[ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="2_n7an5"]
 
 [node name="SelectLevel" type="Control"]
 layout_mode = 3
@@ -10,6 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y5qxf")
+
+[node name="Splash" parent="." instance=ExtResource("2_n7an5")]
+layout_mode = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -34,6 +38,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -42,6 +47,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Level selection"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -49,6 +55,7 @@ layout_mode = 2
 
 [node name="LevelList" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
