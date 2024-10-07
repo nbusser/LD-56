@@ -7,3 +7,6 @@ func init(pos: Vector2, size: float) -> void:
 
 #If the animation is not playing when starting
 #Add it on _ready . caimez
+func _ready() -> void:
+	$CatHead.play("idleHead")
+	$CatBody.play("idleBody")
