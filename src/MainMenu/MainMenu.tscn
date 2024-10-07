@@ -42,13 +42,14 @@ text = "Start"
 
 [node name="SelectLevel" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Select level"
+text = "levels"
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Quit"
 

@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Level selection"
+text = "~ select a level ~"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
