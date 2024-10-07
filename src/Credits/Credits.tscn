@@ -55,12 +55,12 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer3"]
 layout_mode = 2
-text = "Matthieu Baty
-Antoine Brûlé
-Nicolas Busser
-Louis Mouhat
-Oh Soohee
-"
+text = "Antoine Brûlé - Dev
+Nicolas Busser - Dev
+Louis Mouhat - Dev. Graphics
+Oh Soohee - Sounds
+Ortie_pnk - Art
+Felix West - Art"
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
