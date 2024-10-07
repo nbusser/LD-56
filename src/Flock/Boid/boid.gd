@@ -51,7 +51,10 @@ var color_quantity = 0;
 
 var is_hovering_painting = false
 
+const BASE_COLOR: Color = Color.DIM_GRAY
+
 func _ready() -> void:
+	self.modulate = BASE_COLOR
 	thisAnimatedSprite.play("acceleration")
 	pass
 	
@@ -177,7 +180,7 @@ func _process(delta: float) -> void:
 			color_quantity -= 20 * delta
 			if color_quantity < 0:
 				color_quantity = 0
-				self.modulate = Color.WHITE
+				self.modulate = BASE_COLOR
 	previous_position = global_position
 
 func _on_painting_detector_area_entered(area: Area2D) -> void:

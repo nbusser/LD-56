@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cen6sljerp7ke"
-path="res://.godot/imported/3A.png-819a47071f46bfbb95352b87a8b72e6b.ctex"
+uid="uid://j1wo154ml6df"
+path="res://.godot/imported/fast2.png-1b5df0975daf398c487a83f981fac0d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/flies/3A.png"
-dest_files=["res://.godot/imported/3A.png-819a47071f46bfbb95352b87a8b72e6b.ctex"]
+source_file="res://assets/sprites/flies/fast2.png"
+dest_files=["res://.godot/imported/fast2.png-1b5df0975daf398c487a83f981fac0d5.ctex"]
 
 [params]
 

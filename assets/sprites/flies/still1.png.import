@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbwceq88vxfqa"
-path="res://.godot/imported/3B.png-234e8f94220b696afdb3815220ea46de.ctex"
+uid="uid://bliwr80t885kb"
+path="res://.godot/imported/still1.png-0833d2d5301086a013b2d82c92d67193.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/flies/3B.png"
-dest_files=["res://.godot/imported/3B.png-234e8f94220b696afdb3815220ea46de.ctex"]
+source_file="res://assets/sprites/flies/still1.png"
+dest_files=["res://.godot/imported/still1.png-0833d2d5301086a013b2d82c92d67193.ctex"]
 
 [params]
 
