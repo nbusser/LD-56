@@ -171,8 +171,8 @@ func _process(delta: float) -> void:
 	else:
 		flock.flockStamina += 1 * delta if flock.flockStamina < 90 else 0
 
-	#Drop paint
-	if color_quantity > 0:
+	#Drop paint only if following mouse (not cutscene mode)
+	if color_quantity > 0 and flock.follow_mouse:
 		if is_hovering_painting and paintDropping:
 			emit_signal("painting_drop", global_position, previous_position, velocity, color, color_quantity, delta)
 			color_quantity -= 20 * delta
