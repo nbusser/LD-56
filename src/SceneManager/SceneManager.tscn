@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=12 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
 [ext_resource type="Texture2D" uid="uid://bxbvwbn2tjei1" path="res://assets/sprites/models/Model1.png" id="3_kt8ar"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
+[ext_resource type="Texture2D" uid="uid://bvuwdnbueue6s" path="res://assets/sprites/models/windob.png" id="5_bskrg"]
 [ext_resource type="AudioStream" uid="uid://cleqgjfw4pwdu" path="res://assets/musics/music1.wav" id="5_eqnit"]
 [ext_resource type="AudioStream" uid="uid://rp7gsbaau2km" path="res://assets/musics/music2.wav" id="6_arco6"]
+[ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
 
 [sub_resource type="Resource" id="Resource_3v3h2"]
 script = ExtResource("2_s5lya")
@@ -17,6 +19,26 @@ canvas_size = Vector2(698, 821)
 time_limit = 60.0
 puddles = Array[ExtResource("4_uh455")]([])
 
+[sub_resource type="Resource" id="Resource_gpeil"]
+script = ExtResource("2_s5lya")
+flock_size = 30
+name = "Windobe"
+goal_texture = ExtResource("5_bskrg")
+canvas_position = Vector2(-665, -429)
+canvas_size = Vector2(698, 821)
+time_limit = 5.0
+puddles = Array[ExtResource("4_uh455")]([])
+
+[sub_resource type="Resource" id="Resource_wtsh4"]
+script = ExtResource("2_s5lya")
+flock_size = 100
+name = "Malekitsch"
+goal_texture = ExtResource("6_c8ex5")
+canvas_position = Vector2(-665, -429)
+canvas_size = Vector2(698, 821)
+time_limit = 5.0
+puddles = Array[ExtResource("4_uh455")]([])
+
 [node name="SceneManager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -25,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
-levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2")])
+levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2"), SubResource("Resource_gpeil"), SubResource("Resource_wtsh4")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1

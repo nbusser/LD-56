@@ -42,7 +42,5 @@ func _on_Timer_timeout():
 	flock.stop_following_mouse(end_of_level_target.position)
 	await hud.time_up(score)
 
-	if randi() % 2:
-		emit_signal("end_of_level")
-	else:
-		emit_signal("game_over")
+	emit_signal("end_of_level")
+	#emit_signal("game_over")
