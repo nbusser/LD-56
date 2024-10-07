@@ -14,6 +14,7 @@ var current_scene: set = set_scene
 @onready var credits = preload("res://src/Credits/Credits.tscn")
 @onready var game_over = preload("res://src/GameOver/GameOver.tscn")
 @onready var select_level = preload("res://src/SelectLevel/select_level.tscn")
+@onready var score_screen = preload("res://src/ScoreScreen/ScoreScreen.tscn")
 
 @onready var viewport = $SubViewportContainer/SubViewport
 
@@ -68,12 +69,13 @@ func _load_level():
 	self.current_scene = scene
 
 
-func _on_end_of_level():
-	if current_level_number + 1 >= levels.size():
-		# Win
-		_run_credits(false)
-	else:
-		_load_end_level()
+func _on_end_of_level(painting: Image, score: float):
+	var scene: ScoreScreen = score_screen.instantiate()
+	scene.init(levels[current_level_number], painting)
+
+	scene.connect("score_end", Callable(self, "_on_next_level"))
+	
+	self.current_scene = scene
 
 
 func _on_game_over():
@@ -103,9 +105,13 @@ func _load_end_level():
 
 
 func _on_next_level():
-	current_level_number += 1
-	change_music_track(music_players[current_level_number % len(music_players)])
-	_load_level()
+	if current_level_number + 1 >= levels.size():
+		# Win
+		_run_credits(false)
+	else:
+		current_level_number += 1
+		change_music_track(music_players[current_level_number % len(music_players)])
+		_load_level()
 
 
 func _run_credits(can_go_back):
