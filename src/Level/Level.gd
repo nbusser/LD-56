@@ -39,18 +39,17 @@ func _ready():
 	# Map anim
 	# Map anim 1
 
-	if level_data.show_cutscene:
-		await map.start_level_animation()
+	var anim_duration_factor = 1.0 if level_data.show_cutscene else 0.5
+	await map.start_level_animation(anim_duration_factor)
 
 	# Run flock
 	flock.stop_following_mouse(start_of_level_target.position)
 	map.set_boundaries(false)
 	flock.set_active(true)
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(4.0 * anim_duration_factor).timeout
 	
 	# Map anim 2
-	if level_data.show_cutscene:
-		await map.start_level_animations_2()
+	await map.start_level_animations_2(anim_duration_factor)
 
 	# Game starts for real
 	map.set_boundaries(true)
