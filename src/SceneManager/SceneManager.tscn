@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=44 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
@@ -60,7 +60,7 @@ obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_rio58"]
 script = ExtResource("7_oxt4e")
-position = Vector2(-800, 340)
+position = Vector2(-350, 355)
 obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_7t5cy"]
@@ -96,12 +96,12 @@ canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
 time_limit = 35.0
 puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_7t5cy"), SubResource("Resource_wl5f0"), SubResource("Resource_dm37x")])
-show_cutscene = true
+show_cutscene = false
 obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_rio58")])
 
 [sub_resource type="Resource" id="Resource_gyg0o"]
 script = ExtResource("7_oxt4e")
-position = Vector2(-100, 340)
+position = Vector2(200, 340)
 obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_p8i7f"]
@@ -184,6 +184,11 @@ puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_gbwma"), SubResou
 show_cutscene = false
 obstacles = Array[ExtResource("7_oxt4e")]([])
 
+[sub_resource type="Resource" id="Resource_e7uxu"]
+script = ExtResource("7_oxt4e")
+position = Vector2(-350, 355)
+obstacle_size = 0.2
+
 [sub_resource type="Resource" id="Resource_5pogv"]
 script = ExtResource("4_uh455")
 position = Vector2(100, -300)
@@ -218,7 +223,7 @@ canvas_size = Vector2(698, 821)
 time_limit = 20.0
 puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_5pogv"), SubResource("Resource_84csb"), SubResource("Resource_p5qgl")])
 show_cutscene = false
-obstacles = Array[ExtResource("7_oxt4e")]([])
+obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_e7uxu")])
 
 [sub_resource type="Resource" id="Resource_g6y12"]
 script = ExtResource("4_uh455")
@@ -255,7 +260,7 @@ container_type = 0
 [sub_resource type="Resource" id="Resource_5t8xq"]
 script = ExtResource("2_s5lya")
 flock_size = 45
-name = "Go da"
+name = "Flycent Van Gogh"
 goal_texture = ExtResource("10_rbupg")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
