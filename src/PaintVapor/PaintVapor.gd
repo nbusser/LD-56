@@ -12,6 +12,9 @@ var color_quantity = 100
 @onready var bubbles = $Bubbles
 @onready var smoke = $Smoke
 
+func _ready() -> void:
+	call_deferred("_on_update_color", self.color)
+
 func _on_update_color(value: Color):
 	if bubbles:
 		bubbles.modulate = color.lightened(0.2)
