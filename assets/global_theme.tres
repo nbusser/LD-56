@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dn2kcq5twovj5"]
+
+[ext_resource type="FontFile" uid="uid://evfgvqfjqgux" path="res://assets/fonts/smallburg-Regular.ttf" id="1_o5rhv"]
+
+[resource]
+default_font = ExtResource("1_o5rhv")
+default_font_size = 48
