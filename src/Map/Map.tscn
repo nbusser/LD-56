@@ -151,17 +151,17 @@ z_index = -10
 texture = ExtResource("4_a43bv")
 
 [node name="Tabouret" type="Sprite2D" parent="Decor"]
-position = Vector2(882, 467)
+position = Vector2(863.103, 486.964)
 scale = Vector2(0.216402, 0.216402)
 texture = ExtResource("7_f3mwm")
 
 [node name="Candle" type="Sprite2D" parent="Decor"]
-position = Vector2(893, 311)
+position = Vector2(874.103, 330.964)
 scale = Vector2(0.216402, 0.216402)
 texture = ExtResource("8_yd3kp")
 
 [node name="CandleFlame" type="AnimatedSprite2D" parent="Decor"]
-position = Vector2(893, 318)
+position = Vector2(874.103, 337.964)
 scale = Vector2(0.260508, 0.260508)
 sprite_frames = SubResource("SpriteFrames_nl6kk")
 animation = &"flame"
