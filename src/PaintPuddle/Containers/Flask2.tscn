@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Flask2" type="Node2D"]
+z_index = 1000
 script = ExtResource("1_dydts")
 
 [node name="Flask2Bg" type="AnimatedSprite2D" parent="."]

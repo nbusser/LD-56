@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="3_iw8s4"]
 
 [node name="Flock" type="Node2D"]
+z_index = 150
 script = ExtResource("1_v13y4")
 
 [node name="Boids" type="Node" parent="."]

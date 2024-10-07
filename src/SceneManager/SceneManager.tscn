@@ -1,14 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckntwca1o1jbq"]
+[gd_scene load_steps=32 format=3 uid="uid://ckntwca1o1jbq"]
 
 [ext_resource type="Script" path="res://src/SceneManager/SceneManager.gd" id="1"]
 [ext_resource type="Script" path="res://src/Level/LevelData.gd" id="2_s5lya"]
 [ext_resource type="Texture2D" uid="uid://b5brpraqjb3fq" path="res://assets/sprites/models/1-malekitsch.png" id="3_nqw0q"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
-[ext_resource type="Texture2D" uid="uid://dwhb7lyg1kejq" path="res://assets/sprites/models/malekitsch.png" id="6_c8ex5"]
 [ext_resource type="Texture2D" uid="uid://qos5o80ygheo" path="res://assets/sprites/models/2-triskel.png" id="6_cgkkk"]
 [ext_resource type="AudioStream" uid="uid://cqk7jl4q12skq" path="res://assets/musics/game music 1_v2.mp3" id="7_6p4f3"]
+[ext_resource type="Texture2D" uid="uid://b63ybkxf7y5me" path="res://assets/sprites/models/3-windob.png" id="7_g8620"]
 [ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
 [ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
+[ext_resource type="Texture2D" uid="uid://686r447qcgda" path="res://assets/sprites/models/4-fluffy pile.png" id="8_fvckb"]
 [ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 
 [sub_resource type="Resource" id="Resource_notdt"]
@@ -57,12 +58,12 @@ obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [sub_resource type="Resource" id="Resource_rio58"]
 script = ExtResource("7_oxt4e")
-position = Vector2(420, 340)
+position = Vector2(-800, 340)
 obstacle_size = 0.1
 
 [sub_resource type="Resource" id="Resource_7t5cy"]
 script = ExtResource("4_uh455")
-position = Vector2(-750, -250)
+position = Vector2(-800, -250)
 color = Color(0.27451, 0.254902, 0.501961, 1)
 color_quantity = 20
 puddle_size = 1
@@ -101,17 +102,85 @@ script = ExtResource("7_oxt4e")
 position = Vector2(-100, 340)
 obstacle_size = 0.1
 
+[sub_resource type="Resource" id="Resource_p8i7f"]
+script = ExtResource("4_uh455")
+position = Vector2(-700, -250)
+color = Color(0.313726, 0.192157, 0.878431, 1)
+color_quantity = 45
+puddle_size = 1
+container_type = 4
+
+[sub_resource type="Resource" id="Resource_cxu8t"]
+script = ExtResource("4_uh455")
+position = Vector2(250, 250)
+color = Color(0.423529, 0.631373, 0.156863, 1)
+color_quantity = 55
+puddle_size = 1
+container_type = 3
+
 [sub_resource type="Resource" id="Resource_wtsh4"]
 script = ExtResource("2_s5lya")
-flock_size = 100
-name = "Malekitsch"
-goal_texture = ExtResource("6_c8ex5")
+flock_size = 40
+name = "Windobe"
+goal_texture = ExtResource("7_g8620")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
-time_limit = 10.0
-puddles = Array[ExtResource("4_uh455")]([])
+time_limit = 45.0
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_p8i7f"), SubResource("Resource_cxu8t")])
 show_cutscene = false
 obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_gyg0o")])
+
+[sub_resource type="Resource" id="Resource_gbwma"]
+script = ExtResource("4_uh455")
+position = Vector2(250, 300)
+color = Color(0.615686, 0.768627, 0.301961, 1)
+color_quantity = 15
+puddle_size = 1
+container_type = 0
+
+[sub_resource type="Resource" id="Resource_milnh"]
+script = ExtResource("4_uh455")
+position = Vector2(-850, 200)
+color = Color(0.301961, 0.54902, 0.878431, 1)
+color_quantity = 30
+puddle_size = 1
+container_type = 2
+
+[sub_resource type="Resource" id="Resource_8bs7k"]
+script = ExtResource("4_uh455")
+position = Vector2(-800, -200)
+color = Color(0.611765, 0.329412, 0.713726, 1)
+color_quantity = 40
+puddle_size = 1
+container_type = 2
+
+[sub_resource type="Resource" id="Resource_yxal3"]
+script = ExtResource("4_uh455")
+position = Vector2(150, -250)
+color = Color(0.729412, 0.427451, 0.25098, 1)
+color_quantity = 65
+puddle_size = 1
+container_type = 4
+
+[sub_resource type="Resource" id="Resource_eto71"]
+script = ExtResource("4_uh455")
+position = Vector2(930, -100)
+color = Color(0.270588, 0.25098, 0.223529, 1)
+color_quantity = 15
+puddle_size = 1
+container_type = 1
+
+[sub_resource type="Resource" id="Resource_p0en5"]
+script = ExtResource("2_s5lya")
+flock_size = 20
+name = "Fluffly blims"
+goal_texture = ExtResource("8_fvckb")
+canvas_position = Vector2(-665, -429)
+canvas_size = Vector2(698, 821)
+time_limit = 70.0
+puddles = Array[ExtResource("4_uh455")]([SubResource("Resource_gbwma"), SubResource("Resource_milnh"), SubResource("Resource_8bs7k"), SubResource("Resource_yxal3"), SubResource("Resource_eto71")])
+show_cutscene = false
+obstacles = Array[ExtResource("7_oxt4e")]([])
 
 [node name="SceneManager" type="Control"]
 layout_mode = 3
@@ -123,7 +192,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
-levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2"), SubResource("Resource_gpeil"), SubResource("Resource_wtsh4")])
+levels = Array[ExtResource("2_s5lya")]([SubResource("Resource_3v3h2"), SubResource("Resource_gpeil"), SubResource("Resource_wtsh4"), SubResource("Resource_p0en5")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1

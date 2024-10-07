@@ -5,7 +5,7 @@ class_name Flock
 @onready var painting = $"../Painting"
 @onready var obstacleList = $"../Obstacles".get_children() as Array[Obstacle]
 
-@export var flockStamina = 90
+@export var flockStamina = 20 #To balance more : caimez
 @export var flockSize = 60
 
 var flying_formation = Globals.FlyingFormation.SPACED
