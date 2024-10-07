@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=23 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://da6lo385fe411" path="res://assets/sprites/paint_shadow.png" id="5_evsel"]
 [ext_resource type="PackedScene" uid="uid://ck5gtekjyxb4" path="res://src/Painting/Painting.tscn" id="5_pc36q"]
 [ext_resource type="Script" path="res://src/AudioBankPlayer.gd" id="6_rbfmj"]
-[ext_resource type="AudioStream" uid="uid://hudeqy3ys0gl" path="res://assets/sounds/placeholder.ogg" id="6_ulso1"]
 [ext_resource type="Script" path="res://src/Map/decor.gd" id="6_vhle0"]
 [ext_resource type="Texture2D" uid="uid://lopffysdkmjm" path="res://assets/sprites/tabouert.png" id="7_f3mwm"]
 [ext_resource type="Texture2D" uid="uid://b0ct20fof5xj6" path="res://assets/sprites/light_shape.png" id="8_8ewea"]
@@ -15,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://e6kh5bxt1ivh" path="res://assets/sprites/candle/LD56_bougie flamme 1.png" id="9_fmt2c"]
 [ext_resource type="Texture2D" uid="uid://dmdds4bffhyb3" path="res://assets/sprites/candle/LD56_bougie flamme 2.png" id="10_po8n2"]
 [ext_resource type="Texture2D" uid="uid://ieqlr48m881s" path="res://assets/sprites/candle/LD56_bougie flamme 3.png" id="11_08na1"]
+[ext_resource type="AudioStream" uid="uid://bdwev2dmf4d0q" path="res://assets/sounds/light_switch.wav" id="15_pyc12"]
+[ext_resource type="AudioStream" uid="uid://c83t6ulxfcw7f" path="res://assets/sounds/holy.wav" id="15_yuygs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1144)
@@ -185,11 +186,11 @@ texture = ExtResource("8_8ewea")
 
 [node name="LightUp" type="AudioStreamPlayer" parent="."]
 script = ExtResource("6_rbfmj")
-sounds = Array[AudioStream]([ExtResource("6_ulso1")])
+sounds = Array[AudioStream]([ExtResource("15_pyc12")])
 
 [node name="Allelujah" type="AudioStreamPlayer" parent="."]
 script = ExtResource("6_rbfmj")
-sounds = Array[AudioStream]([ExtResource("6_ulso1")])
+sounds = Array[AudioStream]([ExtResource("15_yuygs")])
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-823.953, 420.108)
