@@ -74,7 +74,6 @@ sprite_frames = SubResource("SpriteFrames_wc2d6")
 animation = &"idleBody"
 
 [node name="CatHead" type="AnimatedSprite2D" parent="."]
-z_index = 1
 sprite_frames = SubResource("SpriteFrames_wc2d6")
 animation = &"idleBody"
 
