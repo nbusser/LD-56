@@ -13,7 +13,7 @@ var grade: float
 
 var all_ratings = []
 var comments = [
-	"You did't even try...", # F
+	"You didn't even try...", # F
 	"Size doesn't matter they said...", # E
 	"Not bad... not good... NOT GOOD!", # D
 	"You guys have to work on your coordination!", # C
