@@ -1,11 +1,17 @@
 extends Control
 class_name ScoreScreen
 
-signal score_end
+signal score_end_next
+signal score_end_restart
 
-@onready var painting = $PaintingBackground/Painting
+@onready var painting = $BackgroundPane/PaintingBackground/Painting
+@onready var model = $BackgroundPane/Model
+
+@onready var text_pane = $TextPane
 @onready var score_label = $TextPane/ScoreLabel
 @onready var comment_label = $TextPane/CommentLabel
+
+@onready var buttons = $Buttons
 
 var level_data: LevelData
 var painting_texture: Texture
@@ -40,11 +46,13 @@ func _score_to_comment(score: float):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	painting.texture = painting_texture
-	$Model.texture = level_data.goal_texture
+	model.texture = level_data.goal_texture
 
-	$TextPane.visible = false
+	text_pane.visible = false
 	score_label.visible = false
 	comment_label.visible = false
+	
+	$Buttons.visible = false
 	
 	$Blackout.visible = true
 	await create_tween().tween_property($Blackout, "modulate", Color.TRANSPARENT, 1).finished
@@ -87,10 +95,13 @@ func _ready() -> void:
 	comment_label.visible = true
 	await get_tree().create_timer(1.5).timeout
 	
-	await create_tween().tween_property($Blackout, "modulate", Color.BLACK, 1.5).finished
-	await get_tree().create_timer(0.3).timeout
+	$Tick.play_sound()
+	$Buttons.visible = true
+	
+	#await create_tween().tween_property($Blackout, "modulate", Color.BLACK, 1.5).finished
+	#await get_tree().create_timer(0.3).timeout
 
-	emit_signal("score_end")
+	#emit_signal("score_end")
 
 func init(level: LevelData, p_painting_texture: Image, p_grade:float):
 	level_data = level
@@ -99,4 +110,17 @@ func init(level: LevelData, p_painting_texture: Image, p_grade:float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+
+func _on_next_pressed() -> void:
+	emit_signal("score_end_next")
+
+
+func _on_restart_pressed() -> void:
+	emit_signal("score_end_restart")
+
+
+func _on_copy_pressed() -> void:
+	# TODO: clipboard
 	pass

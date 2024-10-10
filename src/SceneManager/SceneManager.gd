@@ -77,7 +77,8 @@ func _on_end_of_level(painting: Image, score: float):
 	var scene: ScoreScreen = score_screen.instantiate()
 	scene.init(levels[current_level_number], painting, score)
 
-	scene.connect("score_end", Callable(self, "_on_next_level"))
+	scene.connect("score_end_next", Callable(self, "_on_next_level"))
+	scene.connect("score_end_restart", Callable(self, "_on_restart_level"))
 	
 	self.current_scene = scene
 
