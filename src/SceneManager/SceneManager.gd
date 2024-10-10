@@ -10,7 +10,6 @@ var current_scene: set = set_scene
 
 @onready var main_menu = preload("res://src/MainMenu/MainMenu.tscn")
 @onready var level = preload("res://src/Level/Level.tscn")
-@onready var change_level = preload("res://src/EndLevel/EndLevel.tscn")
 @onready var credits = preload("res://src/Credits/Credits.tscn")
 @onready var intro = preload("res://src/Storyboard/StoryBoard.tscn")
 @onready var game_over = preload("res://src/GameOver/GameOver.tscn")
@@ -94,20 +93,6 @@ func _on_game_over():
 
 func _on_restart_level():
 	_load_level()
-
-
-func _on_restart_select_level():
-	_load_end_level()
-
-
-func _load_end_level():
-	var scene = change_level.instantiate()
-	scene.init(levels[current_level_number])
-
-	scene.connect("next_level", Callable(self, "_on_next_level"))
-
-	self.current_scene = scene
-
 
 func _on_next_level():
 	if current_level_number + 1 >= levels.size():
