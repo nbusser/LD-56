@@ -97,11 +97,6 @@ func _ready() -> void:
 	
 	$Tick.play_sound()
 	$Buttons.visible = true
-	
-	#await create_tween().tween_property($Blackout, "modulate", Color.BLACK, 1.5).finished
-	#await get_tree().create_timer(0.3).timeout
-
-	#emit_signal("score_end")
 
 func init(level: LevelData, p_painting_texture: Image, p_grade:float):
 	level_data = level
@@ -119,8 +114,3 @@ func _on_next_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	emit_signal("score_end_restart")
-
-
-func _on_copy_pressed() -> void:
-	# TODO: clipboard
-	pass
