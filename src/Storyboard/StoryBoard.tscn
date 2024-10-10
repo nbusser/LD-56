@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://eob2eqpisrdb" path="res://assets/sprites/storyboard/1.jpg" id="1_7km4v"]
 [ext_resource type="Script" path="res://src/Storyboard/story_board.gd" id="1_7135c"]
-[ext_resource type="PackedScene" uid="uid://b8vya7htebadb" path="res://src/MainMenu/Splash.tscn" id="2_2ibm8"]
+[ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="2_2ibm8"]
 [ext_resource type="Texture2D" uid="uid://cr0n45icq0x0e" path="res://assets/sprites/storyboard/2.jpg" id="2_ck3ph"]
 [ext_resource type="Texture2D" uid="uid://e2v4ebd174nl" path="res://assets/sprites/storyboard/3.jpg" id="3_7budq"]
 [ext_resource type="Texture2D" uid="uid://e6ppyce6qynp" path="res://assets/sprites/storyboard/4.jpg" id="4_tofox"]
@@ -60,3 +60,20 @@ position = Vector2(296, 42)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_6f482")
 centered = false
+
+[node name="Skip" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -98.0
+offset_right = -45.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
