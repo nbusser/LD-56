@@ -137,6 +137,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Restart"
 
+[node name="BackLevelSelector" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 2
+text = "Back"
+
 [node name="Blackout" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -182,3 +187,4 @@ sounds = Array[AudioStream]([ExtResource("10_wxpkb")])
 
 [connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Buttons/BackLevelSelector" to="." method="_on_back_level_selector_pressed"]

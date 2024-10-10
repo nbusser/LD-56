@@ -18,6 +18,7 @@ var current_scene: set = set_scene
 
 @onready var viewport = $SubViewportContainer/SubViewport
 
+var comes_from_level_selector = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -74,12 +75,16 @@ func _load_level():
 
 func _on_end_of_level(painting: Image, score: float):
 	var scene: ScoreScreen = score_screen.instantiate()
-	scene.init(levels[current_level_number], painting, score)
+	scene.init(levels[current_level_number], painting, score, comes_from_level_selector)
 
 	scene.connect("score_end_next", Callable(self, "_on_next_level"))
 	scene.connect("score_end_restart", Callable(self, "_on_restart_level"))
+	scene.connect("score_end_back_select", Callable(self, "_on_select_level"))
 	
 	self.current_scene = scene
+	
+	# Consumes level selector token
+	comes_from_level_selector = false
 
 
 func _on_game_over():
@@ -153,5 +158,6 @@ func _on_select_level():
 	_run_select_level()
 
 func _on_level_selected(level):
+	comes_from_level_selector = true
 	current_level_number = level - 1
 	_on_next_level()

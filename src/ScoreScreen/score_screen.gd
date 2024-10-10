@@ -3,6 +3,7 @@ class_name ScoreScreen
 
 signal score_end_next
 signal score_end_restart
+signal score_end_back_select
 
 @onready var painting = $BackgroundPane/PaintingBackground/Painting
 @onready var model = $BackgroundPane/Model
@@ -16,6 +17,7 @@ signal score_end_restart
 var level_data: LevelData
 var painting_texture: Texture
 var grade: float
+var from_level_selector: bool 
 
 var all_ratings = []
 var comments = [
@@ -52,7 +54,12 @@ func _ready() -> void:
 	score_label.visible = false
 	comment_label.visible = false
 	
+	# Disable buttons depending on the game flow (level selector or normal game)
 	$Buttons.visible = false
+	$Buttons/Next.visible = !from_level_selector
+	$Buttons/Margin.visible = !from_level_selector
+	$Buttons/Restart.visible = !from_level_selector
+	$Buttons/BackLevelSelector.visible = from_level_selector
 	
 	$Blackout.visible = true
 	await create_tween().tween_property($Blackout, "modulate", Color.TRANSPARENT, 1).finished
@@ -98,10 +105,11 @@ func _ready() -> void:
 	$Tick.play_sound()
 	$Buttons.visible = true
 
-func init(level: LevelData, p_painting_texture: Image, p_grade:float):
+func init(level: LevelData, p_painting_texture: Image, p_grade:float, comes_from_level_selector: float):
 	level_data = level
 	painting_texture = ImageTexture.create_from_image(p_painting_texture)
 	grade = p_grade
+	from_level_selector = comes_from_level_selector
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -114,3 +122,7 @@ func _on_next_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	emit_signal("score_end_restart")
+
+
+func _on_back_level_selector_pressed() -> void:
+	emit_signal("score_end_back_select")
