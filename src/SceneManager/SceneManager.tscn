@@ -18,7 +18,7 @@
 script = ExtResource("4_uh455")
 position = Vector2(-835, -300)
 color = Color(0.733333, 0.278431, 0.282353, 1)
-color_quantity = 60
+color_quantity = 45
 puddle_size = 1
 container_type = 4
 
@@ -34,7 +34,7 @@ container_type = 2
 script = ExtResource("4_uh455")
 position = Vector2(-800, 300)
 color = Color(0.737255, 0.666667, 0.101961, 1)
-color_quantity = 30
+color_quantity = 45
 puddle_size = 1
 container_type = 0
 
@@ -42,7 +42,7 @@ container_type = 0
 script = ExtResource("4_uh455")
 position = Vector2(750, 150)
 color = Color(0.74902, 0.34902, 0.0705882, 1)
-color_quantity = 20
+color_quantity = 45
 puddle_size = 1
 container_type = 3
 
@@ -67,7 +67,7 @@ obstacle_size = 0.1
 script = ExtResource("4_uh455")
 position = Vector2(-800, -250)
 color = Color(0.27451, 0.254902, 0.501961, 1)
-color_quantity = 20
+color_quantity = 80
 puddle_size = 1
 container_type = 2
 
@@ -83,7 +83,7 @@ container_type = 0
 script = ExtResource("4_uh455")
 position = Vector2(300, -300)
 color = Color(0.34902, 0.545098, 0.34902, 1)
-color_quantity = 50
+color_quantity = 80
 puddle_size = 1
 container_type = 4
 
@@ -108,7 +108,7 @@ obstacle_size = 0.1
 script = ExtResource("4_uh455")
 position = Vector2(-700, -250)
 color = Color(0.313726, 0.192157, 0.878431, 1)
-color_quantity = 45
+color_quantity = 55
 puddle_size = 1
 container_type = 4
 
@@ -136,7 +136,7 @@ obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_gyg0o")])
 script = ExtResource("4_uh455")
 position = Vector2(250, 300)
 color = Color(0.615686, 0.768627, 0.301961, 1)
-color_quantity = 15
+color_quantity = 60
 puddle_size = 1
 container_type = 0
 
@@ -144,7 +144,7 @@ container_type = 0
 script = ExtResource("4_uh455")
 position = Vector2(-850, 200)
 color = Color(0.301961, 0.54902, 0.878431, 1)
-color_quantity = 30
+color_quantity = 60
 puddle_size = 1
 container_type = 2
 
@@ -152,7 +152,7 @@ container_type = 2
 script = ExtResource("4_uh455")
 position = Vector2(-800, -200)
 color = Color(0.611765, 0.329412, 0.713726, 1)
-color_quantity = 40
+color_quantity = 60
 puddle_size = 1
 container_type = 2
 
@@ -160,7 +160,7 @@ container_type = 2
 script = ExtResource("4_uh455")
 position = Vector2(150, -250)
 color = Color(0.729412, 0.427451, 0.25098, 1)
-color_quantity = 65
+color_quantity = 60
 puddle_size = 1
 container_type = 4
 
@@ -168,7 +168,7 @@ container_type = 4
 script = ExtResource("4_uh455")
 position = Vector2(930, -100)
 color = Color(0.270588, 0.25098, 0.223529, 1)
-color_quantity = 15
+color_quantity = 60
 puddle_size = 1
 container_type = 1
 
@@ -193,7 +193,7 @@ obstacle_size = 0.1
 script = ExtResource("4_uh455")
 position = Vector2(100, -300)
 color = Color(0.784314, 0.364706, 0.662745, 1)
-color_quantity = 75
+color_quantity = 70
 puddle_size = 1
 container_type = 4
 
@@ -201,7 +201,7 @@ container_type = 4
 script = ExtResource("4_uh455")
 position = Vector2(175, 250)
 color = Color(0.231373, 0.47451, 0.733333, 1)
-color_quantity = 45
+color_quantity = 70
 puddle_size = 1
 container_type = 3
 
@@ -209,7 +209,7 @@ container_type = 3
 script = ExtResource("4_uh455")
 position = Vector2(-850, 300)
 color = Color(0.376471, 0.32549, 0.286275, 1)
-color_quantity = 35
+color_quantity = 70
 puddle_size = 1
 container_type = 0
 
@@ -229,7 +229,7 @@ obstacles = Array[ExtResource("7_oxt4e")]([SubResource("Resource_e7uxu")])
 script = ExtResource("4_uh455")
 position = Vector2(-750, -100)
 color = Color(0, 0.121569, 0.443137, 1)
-color_quantity = 45
+color_quantity = 75
 puddle_size = 1
 container_type = 0
 
@@ -245,7 +245,7 @@ container_type = 4
 script = ExtResource("4_uh455")
 position = Vector2(-800, 250)
 color = Color(0.0802664, 0.0327847, 0.0327906, 1)
-color_quantity = 85
+color_quantity = 75
 puddle_size = 1
 container_type = 3
 
@@ -253,7 +253,7 @@ container_type = 3
 script = ExtResource("4_uh455")
 position = Vector2(100, 250)
 color = Color(0.321569, 0.309804, 0.152941, 1)
-color_quantity = 65
+color_quantity = 75
 puddle_size = 1
 container_type = 0
 
