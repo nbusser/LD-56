@@ -19,7 +19,7 @@ config/icon="res://assets/sprites/player.png"
 [autoload]
 
 Globals="*res://src/Globals.gd"
-ImageExportManager="*res://src/ImageExportManager.gd"
+ImageExportManager="*res://src/ImageExport/ImageExportManager.gd"
 
 [display]
 

@@ -57,8 +57,7 @@ func _ready() -> void:
 	# Disable buttons depending on the game flow (level selector or normal game)
 	$Buttons.visible = false
 	$Buttons/Next.visible = !from_level_selector
-	$Buttons/Margin.visible = !from_level_selector
-	$Buttons/Restart.visible = !from_level_selector
+	#$Buttons/Restart.visible = !from_level_selector
 	$Buttons/BackLevelSelector.visible = from_level_selector
 	
 	$Blackout.visible = true
@@ -126,3 +125,11 @@ func _on_restart_pressed() -> void:
 
 func _on_back_level_selector_pressed() -> void:
 	emit_signal("score_end_back_select")
+
+
+func _on_save_pressed() -> void:
+	_save_image()
+
+func _save_image() -> void:
+	var image = await ImageExportManager.create_end_level_image(painting_texture, level_data, _score_to_note(grade))
+	ImageExportManager.save_image(image, "fluffy-flock-painting-{0}".format([level_data.number + 1]))
