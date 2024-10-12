@@ -25,84 +25,75 @@ script = ExtResource("1_op2ap")
 [node name="Splash" parent="." instance=ExtResource("1_m6gt8")]
 layout_mode = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -701.5
-offset_top = -440.0
-offset_right = 701.5
-offset_bottom = 440.0
+offset_left = -903.5
+offset_top = -362.0
+offset_right = 903.5
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_x5gvn")
 text = "How to play"
 label_settings = SubResource("LabelSettings_i13x4")
 horizontal_alignment = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 30)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="GoalTutorial" parent="VBoxContainer2" instance=ExtResource("4_kmuci")]
+[node name="Grid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="GoalTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
 layout_mode = 2
 
-[node name="Illustration" parent="VBoxContainer2/GoalTutorial/HBoxContainer" index="0"]
+[node name="Illustration" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="0"]
 texture = ExtResource("2_u53pi")
 
-[node name="Explanation" parent="VBoxContainer2/GoalTutorial/HBoxContainer" index="2"]
-text = "Reproduce the masterpiece on the right."
+[node name="Explanation" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="2"]
+text = "Reproduce the masterpiece
+on the right."
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 10)
+[node name="ContainerTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
 layout_mode = 2
 
-[node name="ContainerTutorial" parent="VBoxContainer2" instance=ExtResource("4_kmuci")]
-layout_mode = 2
-
-[node name="Illustration" parent="VBoxContainer2/ContainerTutorial/HBoxContainer" index="0"]
+[node name="Illustration" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="0"]
 custom_minimum_size = Vector2(150, 0)
 texture = ExtResource("3_v05i7")
 
-[node name="Explanation" parent="VBoxContainer2/ContainerTutorial/HBoxContainer" index="2"]
-text = "Use the chemical pigments spreaded in the workshop."
+[node name="Explanation" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="2"]
+text = "Use the chemical pigments
+spreaded in the workshop."
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 10)
+[node name="KeysTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
 layout_mode = 2
 
-[node name="KeysTutorial" parent="VBoxContainer2" instance=ExtResource("4_kmuci")]
-layout_mode = 2
-
-[node name="Illustration" parent="VBoxContainer2/KeysTutorial/HBoxContainer" index="0"]
+[node name="Illustration" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="0"]
 texture = ExtResource("5_x88o4")
 
-[node name="Explanation" parent="VBoxContainer2/KeysTutorial/HBoxContainer" index="2"]
-text = "Control your fluffy flock with the following:
+[node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="2"]
+text = "Controls:
 Left click: drop paint to canvas
-Spacebar: switch to tighten formation"
+Spacebar: tighten formation"
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 30)
+[node name="TimeLimitTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-text = "Start"
-
-[node name="TimeLimitTutorial" parent="VBoxContainer2" instance=ExtResource("4_kmuci")]
-layout_mode = 2
-
-[node name="Illustration" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer" index="0"]
+[node name="Illustration" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="0"]
 texture = ExtResource("8_bci5n")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer/Illustration" index="0"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer/Illustration" index="0"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_right = 40.0
@@ -111,12 +102,20 @@ texture = ExtResource("9_ewnq8")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Explanation" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer" index="2"]
+[node name="Explanation" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="2"]
 text = "You have limited time!"
 
-[connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
-[editable path="VBoxContainer2/GoalTutorial"]
-[editable path="VBoxContainer2/ContainerTutorial"]
-[editable path="VBoxContainer2/KeysTutorial"]
-[editable path="VBoxContainer2/TimeLimitTutorial"]
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+
+[editable path="VBoxContainer/Grid/GoalTutorial"]
+[editable path="VBoxContainer/Grid/ContainerTutorial"]
+[editable path="VBoxContainer/Grid/KeysTutorial"]
+[editable path="VBoxContainer/Grid/TimeLimitTutorial"]
