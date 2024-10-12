@@ -5,7 +5,10 @@ const _1_MALEKITSCH = preload("res://assets/sprites/models/1-malekitsch.png")
 #func _ready() -> void:
 #	save_image(_1_MALEKITSCH.get_image())
 
-static func save_image(image: Image, filename: String = 'test.png'):
+static func save_image(image: Image, filename: String = 'test'):
+	if not filename.ends_with('.png'):
+		filename += '.png'
+	
 	if OS.has_feature('web'):
 		JavaScriptBridge.download_buffer(image.save_png_to_buffer(), filename)
 		
