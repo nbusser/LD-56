@@ -260,7 +260,7 @@ container_type = 0
 [sub_resource type="Resource" id="Resource_5t8xq"]
 script = ExtResource("2_s5lya")
 flock_size = 45
-name = "Flycent Van Gogh"
+name = "Meisje met de parel"
 goal_texture = ExtResource("10_rbupg")
 canvas_position = Vector2(-665, -429)
 canvas_size = Vector2(698, 821)
