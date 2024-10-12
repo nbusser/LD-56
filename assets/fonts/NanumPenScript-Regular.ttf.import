@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://yno87q5jq4mk"
-path="res://.godot/imported/Jokerman.ttf-184ae50d083af7a7c149f717a3f10b72.fontdata"
+uid="uid://cs2acdc0dlopd"
+path="res://.godot/imported/NanumPenScript-Regular.ttf-17409f5701dd4702a0908b8bb69d2067.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Jokerman.ttf"
-dest_files=["res://.godot/imported/Jokerman.ttf-184ae50d083af7a7c149f717a3f10b72.fontdata"]
+source_file="res://assets/fonts/NanumPenScript-Regular.ttf"
+dest_files=["res://.godot/imported/NanumPenScript-Regular.ttf-17409f5701dd4702a0908b8bb69d2067.fontdata"]
 
 [params]
 

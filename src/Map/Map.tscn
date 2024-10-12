@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://btohiqrak4tcf"]
+[gd_scene load_steps=35 format=3 uid="uid://btohiqrak4tcf"]
 
 [ext_resource type="Script" path="res://src/Map/Map.gd" id="1_6212v"]
 [ext_resource type="PackedScene" uid="uid://xhh4o1xr8v3t" path="res://src/Flock/Flock.tscn" id="2_wc082"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ck32e1c4qth45" path="res://assets/sprites/leaf/LD56_feuille 4.png" id="16_or0sj"]
 [ext_resource type="Texture2D" uid="uid://cjipjcn70i5l7" path="res://assets/sprites/leaf/LD56_feuille 5.png" id="17_qkt0u"]
 [ext_resource type="Texture2D" uid="uid://bwosxy1812mek" path="res://assets/sprites/leaf/LD56_feuille 6.png" id="18_wm4jw"]
+[ext_resource type="FontFile" uid="uid://cs2acdc0dlopd" path="res://assets/fonts/NanumPenScript-Regular.ttf" id="20_6w1w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_houam"]
 size = Vector2(28.5, 1144)
@@ -211,6 +212,7 @@ layout_mode = 0
 offset_top = 698.0
 offset_right = 560.0
 offset_bottom = 721.0
+theme_override_fonts/font = ExtResource("20_6w1w3")
 text = "Painting name"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
