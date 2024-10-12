@@ -122,12 +122,12 @@ func _run_credits(can_go_back):
 
 func _run_intro():
 	var scene = intro.instantiate()
-	scene.connect("start_game", Callable(self, "_on_start_game"))
+	scene.connect("storyboard_finished", Callable(self, "_on_show_tuto"))
 	self.current_scene = scene
 
 func _on_show_tuto():
 	var scene = tuto.instantiate()
-	scene.connect("show_intro", Callable(self, "_on_show_intro"))
+	scene.connect("howtoplay_finished", Callable(self, "_on_start_game"))
 	self.current_scene = scene
 
 func _run_main_menu():
@@ -137,6 +137,7 @@ func _run_main_menu():
 
 	scene.connect("quit_game", Callable(self, "_on_quit_game"))
 	scene.connect("show_tuto", Callable(self, "_on_show_tuto"))
+	scene.connect("start_game", Callable(self, "_on_show_intro"))
 	scene.connect("show_credits", Callable(self, "_on_show_credits"))
 	scene.connect("select_level", Callable(self, "_on_select_level"))
 

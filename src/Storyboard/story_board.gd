@@ -2,7 +2,7 @@ extends Control
 
 @onready var animated = $AnimatedSprite2D
 
-signal start_game
+signal storyboard_finished
 
 func _ready():
 	$Skip.modulate = Color.TRANSPARENT
@@ -14,9 +14,9 @@ func _ready():
 	create_tween().tween_property($Skip, "modulate", Color.WHITE, 2).finished
 	
 func _on_animation_finished():
-	emit_signal("start_game")
+	emit_signal("storyboard_finished")
 	queue_free()
 
 func _on_skip_pressed() -> void:
-	emit_signal("start_game")
+	emit_signal("storyboard_finished")
 	queue_free()
