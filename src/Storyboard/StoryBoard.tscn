@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnuv5pjadrqrj"]
+[gd_scene load_steps=15 format=3 uid="uid://cnuv5pjadrqrj"]
 
 [ext_resource type="Texture2D" uid="uid://eob2eqpisrdb" path="res://assets/sprites/storyboard/1.jpg" id="1_7km4v"]
 [ext_resource type="Script" path="res://src/Storyboard/story_board.gd" id="1_7135c"]
@@ -43,6 +43,44 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="Animation" id="Animation_5vrmk"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k64pp"]
+resource_name = "animated_sprite_opacity"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81tsy"]
+_data = {
+"RESET": SubResource("Animation_5vrmk"),
+"animated_sprite_opacity": SubResource("Animation_k64pp")
+}
+
 [node name="StoryBoard" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -56,6 +94,13 @@ script = ExtResource("1_7135c")
 layout_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(296, 42)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_6f482")
+centered = false
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(296, 42)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_6f482")
@@ -75,5 +120,20 @@ offset_bottom = -35.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Skip"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_81tsy")
+}
+
+[node name="BlackRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
