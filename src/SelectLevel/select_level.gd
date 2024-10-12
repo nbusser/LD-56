@@ -1,7 +1,6 @@
 extends Control
 
-signal level_selected(level: int)
-signal back()
+class_name SelectLevel
 
 @onready var level_list = $PanelContainer/HBoxContainer/VBoxContainer/LevelList
 @onready var level_btn = preload("res://src/SelectLevel/level_button.tscn")
@@ -19,9 +18,9 @@ func init(data: Array[LevelData]):
 	self.levels = data
 
 func _selected(level):
-	emit_signal("level_selected", level)
-	queue_free()
+	Globals.end_scene(Globals.EndSceneStatus.SELECT_LEVEL_SELECTED, {
+		"level_i": level
+	})
 
 func _on_back_pressed():
-	emit_signal("back")
-	queue_free()
+	Globals.end_scene(Globals.EndSceneStatus.SELECT_LEVEL_BACK)

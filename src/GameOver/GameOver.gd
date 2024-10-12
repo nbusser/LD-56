@@ -1,12 +1,12 @@
 extends Control
 
-signal restart
-signal quit
-
-
 func _on_Restart_pressed():
-	emit_signal("restart")
+	Globals.end_scene(
+		Globals.EndSceneStatus.GAME_OVER_RESTART
+	)
 
 
 func _on_Quit_pressed():
-	emit_signal("quit")
+	Globals.end_scene(
+		Globals.EndSceneStatus.GAME_OVER_QUIT
+	)

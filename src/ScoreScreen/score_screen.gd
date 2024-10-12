@@ -116,15 +116,13 @@ func _process(delta: float) -> void:
 
 
 func _on_next_pressed() -> void:
-	emit_signal("score_end_next")
-
+	Globals.end_scene(Globals.EndSceneStatus.SCORE_SCREEN_NEXT)
 
 func _on_restart_pressed() -> void:
-	emit_signal("score_end_restart")
-
+	Globals.end_scene(Globals.EndSceneStatus.SCORE_SCREEN_RETRY)
 
 func _on_back_level_selector_pressed() -> void:
-	emit_signal("score_end_back_select")
+	Globals.end_scene(Globals.EndSceneStatus.SCORE_SCREEN_BACK)
 
 
 func _on_save_pressed() -> void:

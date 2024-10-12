@@ -62,8 +62,13 @@ layout_mode = 2
 
 [node name="Illustration" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="0"]
 texture = ExtResource("2_u53pi")
+expand_mode = 5
 
-[node name="Explanation" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="1"]
+[node name="Margin" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Explanation" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="2"]
 theme_override_fonts/font = ExtResource("6_mqki2")
 text = "Reproduce the masterpiece
 on the right."
@@ -73,8 +78,13 @@ layout_mode = 2
 
 [node name="Illustration" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="0"]
 texture = ExtResource("3_v05i7")
+expand_mode = 5
 
-[node name="Explanation" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="1"]
+[node name="Margin" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Explanation" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="2"]
 theme_override_fonts/font = ExtResource("6_mqki2")
 text = "Gather pigments around
 the workshop."
@@ -84,8 +94,13 @@ layout_mode = 2
 
 [node name="Illustration" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="0"]
 texture = ExtResource("5_x88o4")
+expand_mode = 5
 
-[node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="1"]
+[node name="Margin" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="2"]
 theme_override_fonts/font = ExtResource("6_mqki2")
 text = "Mouse: steer
 Left click: paint
@@ -96,6 +111,7 @@ layout_mode = 2
 
 [node name="Illustration" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="0"]
 texture = ExtResource("8_bci5n")
+expand_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer/Illustration" index="0"]
 custom_minimum_size = Vector2(200, 0)
@@ -106,7 +122,11 @@ texture = ExtResource("9_ewnq8")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Explanation" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="1"]
+[node name="Margin" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Explanation" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="2"]
 theme_override_fonts/font = ExtResource("6_mqki2")
 text = "You have limited time!"
 

@@ -1,6 +1,6 @@
 extends Control
 
-signal back
+class_name Credits
 
 var back_button_visible
 
@@ -20,4 +20,4 @@ func set_back(value):
 
 
 func _on_Back_pressed():
-	emit_signal("back")
+	Globals.end_scene(Globals.EndSceneStatus.CREDITS_BACK)

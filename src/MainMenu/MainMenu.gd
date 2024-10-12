@@ -1,28 +1,18 @@
 extends Control
 
-signal show_credits
-signal show_tuto
-signal start_game
-signal quit_game
-signal select_level
+class_name MainMenu
 
 func _ready():
 	$Splash/AnimationPlayer.play("cloud")
 
-
-func _on_Start_pressed():
-	emit_signal("start_game")
-	queue_free()
-
-func _on_Credits_pressed():
-	emit_signal("show_credits")
-	queue_free()
-
-func _on_Quit_pressed():
-	emit_signal("quit_game")
-	queue_free()
-
+func _on_Start_pressed() -> void:
+	Globals.end_scene(Globals.EndSceneStatus.MAIN_MENU_CLICK_START)
 
 func _on_select_level_pressed() -> void:
-	emit_signal("select_level")
-	queue_free()
+	Globals.end_scene(Globals.EndSceneStatus.MAIN_MENU_CLICK_SELECT_LEVEL)
+
+func _on_Credits_pressed() -> void:
+	Globals.end_scene(Globals.EndSceneStatus.MAIN_MENU_CLICK_CREDITS)
+
+func _on_Quit_pressed() -> void:
+	Globals.end_scene(Globals.EndSceneStatus.MAIN_MENU_CLICK_QUIT)

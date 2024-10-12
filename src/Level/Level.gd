@@ -1,7 +1,6 @@
 extends Node
 
-signal end_of_level(Image, float)
-signal game_over
+class_name Level
 
 var level_data: LevelData
 
@@ -75,5 +74,7 @@ func _on_Timer_timeout():
 
 	await hud.time_up()
 
-	emit_signal("end_of_level", painting.texture.get_image(), score)
-	#emit_signal("game_over")
+	Globals.end_scene(Globals.EndSceneStatus.LEVEL_END, {
+		"image": painting.texture.get_image(),
+		"score": score
+	})

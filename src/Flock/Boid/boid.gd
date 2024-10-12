@@ -14,8 +14,6 @@ var acceleration_factor := 200.0
 @onready var thisAnimatedSprite = $AnimatedSprite2D
 
 
-
-
 var formations = {
 	Globals.FlyingFormation.SPACED: {
 		"mouse_follow_force": 85.0,

@@ -10,4 +10,4 @@ func init(level_data: LevelData, id_level: int):
 	self.text = 'Painting ' + str(level_number + 1) + ": " + level_data.name
 
 func _on_pressed():
-	emit_signal("level_clicked", self.level_number)
+	level_clicked.emit(self.level_number)

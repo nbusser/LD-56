@@ -1,11 +1,10 @@
 extends Control
+class_name StoryBoard
 
 @onready var animated: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animated2: AnimatedSprite2D = $AnimatedSprite2D2
 @onready var black_rect: ColorRect = $BlackRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-signal storyboard_finished
 
 func _ready():
 	$Skip.modulate = Color.TRANSPARENT
@@ -25,9 +24,7 @@ func _ready():
 	
 func _on_animation_finished():
 	await create_tween().tween_property(black_rect, "modulate", Color.WHITE, 2).finished
-	emit_signal("storyboard_finished")
-	queue_free()
+	Globals.end_scene(Globals.EndSceneStatus.STORYBOARD_FINISHED)
 
 func _on_skip_pressed() -> void:
-	emit_signal("storyboard_finished")
-	queue_free()
+	Globals.end_scene(Globals.EndSceneStatus.STORYBOARD_FINISHED)
