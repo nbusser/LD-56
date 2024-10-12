@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ind6at4nmhj0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4v4jn"]
+
+[node name="Tutorial" type="PanelContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Illustration" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4v4jn")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Margin" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Explanation" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Explanation."

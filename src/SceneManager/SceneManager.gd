@@ -15,6 +15,7 @@ var current_scene: set = set_scene
 @onready var game_over = preload("res://src/GameOver/GameOver.tscn")
 @onready var select_level = preload("res://src/SelectLevel/select_level.tscn")
 @onready var score_screen = preload("res://src/ScoreScreen/ScoreScreen.tscn")
+@onready var tuto = preload("res://src/HowToPlay/HowToPlay.tscn")
 
 @onready var viewport = $SubViewportContainer/SubViewport
 
@@ -124,13 +125,18 @@ func _run_intro():
 	scene.connect("start_game", Callable(self, "_on_start_game"))
 	self.current_scene = scene
 
+func _on_show_tuto():
+	var scene = tuto.instantiate()
+	scene.connect("show_intro", Callable(self, "_on_show_intro"))
+	self.current_scene = scene
+
 func _run_main_menu():
 	var scene = main_menu.instantiate()
 
 	change_music_track(music_players[music_players.size() - 1])
 
 	scene.connect("quit_game", Callable(self, "_on_quit_game"))
-	scene.connect("show_intro", Callable(self, "_on_show_intro"))
+	scene.connect("show_tuto", Callable(self, "_on_show_tuto"))
 	scene.connect("show_credits", Callable(self, "_on_show_credits"))
 	scene.connect("select_level", Callable(self, "_on_select_level"))
 

@@ -1,7 +1,7 @@
 extends Control
 
 signal show_credits
-signal show_intro
+signal show_tuto
 signal quit_game
 signal select_level
 
@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_Start_pressed():
-	emit_signal("show_intro")
+	emit_signal("show_tuto")
 	queue_free()
 
 func _on_Credits_pressed():
