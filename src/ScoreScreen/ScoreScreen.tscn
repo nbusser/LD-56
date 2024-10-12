@@ -97,6 +97,7 @@ offset_top = -63.0
 offset_right = 119.0
 grow_horizontal = 2
 grow_vertical = 0
+disabled = true
 text = "Save image"
 
 [node name="TextPane" type="PanelContainer" parent="."]

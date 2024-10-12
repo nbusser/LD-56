@@ -11,6 +11,7 @@ signal score_end_back_select
 @onready var text_pane = $TextPane
 @onready var score_label = $TextPane/ScoreLabel
 @onready var comment_label = $TextPane/CommentLabel
+@onready var save_btn = $BackgroundPane/Save
 
 @onready var buttons = $Buttons
 
@@ -104,6 +105,7 @@ func _ready() -> void:
 	
 	$Tick.play_sound()
 	$Buttons.visible = true
+	save_btn.disabled = false
 
 func init(level: LevelData, p_painting_texture: Image, p_grade:float, comes_from_level_selector: float):
 	level_data = level
