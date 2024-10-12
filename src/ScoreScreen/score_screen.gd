@@ -47,6 +47,14 @@ func _score_to_comment(score: float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Build ratings
+	var ratings = ["F", "E", "D", "C", "B", "A", "S"]
+	var modificators = ["-", " ", "+"]
+
+	for rating in ratings:
+		for mod in modificators:
+			all_ratings.push_back(rating + mod)
+
 	painting.texture = painting_texture
 	model.texture = level_data.goal_texture
 
@@ -67,13 +75,6 @@ func _ready() -> void:
 	
 	$TextPane.visible = true
 	score_label.visible = true
-	
-	var ratings = ["F", "E", "D", "C", "B", "A", "S"]
-	var modificators = ["-", " ", "+"]
-
-	for rating in ratings:
-		for mod in modificators:
-			all_ratings.push_back(rating + mod)
 
 	$Drums.play_sound()
 	for i in range(55):
@@ -123,10 +124,6 @@ func _on_restart_pressed() -> void:
 
 func _on_back_level_selector_pressed() -> void:
 	Globals.end_scene(Globals.EndSceneStatus.SCORE_SCREEN_BACK)
-
-
-func _on_save_pressed() -> void:
-	_save_image()
 
 func _save_image() -> void:
 	var image = await ImageExportManager.create_end_level_image(painting_texture, level_data, _score_to_note(grade))

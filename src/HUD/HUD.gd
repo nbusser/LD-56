@@ -32,5 +32,4 @@ func time_up():
 
 
 func _on_reset_button_button_down() -> void:
-	var sm = get_parent().get_parent().get_parent().get_parent().get_parent()
-	sm._load_level()
+	Globals.end_scene(Globals.EndSceneStatus.LEVEL_RESTART)
