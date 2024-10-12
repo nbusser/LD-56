@@ -148,18 +148,19 @@ func _on_paint_puddle_detector_area_entered(area: Area2D) -> void:
 	#REMOVED : caimez - it was usless
 
 func _input(event):
-	# TODO: implement things similar ? like superpowers ?
-	if event is InputEventMouseButton:
-		if event.button_index == 1 and event.is_pressed():
+	if event is InputEventKey and event.keycode == KEY_SPACE:
+		if event.is_pressed():
 			change_formation(Globals.FlyingFormation.TIGHTEN)
-		elif event.button_index == 1 and not event.is_pressed():
+		else:
 			change_formation(Globals.FlyingFormation.SPACED)
-		if event.button_index == 2 and event.is_pressed():
-			paintDropping = false
-			thisAnimatedSprite.play("still")
-		elif event.button_index == 2 and not event.is_pressed():
+
+	if event is InputEventMouseButton and event.button_index == 1:
+		if event.is_pressed():
 			paintDropping = true
 			thisAnimatedSprite.play(formations[flying_formation]["animation"])
+		else:
+			paintDropping = false
+			thisAnimatedSprite.play("still")
 
 @onready var previous_position = global_position
 func _process(delta: float) -> void:
