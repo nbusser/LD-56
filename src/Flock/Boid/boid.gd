@@ -6,7 +6,7 @@ signal painting_drop(Vector2, Color, int)
 
 var stamina_threshold = 10
 
-var paintDropping = true
+var paintDropping = false
 
 var max_speed_value := 600.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
