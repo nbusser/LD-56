@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxr65nbbdhd2w"]
+[gd_scene load_steps=11 format=3 uid="uid://bxr65nbbdhd2w"]
 
 [ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="1_m6gt8"]
 [ext_resource type="Script" path="res://src/HowToPlay/how_to_play.gd" id="1_op2ap"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bwf11oq237f6k" path="res://assets/sprites/decors/potion_sample.png" id="3_v05i7"]
 [ext_resource type="PackedScene" uid="uid://ind6at4nmhj0" path="res://src/HowToPlay/tutorial.tscn" id="4_kmuci"]
 [ext_resource type="Texture2D" uid="uid://ch0roaqywjgp1" path="res://assets/sprites/flies/fly_illustration.png" id="5_x88o4"]
+[ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/ui/clock.png" id="8_bci5n"]
+[ext_resource type="Texture2D" uid="uid://0q8l6xr83pxl" path="res://assets/sprites/ui/clock-long.png" id="9_ewnq8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i13x4"]
 font_size = 100
@@ -94,8 +96,27 @@ layout_mode = 2
 layout_mode = 2
 text = "Start"
 
+[node name="TimeLimitTutorial" parent="VBoxContainer2" instance=ExtResource("4_kmuci")]
+layout_mode = 2
+
+[node name="Illustration" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer" index="0"]
+texture = ExtResource("8_bci5n")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer/Illustration" index="0"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_ewnq8")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Explanation" parent="VBoxContainer2/TimeLimitTutorial/HBoxContainer" index="2"]
+text = "You have limited time!"
+
 [connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
 
 [editable path="VBoxContainer2/GoalTutorial"]
 [editable path="VBoxContainer2/ContainerTutorial"]
 [editable path="VBoxContainer2/KeysTutorial"]
+[editable path="VBoxContainer2/TimeLimitTutorial"]
