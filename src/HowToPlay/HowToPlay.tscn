@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxr65nbbdhd2w"]
+[gd_scene load_steps=12 format=3 uid="uid://bxr65nbbdhd2w"]
 
 [ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="1_m6gt8"]
 [ext_resource type="Script" path="res://src/HowToPlay/how_to_play.gd" id="1_op2ap"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwf11oq237f6k" path="res://assets/sprites/decors/potion_sample.png" id="3_v05i7"]
 [ext_resource type="PackedScene" uid="uid://ind6at4nmhj0" path="res://src/HowToPlay/tutorial.tscn" id="4_kmuci"]
 [ext_resource type="Texture2D" uid="uid://ch0roaqywjgp1" path="res://assets/sprites/flies/fly_illustration.png" id="5_x88o4"]
+[ext_resource type="FontFile" uid="uid://cs2acdc0dlopd" path="res://assets/fonts/NanumPenScript-Regular.ttf" id="6_mqki2"]
 [ext_resource type="Texture2D" uid="uid://d1y6g0qxtsnpw" path="res://assets/sprites/ui/clock.png" id="8_bci5n"]
 [ext_resource type="Texture2D" uid="uid://0q8l6xr83pxl" path="res://assets/sprites/ui/clock-long.png" id="9_ewnq8"]
 
@@ -53,6 +54,7 @@ layout_mode = 2
 
 [node name="Grid" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 columns = 2
 
 [node name="GoalTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
@@ -61,7 +63,8 @@ layout_mode = 2
 [node name="Illustration" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="0"]
 texture = ExtResource("2_u53pi")
 
-[node name="Explanation" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="2"]
+[node name="Explanation" parent="VBoxContainer/Grid/GoalTutorial/HBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_mqki2")
 text = "Reproduce the masterpiece
 on the right."
 
@@ -69,12 +72,12 @@ on the right."
 layout_mode = 2
 
 [node name="Illustration" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="0"]
-custom_minimum_size = Vector2(150, 0)
 texture = ExtResource("3_v05i7")
 
-[node name="Explanation" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="2"]
-text = "Use the chemical pigments
-spreaded in the workshop."
+[node name="Explanation" parent="VBoxContainer/Grid/ContainerTutorial/HBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_mqki2")
+text = "Gather pigments around
+the workshop."
 
 [node name="KeysTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
 layout_mode = 2
@@ -82,9 +85,10 @@ layout_mode = 2
 [node name="Illustration" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="0"]
 texture = ExtResource("5_x88o4")
 
-[node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="2"]
-text = "Controls:
-Left click: drop paint to canvas
+[node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_mqki2")
+text = "Mouse: steer
+Left click: paint
 Spacebar: tighten formation"
 
 [node name="TimeLimitTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]
@@ -96,13 +100,14 @@ texture = ExtResource("8_bci5n")
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer/Illustration" index="0"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 200.0
+offset_bottom = 153.0
 texture = ExtResource("9_ewnq8")
-expand_mode = 5
+expand_mode = 2
 stretch_mode = 5
 
-[node name="Explanation" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="2"]
+[node name="Explanation" parent="VBoxContainer/Grid/TimeLimitTutorial/HBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_mqki2")
 text = "You have limited time!"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
