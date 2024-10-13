@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://b5brpraqjb3fq" path="res://assets/sprites/models/1-malekitsch.png" id="3_nqw0q"]
 [ext_resource type="Script" path="res://src/Level/PaintPuddleData.gd" id="4_uh455"]
 [ext_resource type="Texture2D" uid="uid://qos5o80ygheo" path="res://assets/sprites/models/2-triskel.png" id="6_cgkkk"]
-[ext_resource type="AudioStream" uid="uid://cqk7jl4q12skq" path="res://assets/musics/game music 1_v2.mp3" id="7_6p4f3"]
 [ext_resource type="Texture2D" uid="uid://b63ybkxf7y5me" path="res://assets/sprites/models/3-windob.png" id="7_g8620"]
 [ext_resource type="Script" path="res://ObstacleData.gd" id="7_oxt4e"]
-[ext_resource type="AudioStream" uid="uid://cg2msts1drg18" path="res://assets/musics/menu.mp3" id="7_u1d1h"]
 [ext_resource type="Texture2D" uid="uid://686r447qcgda" path="res://assets/sprites/models/4-fluffy pile.png" id="8_fvckb"]
-[ext_resource type="AudioStream" uid="uid://cfix5jj1qo60c" path="res://assets/musics/game music 2_v1.mp3" id="8_rlbh6"]
 [ext_resource type="Texture2D" uid="uid://cksde4d1l2ig5" path="res://assets/sprites/models/5The_great_wizard.png" id="9_b25ks"]
 [ext_resource type="Texture2D" uid="uid://iufvx31dj7a8" path="res://assets/sprites/models/7-girl with a pearl earring.png" id="10_rbupg"]
+[ext_resource type="AudioStream" uid="uid://bxqgeplajw4s3" path="res://assets/musics/game_music_1_v2.ogg" id="11_3hg1h"]
+[ext_resource type="AudioStream" uid="uid://cmi2eakeerqoi" path="res://assets/musics/game_music_2_v2.ogg" id="12_ntbsw"]
+[ext_resource type="AudioStream" uid="uid://cbbeowkkfa1rr" path="res://assets/musics/menu.ogg" id="13_ctq07"]
 
 [sub_resource type="Resource" id="Resource_notdt"]
 script = ExtResource("4_uh455")
@@ -298,14 +298,14 @@ render_target_update_mode = 4
 [node name="Musics" type="Node" parent="."]
 
 [node name="Music1" type="AudioStreamPlayer" parent="Musics"]
-stream = ExtResource("7_6p4f3")
+stream = ExtResource("11_3hg1h")
 volume_db = 5.0
 bus = &"Music"
 
 [node name="Music2" type="AudioStreamPlayer" parent="Musics"]
-stream = ExtResource("8_rlbh6")
+stream = ExtResource("12_ntbsw")
 volume_db = 5.0
 bus = &"Music"
 
 [node name="Menu" type="AudioStreamPlayer" parent="Musics"]
-stream = ExtResource("7_u1d1h")
+stream = ExtResource("13_ctq07")
