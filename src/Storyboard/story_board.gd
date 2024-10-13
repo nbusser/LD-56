@@ -17,7 +17,7 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	animated.play('default')
 	
-	animated.connect('animation_finished', self._on_animation_finished)
+	animated.animation_finished.connect(self._on_animation_finished)
 
 	await get_tree().create_timer(2.5).timeout
 	create_tween().tween_property($Skip, "modulate", Color.WHITE, 2)

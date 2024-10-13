@@ -2,7 +2,7 @@ extends Node2D
 class_name Flock
 
 @onready var boids_node = $Boids
-@onready var painting = $"../Painting"
+@onready var painting: Painting = $"../Painting"
 @onready var obstacleList = $"../Obstacles".get_children() as Array[Obstacle]
 
 @export var flockStamina = 27 #To balance more : caimez
@@ -36,7 +36,6 @@ var boids: Array[Boid] = []
 
 func add_boid() -> void:
 	var boid_instance = boid_scene.instantiate()
-	boid_instance.connect("painting_drop", Callable(painting, "on_painting_drop"))
 	boids_node.add_child(boid_instance)
 
 	# TODO: handle that more properly
