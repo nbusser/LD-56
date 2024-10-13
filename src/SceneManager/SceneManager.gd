@@ -137,7 +137,7 @@ func _on_end_scene(status: Globals.EndSceneStatus, params: Dictionary = {}) -> v
 			_run_level()
 		Globals.EndSceneStatus.LEVEL_END:
 			var image: Image = params["image"]
-			var score: int = params["score"]
+			var score: float = params["score"]
 			_on_end_of_level(image, score)
 		Globals.EndSceneStatus.LEVEL_RESTART:
 			_restart_level()
