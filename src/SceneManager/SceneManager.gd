@@ -101,7 +101,7 @@ func _run_next_level() -> void:
 
 	if current_level_number >= levels.size():
 		# No more levels, end of the game
-		_run_credits(false)
+		_run_credits(true)
 	else:
 		# Load next level
 		_run_level()
