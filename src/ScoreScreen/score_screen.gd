@@ -130,3 +130,7 @@ func _on_back_level_selector_pressed() -> void:
 func _save_image() -> void:
 	var image = await ImageExportManager.create_end_level_image(painting_texture, level_data, _score_to_note(grade))
 	ImageExportManager.save_image(image, "fluffy-flock-painting-{0}".format([level_data.number + 1]))
+	if OS.has_feature('web'):
+		$SavedTooltip.visible = true
+		await get_tree().create_timer(2.0).timeout
+		await create_tween().tween_property($SavedTooltip, "modulate", Color.TRANSPARENT, 0.5).finished

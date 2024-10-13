@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cs8yaqbe324v0"]
+[gd_scene load_steps=15 format=3 uid="uid://cs8yaqbe324v0"]
 
 [ext_resource type="Script" path="res://src/ScoreScreen/score_screen.gd" id="1_aa13u"]
 [ext_resource type="PackedScene" uid="uid://b5h3o6geginlr" path="res://src/MainMenu/Splash.tscn" id="2_5vhs2"]
@@ -16,6 +16,9 @@ size = Vector2(560, 680)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bn34h"]
 size = Vector2(560, 680)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qqi0"]
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_wd3k4"]
 font_size = 50
@@ -99,6 +102,16 @@ grow_horizontal = 2
 grow_vertical = 0
 disabled = true
 text = "Save image"
+
+[node name="SavedTooltip" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1123.0
+offset_top = 542.0
+offset_right = 1898.0
+offset_bottom = 597.0
+text = "Image saved! check your download folder"
+label_settings = SubResource("LabelSettings_3qqi0")
 
 [node name="TextPane" type="PanelContainer" parent="."]
 layout_mode = 1
