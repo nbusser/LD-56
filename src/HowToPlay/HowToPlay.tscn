@@ -92,7 +92,7 @@ expand_mode = 5
 [node name="Explanation" parent="VBoxContainer/Grid/KeysTutorial/HBoxContainer" index="1"]
 theme_override_fonts/font = ExtResource("6_mqki2")
 text = "Mouse: steer
-Left click: paint
+Left click: stop painting
 Spacebar: tighten formation"
 
 [node name="TimeLimitTutorial" parent="VBoxContainer/Grid" instance=ExtResource("4_kmuci")]

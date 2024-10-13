@@ -1,12 +1,10 @@
 extends CharacterBody2D
 class_name Boid
 var map_scene = preload("res://src/Map/Map.tscn")
-signal painting_drop(Vector2, Color, int)
 
+var stamina_threshold := 10
 
-var stamina_threshold = 10
-
-var paintDropping = false
+var paintDropping := true
 
 var max_speed_value := 600.0
 var max_speed := Vector2(max_speed_value, max_speed_value)
@@ -154,11 +152,11 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.button_index == 1:
 		if event.is_pressed():
-			paintDropping = true
-			thisAnimatedSprite.play(formations[flying_formation]["animation"])
-		else:
 			paintDropping = false
 			thisAnimatedSprite.play("still")
+		else:
+			paintDropping = true
+			thisAnimatedSprite.play(formations[flying_formation]["animation"])
 
 @onready var previous_position = global_position
 func _process(delta: float) -> void:
